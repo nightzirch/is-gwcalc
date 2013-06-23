@@ -32,10 +32,14 @@
 
 #isgw2calc #weapons
 {
-	width:100%;
 	display: block;
 	margin-top: 20px;
+	float: left;
+}
 
+#isgw2calc #weapons .weapon {
+	margin-left: 5px;
+	display: inline-block;
 }
 
 #isgw2calc #gear
@@ -55,9 +59,9 @@
 
 #isgw2calc #accessories
 {
-	width:100%;
+	overflow: hidden;
 	display: block;
-
+	margin-top: 10px;
 }
 
 
@@ -122,6 +126,10 @@
 	overflow: hidden;
 }
 
+#isgw2calc .weapon .separate_weapon > div:first-child {
+	margin-right: 5px;
+}
+
 #isgw2calc .weapon .separate_weapon:nth-child(n+2) {
 	margin-top: 4px;
 }
@@ -130,9 +138,11 @@
 {
 	height: 24px;
 	width: 27px;
-	display: block;
+	display: inline-block;
 	background: url('../images/weapon_swap.png') no-repeat center;
-	margin:12px;
+	margin: 42px 0 0;
+	vertical-align: top;
+	cursor: pointer;
 }
 
 
@@ -242,8 +252,7 @@
 
 #rune_bonus
 {
-	float: right;
-	width: 350px;
+	
 }
 
 .tooltip .tooltip_frame
@@ -859,6 +868,10 @@
 	top: 63px;
 	left: 20px;
 	z-index: 78;
+}
+
+#skills {
+	
 }
 
 #skills * {
