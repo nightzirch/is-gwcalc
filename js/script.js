@@ -9,6 +9,8 @@ jQuery(document).ready(function($) {
 	});
 	// END switcher
 
+	// Initialize tabs
+	jQuery("#build").tabs();
 });
 
 var equipment = {
