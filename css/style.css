@@ -1,0 +1,989 @@
+#isgw2calc *
+{
+	overflow: hidden;
+}
+
+#isgw2calc #menu span
+{
+	padding-right: 20px;
+}
+
+#isgw2calc #menu
+{
+	width: 246px;
+	margin:0 auto;
+}
+
+#isgw2calc #professions
+{
+	margin:0 auto; 
+	width:500px; 
+}
+
+#isgw2calc #professions a img
+{
+	opacity: 0.5;
+}
+
+#isgw2calc .build_navigation
+{
+	width: 50px;
+}
+
+#isgw2calc .build_container
+{
+	
+}
+
+#isgw2calc #weapons
+{
+	width:100%;
+	display: block;
+	margin-top: 20px;
+
+}
+
+#isgw2calc #gear
+{
+
+	width:100%;
+	
+	display: block;
+
+}
+
+#isgw2calc #runes
+{
+
+	color:#fff;
+}
+
+#isgw2calc #accessories
+{
+	width:100%;
+	display: block;
+
+}
+
+
+#isgw2calc .att 
+{
+	
+}
+
+#isgw2calc .even
+{
+	background-color: #333;
+}
+
+#isgw2calc #display table tr
+{
+	font-size: 13px;
+}
+
+#isgw2calc #sigils
+{
+	
+}
+
+
+#isgw2calc #sigils .empty-slot
+{
+	margin:0 0 0 20px;
+}
+
+
+#isgw2calc .empty-slot
+{
+	margin-top: 18px;
+	width:30px;
+	height:30px;
+	float:left;
+	display:block;
+	border: solid 1px #000;
+	background-color: rgba(0,0,0,.75);
+	cursor: pointer;
+}
+
+#isgw2calc .empty-slot:hover
+{
+	border: solid 1px #e29653;
+}
+
+#isgw2calc .armor
+{
+	width:90px;
+	margin: 5px;
+}
+
+#isgw2calc .weapon
+{
+	float: left;
+	width:125px;
+}
+
+
+#isgw2calc .weapon_swap
+{
+	height: 24px;
+	width: 27px;
+	float:left;
+	display: block;
+	background: url('../images/weapon_swap.png') no-repeat center;
+	margin:12px;
+}
+
+
+#isgw2calc .armor_img
+{
+	width:50px;
+	float:left;
+	margin-right:5px;
+	cursor: pointer;
+}
+
+#isgw2calc .weapon_pick
+{
+	height: 50px;
+	width: 50px;
+	float:left;
+	display: block;
+	background: url('../images/weapon_pick.png') no-repeat center;
+	border:1px solid #ccc;
+	cursor: pointer;
+}
+
+#isgw2calc #trinket
+{
+	height: 50px;
+	width: 50px;
+	float:left;
+	display: block;
+	background: url('../images/trinket.png') #4d4d4d no-repeat center;
+	border:1px solid #ccc; 
+	cursor: pointer;
+}
+
+#isgw2calc .weapon_set_1 {
+	width: 19px;
+	height: 19px;
+	display: block;
+	float: left;
+	position: relative;
+	background: url('../images/weapon_set_1.png') no-repeat center;
+	top: 16px;
+}
+
+#isgw2calc .weapon_set_2 {
+	width: 19px;
+	height: 19px;
+	display: block;
+	float: left;
+	position: relative;
+	background: url('../images/weapon_set_2.png') no-repeat center;
+	top: 16px;
+}
+
+#isgw2calc .weapon_pick:hover
+{
+	border:1px solid #e29653; 
+}
+
+
+
+.ui-dialog
+{
+	background-color: rgba(0,0,0,.75) !important;
+	border: 1px solid #000 !important;
+	position: absolute;
+}
+
+.ui-button
+{
+	background: url('../images/close_small.png') no-repeat center !important;
+	height: 10px !important;
+	width: 11px !important;
+	float: right !important;
+	border: none !important;
+}
+
+.ui-button:hover
+{
+	background: url('../images/close_small.png') no-repeat center !important;
+	border: none !important;
+}
+
+.ui-dialog-titlebar
+{
+	color:#fff !important;
+	font-size: 11px !important;
+	background-color: #000 !important;
+	height:14px !important;
+}
+
+/*.ui-widget-header 
+{
+	border: none !important;
+	background: none !important;
+	color:none !important;
+	font-weight: normal !important;
+}
+
+.ui-widget-content
+{
+	background: none !important;
+}*/
+
+#rune_bonus
+{
+	float: right;
+	width: 350px;
+}
+
+.tooltip .tooltip_frame
+{ 
+    display: none; 
+}
+
+
+
+.tooltip:hover
+{ 
+    position: relative; 
+}
+
+.tooltip:hover .tooltip_frame 
+{ 
+    display: block;
+    width: 200px;
+    color: #eee; 
+    position: absolute;
+    top:105%;
+    left:105%; 
+    background: rgba(0,0,0,.8);
+	border: 2px solid rgba(0,0,0,.9);
+    padding:5px; 
+}
+
+.tooltip .tooltip_title
+{
+	color:#fda500;
+	margin-bottom: 10px;
+}
+
+.tooltip .orb_tip 
+{
+	color: #5599ff;
+	font-size: 11px;
+	padding-bottom: 8px;
+}
+
+.tooltip .amulet_tip
+{
+	color: #03d204;
+	font-size: 11px;
+	padding-bottom: 8px;
+}
+
+.tooltip .weapon_tip
+{
+	color: #03d204;
+	font-size: 11px;
+	padding-bottom: 8px;
+}
+
+.tooltip_list .rune_tip
+{
+	color:#949494;
+	font-size: 11px;
+}
+
+
+.tooltip_list li
+{
+	margin:0;
+	line-height: 1 !important;
+}
+
+
+.tooltip .tooltip_list
+{
+	list-style: none;
+	margin: 0;
+}
+
+.tooltip .tooltip_description
+{
+	font-size: 11px;
+}
+
+.ui-accordion-header
+{
+	color:#fff;
+	font-size: 12px;
+	font-weight: normal;
+	margin: 2px 0 2px 0;
+	padding:2px 0 2px 7px;
+	background-color: rgba(0,0,0,0.3);
+	cursor: pointer;
+}
+
+.ui-accordion-header:hover
+{
+	color:#e29653;
+}  
+
+.ui-accordion-content
+{
+	color:#fff;
+}
+
+*:focus  
+{  
+    outline: none;  
+}  
+
+#rune_accordion .tooltip_description
+{
+	color:#949494;
+}
+
+#traits
+{
+	overflow: visible;
+}
+
+#traitLineName
+{
+	font-weight: bold;
+	font-size: 14px;
+	color: #000000;
+	margin-bottom: 2px;
+}
+
+
+#traitLine-1
+{
+	background-position: 0px 0px;
+	margin-bottom: 10px;
+}
+
+#traitLine-2
+{
+	background-position: -632px 0px;
+	margin-bottom: 10px;
+
+}
+
+#traitLine-3
+{
+	background-position: -1264px 0px;
+	margin-bottom: 10px;
+
+}
+
+#traitLine-4
+{
+	background-position: -1896px 0px;
+	margin-bottom: 10px;
+
+}
+
+#traitLine-5
+{
+	background-position: -2528px 0px;
+	margin-bottom: 10px;
+
+}
+
+
+.necromancer-traits .traitField
+{
+	background: transparent url(../images/traits/necromancer-trait_sheet.jpg) no-repeat;
+
+}
+
+.elementalist-traits .traitField
+{
+	background: transparent url(../images/traits/elementalist-trait_sheet.jpg) no-repeat;
+
+}
+
+
+.engineer-traits .traitField
+{
+	background: transparent url(../images/traits/engineer-trait_sheet.jpg) no-repeat;
+
+}
+
+.guardian-traits .traitField
+{
+	background: transparent url(../images/traits/guardian-trait_sheet.jpg) no-repeat;
+
+}
+
+.mesmer-traits .traitField
+{
+	background: transparent url(../images/traits/mesmer-trait_sheet.jpg) no-repeat;
+
+}
+
+.ranger-traits .traitField
+{
+	background: transparent url(../images/traits/ranger-trait_sheet.jpg) no-repeat;
+
+}
+
+.thief-traits .traitField
+{
+	background: transparent url(../images/traits/thief-trait_sheet.jpg) no-repeat;
+
+}
+
+.warrior-traits .traitField
+{
+	background: transparent url(../images/traits/warrior-trait_sheet.jpg) no-repeat;
+
+}
+
+.traitField
+{
+	width: 631px;
+	height: 65px;
+	position: relative;
+}
+
+.plus_box 
+{
+	width: 20px;
+	height: 20px;
+	display: block;
+	background: transparent url(../images/interface_plus.png) 0px 0px no-repeat;
+	position: absolute;
+	top: 11px;
+	left: 7px;
+}
+
+.plus_box:hover 
+{
+	background: transparent url(../images/interface_plus.png) -21px 0px no-repeat;
+}
+
+.minus_box 
+{
+	width: 20px;
+	height: 20px;
+	display: block;
+	background: transparent url(../images/interface_minus.png) 0px 0px no-repeat;
+	position: absolute;
+	top: 35px;
+	left: 7px;
+}
+
+.minus_box:hover 
+{
+	background: transparent url(../images/interface_minus.png) -21px 0px no-repeat;
+}
+
+.traits_invested 
+{
+	font-size: 36px;
+	color: #ffffff;
+	text-shadow: 0px 2px 12px rgba(0,0,0,.75);
+	display: block;
+	width: 40px;
+	height: 65px;
+	position: absolute;
+	left: 37px;
+	cursor: default;
+	text-align: center;
+}
+
+.traits-criticaldamage 
+{
+	width: 27px;
+	height: 27px;
+	background: transparent url(../images/interface_stats_sheet.png) 0px 0px no-repeat;
+	display: block;
+
+}
+
+.traits-boonduration
+{
+	width: 27px;
+	height: 27px;
+	background: transparent url(../images/interface_stats_sheet.png) -30px 0px no-repeat;
+	display: block;
+
+}
+
+.traits-power 
+{
+	width: 27px;
+	height: 27px;
+	background: transparent url(../images/interface_stats_sheet.png) -60px 0px no-repeat;
+	display: block;
+
+}
+
+.traits-vitality 
+{
+	width: 27px;
+	height: 27px;
+	background: transparent url(../images/interface_stats_sheet.png) -89px 0px no-repeat;
+	display: block;
+
+}
+
+.traits-healingpower 
+{
+	width: 27px;
+	height: 27px;
+	background: transparent url(../images/interface_stats_sheet.png) -119px 0px no-repeat;
+	display: block;
+
+}
+
+.traits-stealrechargerate 
+{
+	width: 27px;
+	height: 27px;
+	background: transparent url(../images/interface_stats_sheet.png) -145px 0px no-repeat;
+	display: block;
+
+}
+
+.traits-shreddingrechargerate
+{
+	width: 27px;
+	height: 27px;
+	background: transparent url(../images/interface_stats_sheet.png) -174px 0px no-repeat;
+	display: block;
+}
+
+.traits-virtuerechargerate
+{
+	width: 27px;
+	height: 27px;
+	background: transparent url(../images/interface_stats_sheet.png) -203px 0px no-repeat;
+	display: block;
+}
+
+.traits-toughness
+{
+	width: 27px;
+	height: 27px;
+	background: transparent url(../images/interface_stats_sheet.png) -234px 0px no-repeat;
+	display: block;
+}
+
+.traits-conditiondamage
+{
+	width: 27px;
+	height: 27px;
+	background: transparent url(../images/interface_stats_sheet.png) -30px -29px no-repeat;
+	display: block;
+}
+
+.traits-conditionduration
+{
+	width: 27px;
+	height: 27px;
+	background: transparent url(../images/interface_stats_sheet.png) 0px -29px no-repeat;
+	display: block;
+}
+
+.traits-attunementrechargerate
+{
+	width: 27px;
+	height: 27px;
+	background: transparent url(../images/interface_stats_sheet.png) -60px -29px no-repeat;
+	display: block;
+}
+
+.traits-precision
+{
+	width: 27px;
+	height: 27px;
+	background: transparent url(../images/interface_stats_sheet.png) -89px -29px no-repeat;
+	display: block;
+
+}
+
+.traits-petattributebonus
+{
+	width: 27px;
+	height: 27px;
+	background: transparent url(../images/interface_stats_sheet.png) -114px -29px no-repeat;
+	display: block;
+}
+
+.traits-lifeforcepool
+{
+	width: 27px;
+	height: 27px;
+	background: transparent url(../images/interface_stats_sheet.png) -146px -29px no-repeat;
+	display: block;
+}
+
+.traits-burstdamage
+{
+	width: 27px;
+	height: 27px;
+	background: transparent url(../images/interface_stats_sheet.png) -180px -29px no-repeat;
+	display: block;
+}
+
+.traits-toolbeltrechargerate
+{
+	width: 27px;
+	height: 27px;
+	background: transparent url(../images/interface_stats_sheet.png) -208px -29px no-repeat;
+	display: block;
+}
+
+
+.traits_pri 
+{
+	width: 75px;
+	height: 27px;
+	position: absolute;
+	top: 3px;
+	left: 94px;
+	color: #ffffff;
+	cursor: default;
+}
+
+.traits_pri span
+{
+	float:left;
+}
+
+.trait_pri strong
+{
+	font-weight: normal;
+	margin-top: 7px;
+	display: inline-block;
+	font-size: 16px;
+	text-shadow: 0px 1px 1px rgba(0,0,0,1);
+}
+
+.traits_sec
+{
+	width: 75px;
+	height: 27px;
+	position: absolute;
+	top: 32px;
+	left: 94px;
+	color: #ffffff;
+	cursor: default;
+}
+
+.traits_sec span
+{
+	float: left;
+}
+
+.trait_sec strong
+{
+	font-weight: normal;
+	margin-top: 8px;
+	display: inline-block;
+	font-size: 16px;
+	text-shadow: 0px 1px 1px rgba(0,0,0,1);
+}
+
+.traitField1
+{
+	width: 220px;
+	height: 65px;
+	position: relative;
+	float: left;
+}
+
+.traitField2
+{
+	width: 124px;
+	height: 65px;
+	position: relative;
+	float: left;
+}
+
+.traitField3,.traitField4
+{
+	width: 124px;
+	height: 65px;
+	position: relative;
+	float: left;
+	margin-left: 19px;
+}
+
+.traits_iconcontainer
+{
+	position: relative;
+	height: 28px;
+	width: 28px;
+	float: left;
+	margin-right: 3px;
+}
+
+.trait_minor
+{
+	width: 41px;
+	height: 47px;
+	background: transparent url(../images/traits/traits_bg.png) 0px -15px no-repeat;
+	display: block;
+	margin-top: 7px;
+	margin-right: 11px;
+	float: left;
+	position: relative;
+}
+
+.trait_major
+{
+	width: 57px;
+	height: 72px;
+	background: transparent url(../images/traits/traits_bg.png) -42px -0px no-repeat;
+	display: block;
+	margin-top: -8px;
+	float: left;
+	position: relative;
+}
+
+.trait_major:hover
+{
+	width: 57px;
+	height: 72px;
+	background: transparent url(../images/traits/traits_bg.png) -142px -0px no-repeat;
+	display: block;
+	margin-top: -8px;
+	float: left;
+	position: relative;
+}
+
+.trait_minor:hover
+{
+
+	background: transparent url(../images/traits/traits_bg.png) -100px -15px no-repeat;
+}
+
+.trait_major_locked
+{
+	background: transparent url(../images/traits/trait_icons.png) -80px 0px no-repeat;
+	width: 53px;
+	height: 60px;
+	margin: 11px 0px 0px 2px;
+}
+
+.trait_minor_locked
+{
+	width: 39px;
+	height: 45px;
+	background: transparent url(../images/traits/trait_icons.png) -40px 0px no-repeat;
+	margin: 1px 1px 0px 1px;
+}
+
+.trait_minor .t5
+{
+	width: 16px;
+	height: 17px;
+	display: block;
+	background: transparent url(../images/traits/trait_numbers.png) 0px 0px no-repeat;
+	position: absolute;
+	top: 39px;
+	left: 13px;
+	z-index: 78;
+}
+
+.trait_major .t10
+{
+	width: 16px;
+	height: 17px;
+	display: block;
+	background: transparent url(../images/traits/trait_numbers.png) -17px 0px no-repeat;
+	position: absolute;
+	top: 63px;
+	left: 20px;
+	z-index: 78;
+}
+
+.trait_minor .t15
+{
+	width: 16px;
+	height: 17px;
+	display: block;
+	background: transparent url(../images/traits/trait_numbers.png) -35px 0px no-repeat;
+	position: absolute;
+	top: 39px;
+	left: 13px;
+	z-index: 78;
+}
+
+.trait_major .t20
+{
+	width: 16px;
+	height: 17px;
+	display: block;
+	background: transparent url(../images/traits/trait_numbers.png) 0px -18px no-repeat;
+	position: absolute;
+	top: 63px;
+	left: 20px;
+	z-index: 78;
+}
+
+.trait_minor .t25
+{
+	width: 16px;
+	height: 17px;
+	display: block;
+	background: transparent url(../images/traits/trait_numbers.png) -17px -18px no-repeat;
+	position: absolute;
+	top: 39px;
+	left: 13px;
+	z-index: 78;
+}
+
+.trait_major .t30
+{
+	width: 16px;
+	height: 17px;
+	display: block;
+	background: transparent url(../images/traits/trait_numbers.png) -35px -18px no-repeat;
+	position: absolute;
+	top: 63px;
+	left: 20px;
+	z-index: 78;
+}
+
+#skills .skillbar {
+	width: 100%;
+	padding-top: 38px;
+}
+
+#skills .skillbar ul {
+	display: inline-block;
+	margin: 0;
+}
+
+#skills .skillbar ul li.skill {
+	width: 50px;
+	height: 50px;
+	background: rgba(0,0,0,.75);
+	border: 1px solid #000;
+	border-left: 0;
+	display: inline-block;
+	margin: 10px 0 0 -4px;
+	overflow: visible;
+}
+
+#skills .skillbar ul li.skill:first-child{
+	margin-left: 0;
+	border-left: 1px solid #000;
+}
+
+#skills .skillbar ul.skills_heal li.skill,
+#skills .skillbar ul.skills_utility li.skill,
+#skills .skillbar ul.skills_elite li.skill {
+	margin-top: 0;
+}
+
+#skills .skillbar ul li.skill .skill_expand {
+	position: absolute;
+	height: 10px;
+	width: 51px;
+	background: rgba(0,0,0,.5);
+	margin: -10px 0 0 -1px;
+}
+
+#skills .skillbar ul li.skill:last-child .skill_expand {
+	width: 52px;
+}
+
+#skills .skillbar ul li.skill .skill_expand span {
+	color: #fff;
+	float: right;
+	margin: 0;
+	padding: 0;
+	margin-top: -4px;
+	height: 12px;
+}
+
+#skills .skillbar ul li.skill .skill_hotkey {
+	color: #fff;
+	font-size: 10px;
+	background: #000;
+	width: 16px;
+	height: 16px;
+	display: block;
+	text-align: center;
+	margin: 17px 0 0 17px;
+	
+	/* Border radius */
+	-webkit-border-radius: 8px;
+    border-radius: 8px;
+}
+
+#skills .skillbar .vitals {
+	vertical-align: top;
+	display: inline-block;
+	margin: -62px -4px 0 -4px;
+}
+
+#skills .skillbar .vitals .health {
+	width: 100px;
+	height: 100px;
+	border: 1px solid rgba(0,0,0,.75);
+	
+	/* Border radius */
+	-webkit-border-radius: 50px;
+    border-radius: 50px;
+	
+	/* Gradient */
+	background: rgb(255,7,7);
+	background: -moz-linear-gradient(top,  rgb(255,7,7) 0%, rgb(150,0,0) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb(255,7,7)), color-stop(100%,rgb(150,0,0)));
+	background: -webkit-linear-gradient(top,  rgb(255,7,7) 0%,rgb(150,0,0) 100%);
+	background: -o-linear-gradient(top,  rgb(255,7,7) 0%,rgb(150,0,0) 100%);
+	background: -ms-linear-gradient(top,  rgb(255,7,7) 0%,rgb(150,0,0) 100%);
+	background: linear-gradient(to bottom,  rgb(255,7,7) 0%,rgb(150,0,0) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff0707', endColorstr='#960000',GradientType=0 );
+}
+
+#skills .skillbar .vitals .health span {
+	width: 100%;
+	text-align: center;
+	display: block;
+	font-size: 18px;
+	font-weight: 600;
+	color: #fff;
+	margin-top: 35px;
+}
+
+#skills .skillbar .skills_heal li,
+#skills .skillbar .skills_utility li,
+#skills .skillbar .skills_elite li {
+	
+}
+
+#skills .skillbar .skills_heal li .skill_expand:hover,
+#skills .skillbar .skills_utility li .skill_expand:hover,
+#skills .skillbar .skills_elite li .skill_expand:hover {
+	background: rgba(0,0,0,.75);
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
