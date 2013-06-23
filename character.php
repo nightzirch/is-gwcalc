@@ -62,88 +62,32 @@
 		<?php } ?>
 		</div>
 	</div>
-</div>
+</div><!-- Gear -->
 <div id="dialog-modal" title="Rune" style="display: none;"></div>
 <div style="clear:both;"></div>
 
-
-<div id="accessories">
-	<!--h2>Accessories & Jewels</h2-->
-	<div class="armor">
-		<div id="trinket" onClick="trinketPicker()" class="armor_img"></div>
-		<div id="orb" onClick="orbPicker()" class="empty-slot"></div>
-	</div>
-
-	<div id="trinket_pick" class="dialog" title="Chose an Amulet" style="display:none;">
-		<?php foreach($trinkets as $t) { ?>
-			<span class="tooltip">
-				<img style="margin:5px;" class="masterTooltip" onClick="trinketPick('<?php echo $t->id; ?>')" src="<?php echo plugin_dir_url(__FILE__); ?>images/trinkets/<?php echo $t->id?>.png" />
-				<div class="tooltip_frame">
-					<div class="tooltip_title">
-						<span style="vertical-align:top;padding:8px 0 8px 0;">
-							<?php echo $t->name?>
-						</span>
-					</div>
-					<div>
-						<ul>
-						<?php $stats = spliti (";", $t->stats);
-							foreach($stats as $s)
-							{
-								echo '<li class="amulet_tip">'.$s.'</li>';
-							}
-
-						 ?>
-						</ul>
-					</div>
-				</div>
-			</span>
-		<?php } ?>
-	</div>
-
-	<div id="orb_pick" class="dialog" title="Chose a Orb" style="display:none;">
-		<?php foreach($orbs as $t) { ?>
-			<span class="tooltip" >
-				<img style="margin:5px;" onClick="orbPick('<?php echo $t->id; ?>')" src="<?php echo plugin_dir_url(__FILE__); ?>images/jewels/<?php echo $t->id?>.jpg" />
-				<div class="tooltip_frame">
-					<div class="tooltip_title">
-						<span>
-							<img src="<?php echo plugin_dir_url(__FILE__); ?>images/jewels/<?php echo $t->id?>.jpg"/>
-						</span>
-						<span style="vertical-align:top;padding:8px;">
-							<?php echo $t->name?>
-						</span>
-					</div>
-					<div>
-						<ul>
-						<?php $stats = spliti (";", $t->stats);
-							foreach($stats as $s)
-							{
-								echo '<li class="orb_tip">'.$s.'</li>';
-							}
-
-						 ?>
-						</ul>
-					</div>
-				</div>
-			</span>
-		<?php } ?>
-	</div>
-</div>
 
 <div id="weapons">
 	<!--h2>Weapon set</h2-->
 
 	<div class="weapon">
-		<div id="weapon_set_1_mainhand" onClick="weaponPicker('mainhand','1')" class="weapon_pick"></div>
-		<div class="weapon_set_1"></div>
-		<div id="weapon_set_1_offhand" onClick="weaponPicker('offhand','1')" class="weapon_pick"></div>
+		<div class="separate_weapon">
+			<div id="weapon_set_1_mainhand" onClick="weaponPicker('mainhand','1')" class="weapon_pick"></div>
+			<div class="sigils">
+				<div id="sigil_mainhand1" onClick="sigilPicker('mainhand','1')" class="empty-slot"></div>
+			</div>
+		</div>
+		
+		<div class="weapon_set_1 weapon_set_icon"></div>
+		
+		<div class="separate_weapon">
+			<div id="weapon_set_1_offhand" onClick="weaponPicker('offhand','1')" class="weapon_pick"></div>
+			<div class="sigils">
+				<div id="sigil_offhand1" onClick="sigilPicker('offhand','1')" class="empty-slot"></div>
+			</div>
+		</div>
 		
 		<div style="clear:both;"></div>
-
-		<div id="sigils">
-			<div id="sigil_mainhand1" onClick="sigilPicker('mainhand','1')" class="empty-slot"></div>
-			<div id="sigil_offhand1" onClick="sigilPicker('offhand','1')" class="empty-slot"></div>
-		</div>
 	</div>
 	
 
@@ -151,15 +95,20 @@
 	<div class="weapon_swap" onClick="swapWeapons()"></div>
 
 	<div class="weapon">
-		<div id="weapon_set_2_mainhand" onClick="weaponPicker('mainhand','2')" class="weapon_pick"></div>
-		<div class="weapon_set_2"></div>
-		<div id="weapon_set_2_offhand" onClick="weaponPicker('offhand','2')" class="weapon_pick"></div>
+		<div class="separate_weapon">
+			<div id="weapon_set_2_mainhand" onClick="weaponPicker('mainhand','2')" class="weapon_pick"></div>
+			<div class="sigils">
+				<div id="sigil_mainhand2" onClick="sigilPicker('mainhand','2')" class="empty-slot"></div>
+			</div>
+		</div>
 		
-		<div style="clear:both;"></div>
+		<div class="weapon_set_2 weapon_set_icon"></div>
 		
-		<div id="sigils">
-			<div id="sigil_mainhand2" onClick="sigilPicker('mainhand','2')" class="empty-slot"></div>
-			<div id="sigil_offhand2" onClick="sigilPicker('offhand','2')" class="empty-slot"></div>
+		<div class="separate_weapon">
+			<div id="weapon_set_2_offhand" onClick="weaponPicker('offhand','2')" class="weapon_pick"></div>
+			<div class="sigils">
+				<div id="sigil_offhand2" onClick="sigilPicker('offhand','2')" class="empty-slot"></div>
+			</div>
 		</div>
 	</div>
 	<?php } ?>
@@ -191,7 +140,15 @@
 	</div>
 
 	<div id="weapon_picker" title="Pick a weapon" class="dialog"></div>
-</div>
+</div><!-- Weapons -->
+
+
+
+
+
+
+
+
 
 <div id="skills">
 	<div class="class_specific"></div>
@@ -281,7 +238,7 @@
 			</li>
 		</ul>
 	</div>
-</div>
+</div><!-- Skills -->
 
 
 
@@ -304,3 +261,65 @@
 
 
 
+<div id="accessories">
+	<!--h2>Accessories & Jewels</h2-->
+	<div class="armor">
+		<div id="trinket" onClick="trinketPicker()" class="armor_img"></div>
+		<div id="orb" onClick="orbPicker()" class="empty-slot"></div>
+	</div>
+
+	<div id="trinket_pick" class="dialog" title="Chose an Amulet" style="display:none;">
+		<?php foreach($trinkets as $t) { ?>
+			<span class="tooltip">
+				<img style="margin:5px;" class="masterTooltip" onClick="trinketPick('<?php echo $t->id; ?>')" src="<?php echo plugin_dir_url(__FILE__); ?>images/trinkets/<?php echo $t->id?>.png" />
+				<div class="tooltip_frame">
+					<div class="tooltip_title">
+						<span style="vertical-align:top;padding:8px 0 8px 0;">
+							<?php echo $t->name?>
+						</span>
+					</div>
+					<div>
+						<ul>
+						<?php $stats = spliti (";", $t->stats);
+							foreach($stats as $s)
+							{
+								echo '<li class="amulet_tip">'.$s.'</li>';
+							}
+
+						 ?>
+						</ul>
+					</div>
+				</div>
+			</span>
+		<?php } ?>
+	</div>
+
+	<div id="orb_pick" class="dialog" title="Chose a Orb" style="display:none;">
+		<?php foreach($orbs as $t) { ?>
+			<span class="tooltip" >
+				<img style="margin:5px;" onClick="orbPick('<?php echo $t->id; ?>')" src="<?php echo plugin_dir_url(__FILE__); ?>images/jewels/<?php echo $t->id?>.jpg" />
+				<div class="tooltip_frame">
+					<div class="tooltip_title">
+						<span>
+							<img src="<?php echo plugin_dir_url(__FILE__); ?>images/jewels/<?php echo $t->id?>.jpg"/>
+						</span>
+						<span style="vertical-align:top;padding:8px;">
+							<?php echo $t->name?>
+						</span>
+					</div>
+					<div>
+						<ul>
+						<?php $stats = spliti (";", $t->stats);
+							foreach($stats as $s)
+							{
+								echo '<li class="orb_tip">'.$s.'</li>';
+							}
+
+						 ?>
+						</ul>
+					</div>
+				</div>
+			</span>
+		<?php } ?>
+	</div>
+</div> <!-- Accessories -->
