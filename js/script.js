@@ -245,9 +245,9 @@ function runePick(id)
 function sigilPick(id)
 {
     var sigil = jQuery.grep(sigils, function(e){ return e.id == id; });
-    jQuery("#sigils .active").html('<span class="tooltip"><img src="'+plg_url+'images/sigils/'+id+'.jpg" /><div class="tooltip_frame"><div class="tooltip_title"><img style="float:left;" src="'+plg_url+'images/sigils/'+id+'.jpg" /><span style="padding-left:5px;font-size:11px;">'+sigil[0].name+'</span></div><div class="tooltip_description" style="margin-top:15px;">'+sigil[0].stats+'</div></div></span>');
+    jQuery(".active").html('<span class="tooltip"><img src="'+plg_url+'images/sigils/'+id+'.jpg" /><div class="tooltip_frame"><div class="tooltip_title"><img style="float:left;" src="'+plg_url+'images/sigils/'+id+'.jpg" /><span style="padding-left:5px;font-size:11px;">'+sigil[0].name+'</span></div><div class="tooltip_description" style="margin-top:15px;">'+sigil[0].stats+'</div></div></span>');
    
-    jQuery("#sigils .active").removeClass("active");
+    jQuery(".active").removeClass("active");
 
     closeOpenDialog();
 }
