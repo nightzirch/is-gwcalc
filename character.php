@@ -228,7 +228,7 @@
 		<div class="vitals">
 			<img class="endurance" src="<?php echo plugin_dir_url(__FILE__);?>/images/endurance.png" />
 			<div class="health">
-				<span>15,000</span>
+				<span><?php echo $profession->health+916*10; ?></span>
 			</div>
 		</div>
 		
