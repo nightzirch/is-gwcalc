@@ -1,7 +1,4 @@
 <div id="gear">
-	<div id="rune_bonus"></div>
-	
-	
 	<!--h2>Armor & Runes</h2-->
 	<div class="armor">
 		<div class="armor_img"><img src="<?php echo plugin_dir_url(__FILE__);?>images/armor_head.jpg" /></div>
@@ -65,6 +62,80 @@
 </div><!-- Gear -->
 <div id="dialog-modal" title="Rune" style="display: none;"></div>
 <div style="clear:both;"></div>
+
+
+
+
+
+<div id="accessories">
+	<!--h2>Accessories & Jewels</h2-->
+	<div class="armor">
+		<div id="trinket" onClick="trinketPicker()" class="armor_img"></div>
+		<div id="orb" onClick="orbPicker()" class="empty-slot"></div>
+	</div>
+
+	<div id="trinket_pick" class="dialog" title="Chose an Amulet" style="display:none;">
+		<?php foreach($trinkets as $t) { ?>
+			<span class="tooltip">
+				<img style="margin:5px;" class="masterTooltip" onClick="trinketPick('<?php echo $t->id; ?>')" src="<?php echo plugin_dir_url(__FILE__); ?>images/trinkets/<?php echo $t->id?>.png" />
+				<div class="tooltip_frame">
+					<div class="tooltip_title">
+						<span style="vertical-align:top;padding:8px 0 8px 0;">
+							<?php echo $t->name?>
+						</span>
+					</div>
+					<div>
+						<ul>
+						<?php $stats = spliti (";", $t->stats);
+							foreach($stats as $s)
+							{
+								echo '<li class="amulet_tip">'.$s.'</li>';
+							}
+
+						 ?>
+						</ul>
+					</div>
+				</div>
+			</span>
+		<?php } ?>
+	</div>
+
+	<div id="orb_pick" class="dialog" title="Chose a Orb" style="display:none;">
+		<?php foreach($orbs as $t) { ?>
+			<span class="tooltip" >
+				<img style="margin:5px;" onClick="orbPick('<?php echo $t->id; ?>')" src="<?php echo plugin_dir_url(__FILE__); ?>images/jewels/<?php echo $t->id?>.jpg" />
+				<div class="tooltip_frame">
+					<div class="tooltip_title">
+						<span>
+							<img src="<?php echo plugin_dir_url(__FILE__); ?>images/jewels/<?php echo $t->id?>.jpg"/>
+						</span>
+						<span style="vertical-align:top;padding:8px;">
+							<?php echo $t->name?>
+						</span>
+					</div>
+					<div>
+						<ul>
+						<?php $stats = spliti (";", $t->stats);
+							foreach($stats as $s)
+							{
+								echo '<li class="orb_tip">'.$s.'</li>';
+							}
+
+						 ?>
+						</ul>
+					</div>
+				</div>
+			</span>
+		<?php } ?>
+	</div>
+</div> <!-- Accessories -->
+
+
+
+
+
+
+
 
 
 <div id="weapons">
@@ -261,65 +332,3 @@
 
 
 
-<div id="accessories">
-	<!--h2>Accessories & Jewels</h2-->
-	<div class="armor">
-		<div id="trinket" onClick="trinketPicker()" class="armor_img"></div>
-		<div id="orb" onClick="orbPicker()" class="empty-slot"></div>
-	</div>
-
-	<div id="trinket_pick" class="dialog" title="Chose an Amulet" style="display:none;">
-		<?php foreach($trinkets as $t) { ?>
-			<span class="tooltip">
-				<img style="margin:5px;" class="masterTooltip" onClick="trinketPick('<?php echo $t->id; ?>')" src="<?php echo plugin_dir_url(__FILE__); ?>images/trinkets/<?php echo $t->id?>.png" />
-				<div class="tooltip_frame">
-					<div class="tooltip_title">
-						<span style="vertical-align:top;padding:8px 0 8px 0;">
-							<?php echo $t->name?>
-						</span>
-					</div>
-					<div>
-						<ul>
-						<?php $stats = spliti (";", $t->stats);
-							foreach($stats as $s)
-							{
-								echo '<li class="amulet_tip">'.$s.'</li>';
-							}
-
-						 ?>
-						</ul>
-					</div>
-				</div>
-			</span>
-		<?php } ?>
-	</div>
-
-	<div id="orb_pick" class="dialog" title="Chose a Orb" style="display:none;">
-		<?php foreach($orbs as $t) { ?>
-			<span class="tooltip" >
-				<img style="margin:5px;" onClick="orbPick('<?php echo $t->id; ?>')" src="<?php echo plugin_dir_url(__FILE__); ?>images/jewels/<?php echo $t->id?>.jpg" />
-				<div class="tooltip_frame">
-					<div class="tooltip_title">
-						<span>
-							<img src="<?php echo plugin_dir_url(__FILE__); ?>images/jewels/<?php echo $t->id?>.jpg"/>
-						</span>
-						<span style="vertical-align:top;padding:8px;">
-							<?php echo $t->name?>
-						</span>
-					</div>
-					<div>
-						<ul>
-						<?php $stats = spliti (";", $t->stats);
-							foreach($stats as $s)
-							{
-								echo '<li class="orb_tip">'.$s.'</li>';
-							}
-
-						 ?>
-						</ul>
-					</div>
-				</div>
-			</span>
-		<?php } ?>
-	</div>
-</div> <!-- Accessories -->

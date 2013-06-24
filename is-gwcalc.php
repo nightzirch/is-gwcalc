@@ -167,62 +167,7 @@ function display_func(){
 	 	</div> 
 
 	 	<div id="display" style="float:left;width:20%">
-	 		<h2>Attributes</h2>
-	 		<table>
-	 			<tr>
-	 				<td class="att">Power</td>
-	 				<td id="power" class="value">916</td>
-	 			</tr>
-	 			<tr class="even">
-	 				<td class="att">Precision</td>
-	 				<td id="precision" class="value">916</td>
-	 			</tr>
-	 			<tr>
-	 				<td class="att">Toughness</td>
-	 				<td id="toughness" class="value">916</td>
-	 			</tr>
-	 			<tr class="even">
-	 				<td class="att">Vitality</td>
-	 				<td id="vitality" class="value">916</td>
-	 			</tr>
-	 			<tr>
-	 				<td class="att">Critical Damage</td>
-	 				<td id="criticaldamage" class="value">0%</td>
-	 			</tr>
-	 			<tr class="even">
-	 				<td class="att">Condition Damage</td>
-	 				<td id="conditiondamage" class="value">0</td>
-	 			</tr>
-	 			<tr>
-	 				<td class="att">Condition Duration</td>
-	 				<td id="conditionduration" class="value">0%</td>
-	 			</tr>
-	 			<tr class="even">
-	 				<td class="att">Healing Power</td>
-	 				<td id="healingpower" class="value">0</td>
-	 			</tr>
-	 			<tr>
-	 				<td class="att">Boon Duration</td>
-	 				<td id="boonduration" class="value">0%</td>
-	 			</tr>
-	 			<tr class="even">
-	 				<td class="att">Critical Chance</td>
-	 				<td id="criticalchance" class="value"><?php echo round((916 - 822) / 21).'%'; ?></td>
-	 			</tr>
-	 			<tr>
-	 				<td class="att">Damage</td>
-	 				<td id="damage" class="value">0%</td>
-	 			</tr>
-	 			<tr class="even">
-	 				<td class="att">Armor</td>
-	 				<td id="armor" class="value"><?php echo $profession->armor; ?></td>
-	 			</tr>
-	 			<tr>
-	 				<td class="att">Health</td>
-	 				<td id="health" class="value"><?php echo $profession->health+916*10; ?></td>
-	 			</tr>
-
-	 		</table>
+	 		<?php include('aside.php') ?>
 	 	</div>
 	</div>
 	<?php }  ?>	
