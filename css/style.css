@@ -881,6 +881,8 @@
 #skills .skillbar {
 	width: 100%;
 	padding-top: 46px;
+	/*margin-top: -43px;
+	float: left;*/
 }
 
 #skills .skillbar ul {

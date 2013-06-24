@@ -75,7 +75,7 @@
 	<tr class="even">
 		<td class="att">
 			<div class="traits_iconcontainer">
-				<span class="traits-critical"></span>
+				<span class="traits-criticalchance"></span>
 			</div>
 		</td>
 		<td id="criticalchance" class="value"><?php echo round((916 - 822) / 21).'%'; ?></td>
