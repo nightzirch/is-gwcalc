@@ -1,0 +1,8 @@
+Power		 Attack
+Precision	 Critical Chance
+Toughness	 Armor
+Vitality	 Health
+Condition Damage Condition Duration
+Boon Duration	 Healing Power
+Critical Damage	 Class
+Agony Resistance Magic Find
