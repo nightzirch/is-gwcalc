@@ -252,6 +252,52 @@ function sigilPick(id)
     closeOpenDialog();
 }
 
+function traitPlus(i)
+{
+    trait_points = parseInt(jQuery("#trait_points_left").html());
+    if (trait_points > 0)
+    {
+        x = parseInt(jQuery("#traits_invested-"+i).html());
+        
+        if (x < 30)
+        {
+            trait_points -= 1;
+            x += 1;
+            jQuery("#traits_invested-"+i).html(x);
+            jQuery("#trait_points_left").html(trait_points);
+        }
+    }
+}
+
+function traitMinus(i)
+{
+    trait_points = parseInt(jQuery("#trait_points_left").html());
+    if (trait_points < 70)
+    {
+        x = parseInt(jQuery("#traits_invested-"+i).html());
+        
+        if (x > 0)
+        {
+            trait_points += 1;
+            x -= 1;
+            jQuery("#traits_invested-"+i).html(x);
+            jQuery("#trait_points_left").html(trait_points);
+        }  
+    }
+}
+
+function traitsRefund()
+{
+    trait_points = 70
+    jQuery("#trait_points_left").html(trait_points);
+
+    for (i=1;i<=5;i++)
+    {
+        jQuery("#traits_invested-"+i).html('0');
+    }
+
+}
+
 function calculate()
 {
     var stats = {

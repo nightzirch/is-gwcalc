@@ -500,6 +500,29 @@
 	background: transparent url(../images/interface_minus.png) -21px 0px no-repeat;
 }
 
+.traits_top
+{
+	float:right;
+	height: 40px;
+	width: 149px;
+}
+
+#trait_points_left
+{
+	font-size: 30px;
+	float: left;
+}
+
+#trait_points_refund
+{
+	background: transparent url(../images/traits/refund.png) no-repeat;
+	height: 32px;
+	width: 32px;
+	margin-top: 5px;
+	margin-right: 15px;
+	float: left;
+}
+
 .traits_invested 
 {
 	font-size: 36px;
@@ -510,6 +533,7 @@
 	height: 65px;
 	position: absolute;
 	left: 37px;
+	top: 8px;
 	cursor: default;
 	text-align: center;
 }
@@ -868,6 +892,12 @@
 	top: 63px;
 	left: 20px;
 	z-index: 78;
+}
+
+.trait_bonus
+{
+	top: 4px;
+	position: absolute;
 }
 
 #skills {
