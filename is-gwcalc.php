@@ -131,23 +131,36 @@ function display_func(){
 	 	
 	 	<?php if(isset($args['class'])){ ?>
 	 	
-	 	<div id="build" style="float:left;width:80%">
-	 		<ul class="build_navigation" style="float: left">
+	 	<div id="build">
+	 		<ul class="build_navigation">
 				<li class="character">
+					<span class="gradient-line gradient-left line-top"></span>
 					<a href="#character" class="character"></a>
+					<span class="color-fill"></span>
+					<span class="gradient-line gradient-left line-bottom"></span>
 				</li>
 				<li class="traits">
+					<span class="gradient-line gradient-left line-top"></span>
 					<a href="#traits" class="traits"></a>
+					<span class="color-fill"></span>
+					<span class="gradient-line gradient-left line-bottom"></span>
 				</li>
 				<li class="story">
+					<span class="gradient-line gradient-left line-top"></span>
 					<a href="#story" class="story"></a>
+					<span class="color-fill"></span>
+					<span class="gradient-line gradient-left line-bottom"></span>
 				</li>
 				<li class="social">
+					<span class="gradient-line gradient-left line-top"></span>
 					<a href="#social" class="social"></a>
+					<span class="color-fill"></span>
+					<span class="gradient-line gradient-left line-bottom"></span>
 				</li>
 			</ul>
 			
 			<div class="build_container">
+				<span class="gradient-line gradient-right line-top"></span>
 				<div id="character">
 					<?php include('character.php') ?>
 				</div>
