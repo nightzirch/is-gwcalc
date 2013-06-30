@@ -22,7 +22,7 @@
 
 #isgw2calc .build_navigation
 {
-	width: 50px;
+	width: 32px;
 }
 
 #isgw2calc .build_container
@@ -67,12 +67,11 @@
 
 #isgw2calc .att 
 {
-	
+	width: 50%;
 }
 
-#isgw2calc .even
-{
-	background-color: #333;
+#isgw2calc #display table {
+	width: 100%;
 }
 
 #isgw2calc #display table tr
@@ -543,7 +542,7 @@
 	width: 27px;
 	height: 27px;
 	background: transparent url(../images/interface_stats_sheet.png) 0px 0px no-repeat;
-	display: block;
+	display: inline-block;
 
 }
 
@@ -552,7 +551,7 @@
 	width: 27px;
 	height: 27px;
 	background: transparent url(../images/interface_stats_sheet.png) -30px 0px no-repeat;
-	display: block;
+	display: inline-block;
 
 }
 
@@ -561,7 +560,7 @@
 	width: 27px;
 	height: 27px;
 	background: transparent url(../images/interface_stats_sheet.png) -60px 0px no-repeat;
-	display: block;
+	display: inline-block;
 
 }
 
@@ -570,7 +569,7 @@
 	width: 27px;
 	height: 27px;
 	background: transparent url(../images/interface_stats_sheet.png) -89px 0px no-repeat;
-	display: block;
+	display: inline-block;
 
 }
 
@@ -579,7 +578,7 @@
 	width: 27px;
 	height: 27px;
 	background: transparent url(../images/interface_stats_sheet.png) -233px -29px no-repeat;
-	display: block;
+	display: inline-block;
 
 }
 
@@ -588,7 +587,7 @@
 	width: 27px;
 	height: 27px;
 	background: transparent url(../images/interface_stats_sheet.png) -145px 0px no-repeat;
-	display: block;
+	display: inline-block;
 
 }
 
@@ -597,7 +596,7 @@
 	width: 27px;
 	height: 27px;
 	background: transparent url(../images/interface_stats_sheet.png) -174px 0px no-repeat;
-	display: block;
+	display: inline-block;
 }
 
 .traits-virtuerechargerate
@@ -605,7 +604,7 @@
 	width: 27px;
 	height: 27px;
 	background: transparent url(../images/interface_stats_sheet.png) -203px 0px no-repeat;
-	display: block;
+	display: inline-block;
 }
 
 .traits-toughness
@@ -613,7 +612,7 @@
 	width: 27px;
 	height: 27px;
 	background: transparent url(../images/interface_stats_sheet.png) -234px 0px no-repeat;
-	display: block;
+	display: inline-block;
 }
 
 .traits-conditiondamage
@@ -621,7 +620,7 @@
 	width: 27px;
 	height: 27px;
 	background: transparent url(../images/interface_stats_sheet.png) -30px -29px no-repeat;
-	display: block;
+	display: inline-block;
 }
 
 .traits-conditionduration
@@ -629,7 +628,7 @@
 	width: 27px;
 	height: 27px;
 	background: transparent url(../images/interface_stats_sheet.png) 0px -29px no-repeat;
-	display: block;
+	display: inline-block;
 }
 
 .traits-attunementrechargerate
@@ -637,7 +636,7 @@
 	width: 27px;
 	height: 27px;
 	background: transparent url(../images/interface_stats_sheet.png) -60px -29px no-repeat;
-	display: block;
+	display: inline-block;
 }
 
 .traits-precision
@@ -645,7 +644,7 @@
 	width: 27px;
 	height: 27px;
 	background: transparent url(../images/interface_stats_sheet.png) -89px -29px no-repeat;
-	display: block;
+	display: inline-block;
 
 }
 
@@ -654,7 +653,7 @@
 	width: 27px;
 	height: 27px;
 	background: transparent url(../images/interface_stats_sheet.png) -114px -29px no-repeat;
-	display: block;
+	display: inline-block;
 }
 
 .traits-lifeforcepool
@@ -662,7 +661,7 @@
 	width: 27px;
 	height: 27px;
 	background: transparent url(../images/interface_stats_sheet.png) -146px -29px no-repeat;
-	display: block;
+	display: inline-block;
 }
 
 .traits-burstdamage
@@ -670,7 +669,7 @@
 	width: 27px;
 	height: 27px;
 	background: transparent url(../images/interface_stats_sheet.png) -180px -29px no-repeat;
-	display: block;
+	display: inline-block;
 }
 
 .traits-toolbeltrechargerate
@@ -678,7 +677,7 @@
 	width: 27px;
 	height: 27px;
 	background: transparent url(../images/interface_stats_sheet.png) -208px -29px no-repeat;
-	display: block;
+	display: inline-block;
 }
 
 
@@ -762,8 +761,8 @@
 	position: relative;
 	height: 28px;
 	width: 28px;
-	float: left;
 	margin-right: 3px;
+	display: inline-block;
 }
 
 .trait_minor
@@ -910,7 +909,7 @@
 
 #skills .skillbar {
 	width: 100%;
-	padding-top: 46px;
+	padding-top: 49px;
 	/*margin-top: -43px;
 	float: left;*/
 }
@@ -987,8 +986,8 @@
 #skills .skillbar .vitals .endurance {
 	margin: 0 0 -32px -1px;
 	
-	-webkit-border-radius: none;
-    border-radius: none;
+	-webkit-border-radius: 0;
+    border-radius: 0;
 	
 	-webkit-box-shadow: none;
     box-shadow: none;
@@ -1046,6 +1045,71 @@
 
 
 
+
+/* jQuery UI */
+#build {
+	border: 0;
+	background: none;
+	padding: 0;
+	
+	/* Border radius */
+	-webkit-border-radius: 0;
+    border-radius: 0;
+}
+
+#build ul {
+	padding: 0;
+	list-style: none;
+	background: none;
+	border: 0;
+	
+	/* Border radius */
+	-webkit-border-radius: 0;
+    border-radius: 0;
+}
+
+#build ul li {
+	padding: 0;
+	margin: 0;
+	background: 0;
+	border: 0;
+	width: 32px;
+	
+	/* Border radius */
+	-webkit-border-radius: 0;
+    border-radius: 0;
+}
+
+#build ul li a {
+	padding: 0;
+	margin: 0;
+	cursor: pointer;
+	width: 32px;
+	height: 32px;
+	overflow: hidden;
+	background-position: left;
+}
+
+#build ul li a.character {
+	background: url("../images/menu/character.png");
+}
+
+#build ul li a.traits {
+	background: url("../images/menu/traits.png");
+}
+
+#build ul li a.story {
+	background: url("../images/menu/story.png");
+}
+
+#build ul li a.social {
+	background: url("../images/menu/social.png");
+}
+
+#build ul li a:hover,
+#build ul li.ui-tabs-active a {
+	background-position: right;
+}
 
 
 

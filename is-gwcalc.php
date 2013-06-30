@@ -134,25 +134,17 @@ function display_func(){
 	 	<div id="build" style="float:left;width:80%">
 	 		<ul class="build_navigation" style="float: left">
 				<li class="character">
-					<a href="#character">
-						C
-					</a>
+					<a href="#character" class="character"></a>
 				</li>
 				<li class="traits">
-					<a href="#traits">
-						T
-					</a>
+					<a href="#traits" class="traits"></a>
 				</li>
-				<!--li class="story">
-					<a href="#user_profile">
-						User Profile
-					</a>
+				<li class="story">
+					<a href="#story" class="story"></a>
 				</li>
-				<li class="character">
-					<a href="#achievements">
-						Achievements
-					</a>
-				</li-->
+				<li class="social">
+					<a href="#social" class="social"></a>
+				</li>
 			</ul>
 			
 			<div class="build_container">
@@ -162,6 +154,14 @@ function display_func(){
 				
 				<div id="traits">
 					<?php include('traits.php') ?>
+				</div>
+				
+				<div id="story">
+					<?php include('story.php') ?>
+				</div>
+				
+				<div id="social">
+					<?php include('social.php') ?>
 				</div>
 			</div>
 	 	</div> 
