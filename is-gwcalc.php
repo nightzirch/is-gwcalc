@@ -176,6 +176,7 @@ function display_func(){
 				<div id="social">
 					<?php include('social.php') ?>
 				</div>
+				<span class="gradient-line gradient-right line-bottom"></span>
 			</div>
 	 	</div> 
 

@@ -1,27 +1,27 @@
 <div id="gear">
 	<!--h2>Armor & Runes</h2-->
 	<div class="armor">
-		<div class="armor_img"><img src="<?php echo plugin_dir_url(__FILE__);?>images/armor_head.jpg" /></div>
+		<div class="armor_img"><img src="<?php echo plugin_dir_url(__FILE__);?>images/armor/helmet.png" /></div>
 		<div id="rune1" onClick="runePicker('1')" class="empty-slot"></div>
 	</div>
 	<div class="armor">
-		<div class="armor_img"><img src="<?php echo plugin_dir_url(__FILE__);?>images/armor_shoulders.jpg" /></div>
+		<div class="armor_img"><img src="<?php echo plugin_dir_url(__FILE__);?>images/armor/shoulders.png" /></div>
 		<div id="rune2" class="empty-slot" onClick="runePicker('2')"></div>
 	</div>
 	<div class="armor">
-		<div class="armor_img"><img src="<?php echo plugin_dir_url(__FILE__);?>images/armor_chest.jpg" /></div>
+		<div class="armor_img"><img src="<?php echo plugin_dir_url(__FILE__);?>images/armor/chest.png" /></div>
 		<div id="rune3" onClick="runePicker('3')" class="empty-slot"></div>
 	</div>
 	<div class="armor">
-		<div class="armor_img"><img src="<?php echo plugin_dir_url(__FILE__);?>images/armor_gloves.jpg" /></div>
+		<div class="armor_img"><img src="<?php echo plugin_dir_url(__FILE__);?>images/armor/gloves.png" /></div>
 		<div id="rune4" onClick="runePicker('4')" class="empty-slot"></div>
 	</div>
 	<div class="armor">
-		<div class="armor_img"><img src="<?php echo plugin_dir_url(__FILE__);?>images/armor_legs.jpg" /></div>
+		<div class="armor_img"><img src="<?php echo plugin_dir_url(__FILE__);?>images/armor/leggings.png" /></div>
 		<div id="rune5" onClick="runePicker('5')" class="empty-slot"></div>
 	</div>
 	<div class="armor">
-		<div class="armor_img"><img src="<?php echo plugin_dir_url(__FILE__);?>images/armor_feet.jpg" /></div>
+		<div class="armor_img"><img src="<?php echo plugin_dir_url(__FILE__);?>images/armor/boots.png" /></div>
 		<div id="rune6" onClick="runePicker('6')" class="empty-slot"></div>
 	</div>
 
@@ -157,8 +157,6 @@
 				<div id="sigil_offhand1" onClick="sigilPicker('offhand','1')" class="empty-slot"></div>
 			</div>
 		</div>
-		
-		<div style="clear:both;"></div>
 	</div>
 	
 
