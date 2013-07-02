@@ -254,7 +254,7 @@
 		<div class="vitals">
 			<img class="endurance" src="<?php echo plugin_dir_url(__FILE__);?>/images/endurance.png" />
 			<div class="health">
-				<span><?php echo $profession->health+916*10; ?></span>
+				<span data-bind="text: attributeHealth"></span>
 			</div>
 		</div>
 		

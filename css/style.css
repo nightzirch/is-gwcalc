@@ -133,6 +133,12 @@
 	width: 50%;
 }
 
+#isgw2calc .att span.value {
+	margin-top: 7px;
+	vertical-align: top;
+	display: inline-block;
+}
+
 #isgw2calc #display table {
 	width: 100%;
 }
@@ -140,6 +146,11 @@
 #isgw2calc #display table tr
 {
 	font-size: 13px;
+}
+
+#isgw2calc #display table tr:nth-child(even)
+{
+	background: rgba(255,255,255,.1);
 }
 
 #isgw2calc #sigils
@@ -598,147 +609,104 @@
 	text-align: center;
 }
 
-.traits-criticaldamage 
-{
-	width: 27px;
-	height: 27px;
-	background: transparent url(../images/interface_stats_sheet.png) 0px 0px no-repeat;
+.traits_iconcontainer span {
+	width: 32px;
+	height: 32px;
+	margin: -1px 0 -3px;
 	display: inline-block;
-
+	background-image: url('../images/attributes/attributes.png');
 }
 
-.traits-boonduration
-{
-	width: 27px;
-	height: 27px;
-	background: transparent url(../images/interface_stats_sheet.png) -30px 0px no-repeat;
-	display: inline-block;
-
+.traits-agonyresistance {
+	background-position: 0px 0px;
 }
 
-.traits-power 
-{
-	width: 27px;
-	height: 27px;
-	background: transparent url(../images/interface_stats_sheet.png) -60px 0px no-repeat;
-	display: inline-block;
-
+.traits-armor {
+	background-position: -32px 0px;
 }
 
-.traits-vitality 
-{
-	width: 27px;
-	height: 27px;
-	background: transparent url(../images/interface_stats_sheet.png) -89px 0px no-repeat;
-	display: inline-block;
-
+.traits-attack {
+	background-position: -64px 0px;
 }
 
-.traits-healingpower 
-{
-	width: 27px;
-	height: 27px;
-	background: transparent url(../images/interface_stats_sheet.png) -233px -29px no-repeat;
-	display: inline-block;
-
+.traits-boonduration {
+	background-position: -96px 0px;
 }
 
-.traits-stealrechargerate 
-{
-	width: 27px;
-	height: 27px;
-	background: transparent url(../images/interface_stats_sheet.png) -145px 0px no-repeat;
-	display: inline-block;
-
+.traits-conditiondamage {
+	background-position: -128px 0px;
 }
 
-.traits-shreddingrechargerate
-{
-	width: 27px;
-	height: 27px;
-	background: transparent url(../images/interface_stats_sheet.png) -174px 0px no-repeat;
-	display: inline-block;
+.traits-conditionduration {
+	background-position: -32px 0px;
 }
 
-.traits-virtuerechargerate
-{
-	width: 27px;
-	height: 27px;
-	background: transparent url(../images/interface_stats_sheet.png) -203px 0px no-repeat;
-	display: inline-block;
+.traits-criticalchance {
+	background-position: -32px -32px;
 }
 
-.traits-toughness
-{
-	width: 27px;
-	height: 27px;
-	background: transparent url(../images/interface_stats_sheet.png) -234px 0px no-repeat;
-	display: inline-block;
+.traits-criticaldamage {
+	background-position: -64px -32px;
 }
 
-.traits-conditiondamage
-{
-	width: 27px;
-	height: 27px;
-	background: transparent url(../images/interface_stats_sheet.png) -30px -29px no-repeat;
-	display: inline-block;
+.traits-elementalist {
+	background-position: -96px -32px;
 }
 
-.traits-conditionduration
-{
-	width: 27px;
-	height: 27px;
-	background: transparent url(../images/interface_stats_sheet.png) 0px -29px no-repeat;
-	display: inline-block;
+.traits-engineer {
+	background-position: -128px -32px;
 }
 
-.traits-attunementrechargerate
-{
-	width: 27px;
-	height: 27px;
-	background: transparent url(../images/interface_stats_sheet.png) -60px -29px no-repeat;
-	display: inline-block;
+.traits-guardian {
+	background-position: 0px -64px;
 }
 
-.traits-precision
-{
-	width: 27px;
-	height: 27px;
-	background: transparent url(../images/interface_stats_sheet.png) -89px -29px no-repeat;
-	display: inline-block;
-
+.traits-healingpower {
+	background-position: -32px -64px;
 }
 
-.traits-petattributebonus
-{
-	width: 27px;
-	height: 27px;
-	background: transparent url(../images/interface_stats_sheet.png) -114px -29px no-repeat;
-	display: inline-block;
+.traits-health {
+	background-position: -64px -64px;
 }
 
-.traits-lifeforcepool
-{
-	width: 27px;
-	height: 27px;
-	background: transparent url(../images/interface_stats_sheet.png) -146px -29px no-repeat;
-	display: inline-block;
+.traits-magicfind {
+	background-position: -96px -64px;
 }
 
-.traits-burstdamage
-{
-	width: 27px;
-	height: 27px;
-	background: transparent url(../images/interface_stats_sheet.png) -180px -29px no-repeat;
-	display: inline-block;
+.traits-mesmer {
+	background-position: -128px -64px;
 }
 
-.traits-toolbeltrechargerate
-{
-	width: 27px;
-	height: 27px;
-	background: transparent url(../images/interface_stats_sheet.png) -208px -29px no-repeat;
-	display: inline-block;
+.traits-necromancer {
+	background-position: 0px -96px;
+}
+
+.traits-power {
+	background-position: -32px -96px;
+}
+
+.traits-precision {
+	background-position: -64px -96px;
+}
+
+.traits-ranger {
+	background-position: -96px -96px;
+}
+
+.traits-thief {
+	background-position: -128px -96px;
+}
+
+.traits-toughness {
+	background-position: 0px -128px;
+}
+
+.traits-vitality {
+	background-position: -32px -128px;
+}
+
+.traits-warrior {
+	background-position: -64px -128px;
 }
 
 
@@ -820,8 +788,8 @@
 .traits_iconcontainer
 {
 	position: relative;
-	height: 28px;
-	width: 28px;
+	height: 26px;
+	width: 32px;
 	margin-right: 3px;
 	display: inline-block;
 }

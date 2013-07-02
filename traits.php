@@ -3,7 +3,7 @@
 				<div stlye="float:left;"><span id="trait_points_left">70</span> <span style="margin-left:5px;width: 57px;height: 24px;display: block;font-size: 9px;float: right;margin-top: 7px;">unspent trait points</span></div>
 			</div>
 			<div style="clear:both;"></div>
-			<div class="<?php echo strtolower($profession->name).'-traits' ?>">
+			<div class="<?php echo strtolower($args['class']).'-traits' ?>">
 		 		<?php $i = 1;foreach ($traitLines as $line) { ?>   
 
 		 		<div id="<?php echo 'traits-'.$i; ?>">

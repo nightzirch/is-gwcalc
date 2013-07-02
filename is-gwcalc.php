@@ -83,14 +83,14 @@ function display_func(){
 	$table_orbs = $wpdb->prefix . "isgw2calc_orbs";
 	$query = "SELECT * FROM $table_orbs";	
 	$orbs = $wpdb->get_results($query);
-
+	
 	//if class variable is set
 	if (isset($args['class']))
 	{
 
 		//get current profession
 		$query = "SELECT * FROM $table_class WHERE name ='".$args['class']."'";	
-		$profession = $wpdb->get_row($query);
+		$profession = $wpdb->get_results($query);
 
 		//get weapons
 		$table_weapons = $wpdb->prefix . "isgw2calc_weapons";
@@ -105,16 +105,19 @@ function display_func(){
 		//get skills
 	}
 	
-	wp_enqueue_script( 'gw2calc', plugins_url( 'js/script.js', __FILE__ )); 
+	wp_enqueue_script( 'knockout', plugins_url( 'js/lib/knockout-2.2.1.js', __FILE__)); 
+	
+	wp_enqueue_script( 'gw2calc', plugins_url( 'js/script.js', __FILE__ ), array('knockout')); 
 	wp_localize_script('gw2calc', 'professions', $classes);
+	wp_localize_script('gw2calc', 'currentProfession', $profession);
+	wp_localize_script('gw2calc', 'currentProfessionName', $args['class']);
 	wp_localize_script('gw2calc', 'weapons', $weapons);
 	wp_localize_script('gw2calc', 'trinkets', $trinkets);
 	wp_localize_script('gw2calc', 'orbs', $orbs);
 	wp_localize_script('gw2calc', 'runes', $runes);
 	wp_localize_script('gw2calc', 'sigils', $sigils);
-	wp_localize_script('gw2calc', 'profes', $args['class']);
-	wp_localize_script( 'gw2calc', 'plg_url', plugin_dir_url(__FILE__) );
-
+	wp_localize_script('gw2calc', 'pluginUrl', plugin_dir_url(__FILE__) );
+	
 	ob_start();
 	/// HTML START //////////////////////
 	?> 

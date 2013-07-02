@@ -5,13 +5,13 @@
 			<div class="traits_iconcontainer">
 				<span class="traits-power"></span>
 			</div>
-			<span id="power" class="value">916</span>
+			<span class="value" data-bind="text: attributePower"></span>
 		</td>
 		<td class="att">
 			<div class="traits_iconcontainer">
-				<span class="traits-damage"></span>
+				<span class="traits-attack"></span>
 			</div>
-			<span id="damage" class="value">0%</span>
+			<span class="value" data-bind="text: attributeAttack"></span>
 		</td>
 	</tr>
 	
@@ -20,13 +20,13 @@
 			<div class="traits_iconcontainer">
 				<span class="traits-precision"></span>
 			</div>
-			<span id="precision" class="value">916</span>
+			<span class="value" data-bind="text: attributePrecision"></span>
 		</td>
 		<td class="att">
 			<div class="traits_iconcontainer">
 				<span class="traits-criticalchance"></span>
 			</div>
-			<span id="criticalchance" class="value"><?php echo round((916 - 822) / 21).'%'; ?></span>
+			<span class="value" data-bind="text: attributeCriticalChance"></span>
 		</td>
 	</tr>
 	
@@ -35,13 +35,13 @@
 			<div class="traits_iconcontainer">
 				<span class="traits-toughness"></span>
 			</div>
-			<span id="toughness" class="value">916</span>
+			<span class="value" data-bind="text: attributeToughness"></span>
 		</td>
 		<td class="att">
 			<div class="traits_iconcontainer">
 				<span class="traits-armor"></span>
 			</div>
-			<span id="armor" class="value"><?php echo $profession->armor; ?></span>
+			<span class="value" data-bind="text: attributeArmor"></span>
 		</td>
 	</tr>
 	
@@ -50,13 +50,13 @@
 			<div class="traits_iconcontainer">
 				<span class="traits-vitality"></span>
 			</div>
-			<span id="vitality" class="value">916</span>
+			<span class="value" data-bind="text: attributeVitality"></span>
 		</td>
 		<td class="att">
 			<div class="traits_iconcontainer">
 				<span class="traits-health"></span>
 			</div>
-			<span id="health" class="value"><?php echo $profession->health+916*10; ?></span>
+			<span class="value" data-bind="text: attributeHealth"></span>
 		</td>
 	</tr>
 	
@@ -65,13 +65,13 @@
 			<div class="traits_iconcontainer">
 				<span class="traits-conditiondamage"></span>
 			</div>
-			<span id="conditiondamage" class="value">0</span>
+			<span class="value" data-bind="text: attributeConditionDamage"></span>
 		</td>
 		<td class="att">
 			<div class="traits_iconcontainer">
 				<span class="traits-conditionduration"></span>
 			</div>
-			<span id="conditionduration" class="value">0%</span>
+			<span class="value" data-bind="text: attributeConditionDuration"></span>
 		</td>
 	</tr>
 	
@@ -80,13 +80,13 @@
 			<div class="traits_iconcontainer">
 				<span class="traits-boonduration"></span>
 			</div>
-			<span id="boonduration" class="value">0%</span>
+			<span class="value" data-bind="text: attributeBoonDuration"></span>
 		</td>
 		<td class="att">
 			<div class="traits_iconcontainer">
 				<span class="traits-healingpower"></span>
 			</div>
-			<span id="healingpower" class="value">0</span>
+			<span class="value" data-bind="text: attributeHealingPower"></span>
 		</td>
 	</tr>
 	
@@ -95,13 +95,13 @@
 			<div class="traits_iconcontainer">
 				<span class="traits-criticaldamage"></span>
 			</div>
-			<span id="criticaldamage" class="value">0%</span>
+			<span class="value" data-bind="text: attributeCriticalDamage"></span>
 		</td>
 		<td class="att">
 			<div class="traits_iconcontainer">
-				<span class="traits-class"></span>
+				<span class="traits-profession"></span>
 			</div>
-			<span id="class" class="value">0%</span>
+			<span class="value" data-bind="text: attributeProfession"></span>
 		</td>
 	</tr>
 
