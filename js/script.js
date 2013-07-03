@@ -152,8 +152,7 @@ var ml = {
 			var health = baseHealth + vitality;
 			
 			// Applies spacing between letters to format the number
-			// Deactivated cus of a bug :/
-			//health = ml.general.dotify(health, " ");
+			// health = ml.general.dotify(health.toString(), " ");
 			
 			return health;
 		});

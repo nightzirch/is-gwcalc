@@ -90,7 +90,8 @@ function display_func(){
 
 		//get current profession
 		$query = "SELECT * FROM $table_class WHERE name ='".$args['class']."'";	
-		$profession = $wpdb->get_results($query);
+		$profession = $wpdb->get_row($query);
+		$currentProfession = $wpdb->get_results($query);
 
 		//get weapons
 		$table_weapons = $wpdb->prefix . "isgw2calc_weapons";
@@ -109,7 +110,7 @@ function display_func(){
 	
 	wp_enqueue_script( 'gw2calc', plugins_url( 'js/script.js', __FILE__ ), array('knockout')); 
 	wp_localize_script('gw2calc', 'professions', $classes);
-	wp_localize_script('gw2calc', 'currentProfession', $profession);
+	wp_localize_script('gw2calc', 'currentProfession', $currentProfession);
 	wp_localize_script('gw2calc', 'currentProfessionName', $args['class']);
 	wp_localize_script('gw2calc', 'weapons', $weapons);
 	wp_localize_script('gw2calc', 'trinkets', $trinkets);

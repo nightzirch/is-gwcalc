@@ -93,10 +93,108 @@
 	min-height: 500px;
 }
 
+#isgw2calc .armorAccessoryContainer {
+	float: left;
+	width: 60px;
+}
+
+#isgw2calc .selectionAreaContainer {
+	overflow: hidden;
+	height: 425px;
+}
+
+#isgw2calc .selectionArea {
+	height: 100%;
+	background: rgba(255,255,255,.1);
+}
+
+#isgw2calc .selectionArea .activeArrow {
+	display: none;
+}
+
+#isgw2calc .selectionArea .activeVertical {
+	width: 20px;
+	height: 60px; 
+	background: url('../images/menu/selectionAreaVertical.png');
+}
+
+#isgw2calc .selectionArea .activeHorizontal {
+	width: 60px;
+	height: 20px; 
+	background: url('../images/menu/selectionAreaHorizontal.png');
+	margin-top: 405px;
+}
+
+#isgw2calc .selectionArea.activeHead .activeVertical,
+#isgw2calc .selectionArea.activeShoulders .activeVertical,
+#isgw2calc .selectionArea.activeChest .activeVertical,
+#isgw2calc .selectionArea.activeHead .activeVertical,
+#isgw2calc .selectionArea.activeGloves .activeVertical,
+#isgw2calc .selectionArea.activeLeggings .activeVertical,
+#isgw2calc .selectionArea.activeBoots .activeVertical,
+#isgw2calc .selectionArea.activeAccessory .activeVertical {
+	display: block;
+}
+
+#isgw2calc .selectionArea.activeMain1 .activeHorizontal,
+#isgw2calc .selectionArea.activeOff1 .activeHorizontal,
+#isgw2calc .selectionArea.activeMain2 .activeHorizontal,
+#isgw2calc .selectionArea.activeOff2 .activeHorizontal,
+#isgw2calc .selectionArea.activeWaterMain1 .activeHorizontal,
+#isgw2calc .selectionArea.activeWaterOff1 .activeHorizontal,
+#isgw2calc .selectionArea.activeWaterMain2 .activeHorizontal,
+#isgw2calc .selectionArea.activeWaterOff2 .activeHorizontal {
+	display: block;
+}
+
+#isgw2calc .selectionArea.activeHead .activeVertical {
+	margin-top: 0px;
+}
+
+#isgw2calc .selectionArea.activeShoulders .activeVertical {
+	margin-top: 60px;
+}
+
+#isgw2calc .selectionArea.activeChest .activeVertical {
+	margin-top: 120px;
+}
+
+#isgw2calc .selectionArea.activeGloves .activeVertical {
+	margin-top: 180px;
+}
+
+#isgw2calc .selectionArea.activeLeggings .activeVertical {
+	margin-top: 240px;
+}
+
+#isgw2calc .selectionArea.activeBoots .activeVertical {
+	margin-top: 300px;
+}
+
+#isgw2calc .selectionArea.activeAccessory .activeVertical {
+	margin-top: 360px;
+}
+
+#isgw2calc .selectionArea.activeMain1 .activeHorizontal {
+	margin-left: 21px;
+}
+
+#isgw2calc .selectionArea.activeOff1 .activeHorizontal {
+	margin-left: 101px;
+}
+
+#isgw2calc .selectionArea.activeMain2 .activeHorizontal {
+	margin-left: 209px;
+}
+
+#isgw2calc .selectionArea.activeOff2 .activeHorizontal {
+	margin-left: 289px;
+}
+
 #isgw2calc #weapons
 {
 	display: block;
-	margin-top: 20px;
+	margin-left: 81px;
 	float: left;
 }
 
@@ -107,11 +205,8 @@
 
 #isgw2calc #gear
 {
-
-	width:100%;
-	
 	display: block;
-
+	overflow: hidden;
 }
 
 #isgw2calc #runes
@@ -124,7 +219,7 @@
 {
 	overflow: hidden;
 	display: block;
-	margin-top: 10px;
+	margin-top: -5px;
 }
 
 
@@ -175,6 +270,13 @@
 	border: solid 1px #000;
 	background-color: rgba(0,0,0,.75);
 	cursor: pointer;
+	visibility: hidden;
+}
+
+#isgw2calc div:hover > .empty-slot,
+#isgw2calc div:hover > div.sigils > .empty-slot,
+#isgw2calc .empty-slot:hover {
+	visibility: visible;
 }
 
 #isgw2calc .empty-slot:hover
@@ -273,7 +375,9 @@
 
 #isgw2calc .weapon_pick:hover
 {
-	border:1px solid #e29653; 
+	/*border: 2px solid #e29653;
+	margin: -2px;*/
+	
 }
 
 
@@ -638,7 +742,7 @@
 }
 
 .traits-conditionduration {
-	background-position: -32px 0px;
+	background-position: 0px -32px;
 }
 
 .traits-criticalchance {
