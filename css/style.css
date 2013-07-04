@@ -106,6 +106,11 @@
 #isgw2calc .selectionArea {
 	height: 100%;
 	background: rgba(255,255,255,.1);
+	border: none;
+	
+	/* Border radius */
+	-webkit-border-radius: 0;
+    border-radius: 0;
 }
 
 #isgw2calc .selectionArea .activeArrow {
@@ -134,6 +139,7 @@
 #isgw2calc .selectionArea.activeBoots .activeVertical,
 #isgw2calc .selectionArea.activeAccessory .activeVertical {
 	display: block;
+	float: left;
 }
 
 #isgw2calc .selectionArea.activeMain1 .activeHorizontal,
@@ -145,6 +151,7 @@
 #isgw2calc .selectionArea.activeWaterMain2 .activeHorizontal,
 #isgw2calc .selectionArea.activeWaterOff2 .activeHorizontal {
 	display: block;
+	float: left;
 }
 
 #isgw2calc .selectionArea.activeHead .activeVertical {
@@ -190,6 +197,48 @@
 #isgw2calc .selectionArea.activeOff2 .activeHorizontal {
 	margin-left: 289px;
 }
+
+#isgw2calc .selectionArea .selectionAreaNav {
+	display: table;
+	margin: 0 auto;
+}
+
+#isgw2calc .selectionArea .selectionAreaNav li {
+	margin: 0;
+	padding: 0;
+	width: 32px;
+	height: 40px;
+	border: none;
+	background: none;
+}
+
+#isgw2calc .selectionArea .selectionAreaNav li a {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	background-position: left;
+}
+
+#isgw2calc .selectionArea .selectionAreaNav li a:hover,
+#isgw2calc .selectionArea .selectionAreaNav li.ui-tabs-active a {
+	background-position: right;
+}
+
+#isgw2calc .selectionArea .selectionAreaNav li a.selectionAreaRunes {
+	background-image: url('../images/menu/selectionAreaCombat.png');
+}
+
+#isgw2calc .selectionArea .selectionAreaNav li a.selectionAreaSigils {
+	background-image: url('../images/menu/selectionAreaCombat.png');
+}
+
+#isgw2calc .selectionArea .selectionAreaNav li a.selectionAreaCosmetic {
+	background-image: url('../images/menu/selectionAreaCosmetic.png');
+}
+
+
+
 
 #isgw2calc #weapons
 {
@@ -262,13 +311,13 @@
 
 #isgw2calc .empty-slot
 {
-	margin: 23px 0 5px -32px;
+	margin: 18px 0 5px -37px;
+	padding: 1px;
 	width:30px;
 	height:30px;
 	float:left;
 	display:block;
-	border: solid 1px #000;
-	background-color: rgba(0,0,0,.75);
+	background-color: rgba(0,0,0,.5);
 	cursor: pointer;
 	visibility: hidden;
 }
@@ -282,12 +331,15 @@
 #isgw2calc .empty-slot:hover
 {
 	border: solid 1px #e29653;
+	padding: 0;
+	background-color: rgba(0,0,0,.75);
 }
 
 #isgw2calc .armor
 {
 	width:90px;
-	margin: 5px;
+	margin: 5px 0;
+	overflow: hidden;
 }
 
 #isgw2calc .weapon

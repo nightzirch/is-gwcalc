@@ -26,6 +26,7 @@ var ml = {
 		
 		// Initialize tabs
 		$("#build").tabs();
+		$(".selectionArea").tabs();
 		
 		// Changes the profession attribute icon
 		ml.ops.attributeProfession();
