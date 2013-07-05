@@ -106,9 +106,10 @@ function display_func(){
 		//get skills
 	}
 	
-	wp_enqueue_script( 'knockout', plugins_url( 'js/lib/knockout-2.2.1.js', __FILE__)); 
+	wp_enqueue_script( 'knockout', plugins_url( 'js/lib/knockout-2.2.1.js', __FILE__));
+	wp_enqueue_script( 'jquery_slider', plugins_url( 'js/lib/jquery.sbscroller.js', __FILE__));
 	
-	wp_enqueue_script( 'gw2calc', plugins_url( 'js/script.js', __FILE__ ), array('knockout')); 
+	wp_enqueue_script( 'gw2calc', plugins_url( 'js/script.js', __FILE__ ), array('knockout', 'jquery')); 
 	wp_localize_script('gw2calc', 'professions', $classes);
 	wp_localize_script('gw2calc', 'currentProfession', $currentProfession);
 	wp_localize_script('gw2calc', 'currentProfessionName', $args['class']);

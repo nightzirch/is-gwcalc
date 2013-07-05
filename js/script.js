@@ -28,6 +28,17 @@ var ml = {
 		$("#build").tabs();
 		$(".selectionArea").tabs();
 		
+		// Initialize the scrollbar and move it up in the DOM
+		$(".selectionAreaContent").sbscroller({
+			handleImage: ml.obj.pluginUrl + 'images/scrollbar/handleImage-16x32.png',
+			handleTopImage: ml.obj.pluginUrl + 'images/scrollbar/handleTopImage-16x9.png',
+			handleBottomImage: ml.obj.pluginUrl + 'images/scrollbar/handleBottomImage-16x9.png',
+			handleGripImage: ml.obj.pluginUrl + 'images/scrollbar/handleGripImage-16x8.png'
+		});
+		
+		var sliderWrap = $(".slider-wrap");
+		sliderWrap.parent().parent().append(sliderWrap);
+		
 		// Changes the profession attribute icon
 		ml.ops.attributeProfession();
 	},
@@ -157,6 +168,11 @@ var ml = {
 			
 			return health;
 		});
+	},
+	
+	// Slider
+	slider: function() {
+		
 	}
 }
 	

@@ -107,6 +107,7 @@
 	height: 100%;
 	background: rgba(255,255,255,.1);
 	border: none;
+	padding-right: 0;
 	
 	/* Border radius */
 	-webkit-border-radius: 0;
@@ -237,7 +238,9 @@
 	background-image: url('../images/menu/selectionAreaCosmetic.png');
 }
 
-
+#isgw2calc .selectionArea .selectionAreaContent {
+	height: 385px;
+}
 
 
 #isgw2calc #weapons
@@ -1309,6 +1312,103 @@
 #build ul li.ui-tabs-active span.color-fill {
 	display: block;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.scroll-content {
+	position: absolute;
+	top: 10px;
+	left: 0;
+	padding-right: 16px;
+}
+
+.scroll-pane {
+	position: relative;
+}
+
+.slider-wrap {
+	position: absolute;
+	right: 0;
+	top: 0;
+	margin-top: 36px;
+	width: 16px;
+	background: url('../images/scrollbar/pathImage.png');
+	background-position-x: -4px;
+}
+
+.slider-vertical {
+	position: relative;
+	height: 100%;
+	border: 0;
+	background: none;
+	
+	/* Border radius */
+	-webkit-border-radius: 0;
+    border-radius: 0;
+}
+
+.ui-slider-handle {
+	width: 16px !important;
+	height: 10px;
+	margin: 0 auto;
+	display: block;
+	position: absolute;
+	border: 0 !important;
+	background-color: none !important;
+}
+
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+	background: none;
+}
+
+.ui-slider-handle img {
+	border: none;
+	max-width: 16px;
+}
+
+.scrollbar-top {
+	position: absolute;
+	top: 0;
+	margin-top: -9px;
+}
+
+.scrollbar-bottom {
+	position: absolute;
+	bottom: 0;
+	margin-bottom: -9px;
+}
+
+.scrollbar-grip {
+	position: absolute;
+	top:50%;
+	width: 16px;
+}
+
+
+
+
+
+
+
 
 
 
