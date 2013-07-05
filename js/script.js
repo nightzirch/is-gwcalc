@@ -35,9 +35,11 @@ var ml = {
 			handleBottomImage: ml.obj.pluginUrl + 'images/scrollbar/handleBottomImage-16x9.png',
 			handleGripImage: ml.obj.pluginUrl + 'images/scrollbar/handleGripImage-16x8.png'
 		});
-		
 		var sliderWrap = $(".slider-wrap");
 		sliderWrap.parent().parent().append(sliderWrap);
+		
+		// Calling all the listeners
+		ml.listener.all();
 		
 		// Changes the profession attribute icon
 		ml.ops.attributeProfession();
@@ -101,6 +103,19 @@ var ml = {
 			arr.reverse();
 			str = arr.join("");
 			return str;
+		}
+	},
+	
+	// Listeners
+	listener: {
+		all: function() {
+			// Refresh the scroll
+			ml.listener.scrollRefresh();
+		},
+		scrollRefresh: function() {
+			$('.selectionAreaNav li a').bind('click', function(e) {
+				$('.selectionAreaContent').sbscroller('refresh');
+			});
 		}
 	},
 	
