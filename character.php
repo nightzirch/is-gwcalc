@@ -1,134 +1,40 @@
 <div class="armorAccessoryContainer">
 	<div id="gear">
 		<!--h2>Armor & Runes</h2-->
-		<div class="armor">
-			<div class="armor_img"><img src="<?php echo plugin_dir_url(__FILE__);?>images/armor/helmet.png" /></div>
-			<div id="rune1" onClick="runePicker('1')" class="empty-slot"></div>
+		<div class="armor" data-active="activeHelmet">
+			<div class="armor-img armor-slot armor-helmet"></div>
+			<div class="empty-slot rune-slot rune-helmet"></div>
 		</div>
-		<div class="armor">
-			<div class="armor_img"><img src="<?php echo plugin_dir_url(__FILE__);?>images/armor/shoulders.png" /></div>
-			<div id="rune2" class="empty-slot" onClick="runePicker('2')"></div>
+		<div class="armor" data-active="activeShoulders">
+			<div class="armor-img armor-slot armor-shoulders"></div>
+			<div class="empty-slot rune-slot rune-shoulders"></div>
 		</div>
-		<div class="armor">
-			<div class="armor_img"><img src="<?php echo plugin_dir_url(__FILE__);?>images/armor/chest.png" /></div>
-			<div id="rune3" onClick="runePicker('3')" class="empty-slot"></div>
+		<div class="armor" data-active="activeChest">
+			<div class="armor-img armor-slot armor-chest"></div>
+			<div class="empty-slot rune-slot rune-chest"></div>
 		</div>
-		<div class="armor">
-			<div class="armor_img"><img src="<?php echo plugin_dir_url(__FILE__);?>images/armor/gloves.png" /></div>
-			<div id="rune4" onClick="runePicker('4')" class="empty-slot"></div>
+		<div class="armor" data-active="activeGloves">
+			<div class="armor-img armor-slot armor-gloves"></div>
+			<div class="empty-slot rune-slot rune-gloves"></div>
 		</div>
-		<div class="armor">
-			<div class="armor_img"><img src="<?php echo plugin_dir_url(__FILE__);?>images/armor/leggings.png" /></div>
-			<div id="rune5" onClick="runePicker('5')" class="empty-slot"></div>
+		<div class="armor" data-active="activeLeggings">
+			<div class="armor-img armor-slot armor-leggings"></div>
+			<div class="empty-slot rune-slot rune-leggings"></div>
 		</div>
-		<div class="armor">
-			<div class="armor_img"><img src="<?php echo plugin_dir_url(__FILE__);?>images/armor/boots.png" /></div>
-			<div id="rune6" onClick="runePicker('6')" class="empty-slot"></div>
+		<div class="armor" data-active="activeBoots">
+			<div class="armor-img armor-slot armor-boots"></div>
+			<div class="empty-slot rune-slot rune-boots"></div>
 		</div>
-	
-		<div id="runes" title="Runes" class="dialog" style="display:none"> 
-			<div id="rune_accordion">
-			<?php foreach ($rune_types as $k) { ?>
-				<h3><?php echo $rune_keys[$k->type]?></h3>
-				<div>
-			   <?php foreach ($runes as $s) {
-					if ($s->type == $k->type)
-					{ ?>
-					<span class="tooltip" >
-						<img style="margin:5px;" onClick="runePick('<?php echo $s->id; ?>')" src="<?php echo plugin_dir_url(__FILE__); ?>images/runes/<?php echo $s->id?>.jpg" />
-						<div class="tooltip_frame">
-							<div class="tooltip_title">
-									<img style="float:left"src="<?php echo plugin_dir_url(__FILE__); ?>images/runes/<?php echo $s->id?>.jpg"/><span style="padding-left:5px;font-size:11px;"><?php echo $s->name?></span>
-							</div>
-							<div style="clear:both;"></div>
-							<div class="tooltip_description" style="margin-top:8px;">
-								<ul>
-								<?php 
-									$rstats = explode(";", $s->stats);
-									for ($x=0;$x<sizeof($rstats);$x++)				 						
-									{
-										$c = $x+1;
-										echo '<li style="margin:6px 0 6px 0;"><span style="margin-right:5px;">('.$c.')</span><span>'.$rstats[$x].'</span></li>';
-									}
-								?>
-								</ul>
-							</div>
-						</div>
-					</span>
-					<?php } }  ?>
-				</div>
-			<?php } ?>
-			</div>
+		<div class="amulet" data-active="activeAmulet">
+			<div class="armor-img amulet-slot"></div>
+			<div class="empty-slot jewel-slot"></div>
 		</div>
-	</div><!-- Gear -->
-	
-	<div id="accessories">
-		<!--h2>Accessories & Jewels</h2-->
-		<div class="armor">
-			<div id="trinket" onClick="trinketPicker()" class="armor_img"></div>
-			<div id="orb" onClick="orbPicker()" class="empty-slot"></div>
-		</div>
-	
-		<div id="trinket_pick" class="dialog" title="Chose an Amulet" style="display:none;">
-			<?php foreach($trinkets as $t) { ?>
-				<span class="tooltip">
-					<img style="margin:5px;" class="masterTooltip" onClick="trinketPick('<?php echo $t->id; ?>')" src="<?php echo plugin_dir_url(__FILE__); ?>images/trinkets/<?php echo $t->id?>.png" />
-					<div class="tooltip_frame">
-						<div class="tooltip_title">
-							<span style="vertical-align:top;padding:8px 0 8px 0;">
-								<?php echo $t->name?>
-							</span>
-						</div>
-						<div>
-							<ul>
-							<?php $stats = spliti (";", $t->stats);
-								foreach($stats as $s)
-								{
-									echo '<li class="amulet_tip">'.$s.'</li>';
-								}
-	
-							 ?>
-							</ul>
-						</div>
-					</div>
-				</span>
-			<?php } ?>
-		</div>
-	
-		<div id="orb_pick" class="dialog" title="Chose a Orb" style="display:none;">
-			<?php foreach($orbs as $t) { ?>
-				<span class="tooltip" >
-					<img style="margin:5px;" onClick="orbPick('<?php echo $t->id; ?>')" src="<?php echo plugin_dir_url(__FILE__); ?>images/jewels/<?php echo $t->id?>.jpg" />
-					<div class="tooltip_frame">
-						<div class="tooltip_title">
-							<span>
-								<img src="<?php echo plugin_dir_url(__FILE__); ?>images/jewels/<?php echo $t->id?>.jpg"/>
-							</span>
-							<span style="vertical-align:top;padding:8px;">
-								<?php echo $t->name?>
-							</span>
-						</div>
-						<div>
-							<ul>
-							<?php $stats = spliti (";", $t->stats);
-								foreach($stats as $s)
-								{
-									echo '<li class="orb_tip">'.$s.'</li>';
-								}
-	
-							 ?>
-							</ul>
-						</div>
-					</div>
-				</span>
-			<?php } ?>
-		</div>
-	</div> <!-- Accessories -->
+	</div>
 </div> <!-- armorAccessoryContainer -->
 
 
 <div class="selectionAreaContainer">
-	<div class="selectionArea">
+	<div class="selectionArea hide">
 		<div class="activeArrow activeVertical"></div>
 		<div class="activeArrow activeHorizontal"></div>
 		
@@ -158,7 +64,7 @@
 							if ($s->type == $k->type)
 							{ ?>
 								<span class="tooltip" >
-									<img style="margin:5px;" onClick="runePick('<?php echo $s->id; ?>')" src="<?php echo plugin_dir_url(__FILE__); ?>images/runes/<?php echo $s->id?>.jpg" />
+									<img style="margin:5px;" data-id='<?php echo $s->id; ?>' src="<?php echo plugin_dir_url(__FILE__); ?>images/runes/<?php echo $s->id?>.jpg" />
 									<div class="tooltip_frame">
 										<div class="tooltip_title">
 												<img style="float:left"src="<?php echo plugin_dir_url(__FILE__); ?>images/runes/<?php echo $s->id?>.jpg"/><span style="padding-left:5px;font-size:11px;"><?php echo $s->name?></span>
@@ -193,7 +99,7 @@
 							if ($s->type == $k->type)
 							{ ?>
 							<span class="tooltip" >
-								<img style="margin:5px;" onClick="sigilPick('<?php echo $s->id; ?>')" src="<?php echo plugin_dir_url(__FILE__); ?>images/sigils/<?php echo $s->id?>.jpg" />
+								<img style="margin:5px;" data-id='<?php echo $s->id; ?>' src="<?php echo plugin_dir_url(__FILE__); ?>images/sigils/<?php echo $s->id?>.jpg" />
 								<div class="tooltip_frame">
 									<div class="tooltip_title">
 											<img style="float:left"src="<?php echo plugin_dir_url(__FILE__); ?>images/sigils/<?php echo $s->id?>.jpg"/><span style="padding-left:5px;font-size:11px;"><?php echo $s->name?></span>

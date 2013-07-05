@@ -120,7 +120,8 @@
 
 #isgw2calc .selectionArea .activeVertical {
 	width: 20px;
-	height: 60px; 
+	height: 60px;
+	margin-left: -3px;
 	background: url('../images/menu/selectionAreaVertical.png');
 }
 
@@ -131,71 +132,71 @@
 	margin-top: 405px;
 }
 
-#isgw2calc .selectionArea.activeHead .activeVertical,
-#isgw2calc .selectionArea.activeShoulders .activeVertical,
-#isgw2calc .selectionArea.activeChest .activeVertical,
-#isgw2calc .selectionArea.activeHead .activeVertical,
-#isgw2calc .selectionArea.activeGloves .activeVertical,
-#isgw2calc .selectionArea.activeLeggings .activeVertical,
-#isgw2calc .selectionArea.activeBoots .activeVertical,
-#isgw2calc .selectionArea.activeAccessory .activeVertical {
+#isgw2calc .selectionArea[data-active=activeHelmet] .activeVertical,
+#isgw2calc .selectionArea[data-active=activeShoulders] .activeVertical,
+#isgw2calc .selectionArea[data-active=activeChest] .activeVertical,
+#isgw2calc .selectionArea[data-active=activeHead] .activeVertical,
+#isgw2calc .selectionArea[data-active=activeGloves] .activeVertical,
+#isgw2calc .selectionArea[data-active=activeLeggings] .activeVertical,
+#isgw2calc .selectionArea[data-active=activeBoots] .activeVertical,
+#isgw2calc .selectionArea[data-active=activeAmulet] .activeVertical {
 	display: block;
 	float: left;
 }
 
-#isgw2calc .selectionArea.activeMain1 .activeHorizontal,
-#isgw2calc .selectionArea.activeOff1 .activeHorizontal,
-#isgw2calc .selectionArea.activeMain2 .activeHorizontal,
-#isgw2calc .selectionArea.activeOff2 .activeHorizontal,
-#isgw2calc .selectionArea.activeWaterMain1 .activeHorizontal,
-#isgw2calc .selectionArea.activeWaterOff1 .activeHorizontal,
-#isgw2calc .selectionArea.activeWaterMain2 .activeHorizontal,
-#isgw2calc .selectionArea.activeWaterOff2 .activeHorizontal {
+#isgw2calc .selectionArea[data-active=activeMain1] .activeHorizontal,
+#isgw2calc .selectionArea[data-active=activeOff1] .activeHorizontal,
+#isgw2calc .selectionArea[data-active=activeMain2] .activeHorizontal,
+#isgw2calc .selectionArea[data-active=activeOff2] .activeHorizontal,
+#isgw2calc .selectionArea[data-active=activeWaterMain1] .activeHorizontal,
+#isgw2calc .selectionArea[data-active=activeWaterOff1] .activeHorizontal,
+#isgw2calc .selectionArea[data-active=activeWaterMain2] .activeHorizontal,
+#isgw2calc .selectionArea[data-active=activeWaterOff2] .activeHorizontal {
 	display: block;
 	float: left;
 }
 
-#isgw2calc .selectionArea.activeHead .activeVertical {
-	margin-top: 0px;
+#isgw2calc .selectionArea[data-active=activeHead] .activeVertical {
+	margin-top: -4px;
 }
 
-#isgw2calc .selectionArea.activeShoulders .activeVertical {
-	margin-top: 60px;
+#isgw2calc .selectionArea[data-active=activeShoulders] .activeVertical {
+	margin-top: 52px;
 }
 
-#isgw2calc .selectionArea.activeChest .activeVertical {
-	margin-top: 120px;
+#isgw2calc .selectionArea[data-active=activeChest] .activeVertical {
+	margin-top: 107px;
 }
 
-#isgw2calc .selectionArea.activeGloves .activeVertical {
-	margin-top: 180px;
+#isgw2calc .selectionArea[data-active=activeGloves] .activeVertical {
+	margin-top: 168px;
 }
 
-#isgw2calc .selectionArea.activeLeggings .activeVertical {
-	margin-top: 240px;
+#isgw2calc .selectionArea[data-active=activeLeggings] .activeVertical {
+	margin-top: 217px;
 }
 
-#isgw2calc .selectionArea.activeBoots .activeVertical {
-	margin-top: 300px;
+#isgw2calc .selectionArea[data-active=activeBoots] .activeVertical {
+	margin-top: 272px;
 }
 
-#isgw2calc .selectionArea.activeAccessory .activeVertical {
-	margin-top: 360px;
+#isgw2calc .selectionArea[data-active=activeAmulet] .activeVertical {
+	margin-top: 327px;
 }
 
-#isgw2calc .selectionArea.activeMain1 .activeHorizontal {
+#isgw2calc .selectionArea[data-active=activeMain1] .activeHorizontal {
 	margin-left: 21px;
 }
 
-#isgw2calc .selectionArea.activeOff1 .activeHorizontal {
+#isgw2calc .selectionArea[data-active=activeOff1] .activeHorizontal {
 	margin-left: 101px;
 }
 
-#isgw2calc .selectionArea.activeMain2 .activeHorizontal {
+#isgw2calc .selectionArea[data-active=activeMain2] .activeHorizontal {
 	margin-left: 209px;
 }
 
-#isgw2calc .selectionArea.activeOff2 .activeHorizontal {
+#isgw2calc .selectionArea[data-active=activeOff2] .activeHorizontal {
 	margin-left: 289px;
 }
 
@@ -315,16 +316,16 @@
 #isgw2calc .empty-slot
 {
 	margin: 18px 0 5px -37px;
-	padding: 1px;
 	width:30px;
 	height:30px;
 	float:left;
 	display:block;
-	background-color: rgba(0,0,0,.5);
 	cursor: pointer;
+/*	background-color: rgba(0,0,0,.5);
 	visibility: hidden;
+*/
 }
-
+/*
 #isgw2calc div:hover > .empty-slot,
 #isgw2calc div:hover > div.sigils > .empty-slot,
 #isgw2calc .empty-slot:hover {
@@ -336,11 +337,13 @@
 	border: solid 1px #e29653;
 	padding: 0;
 	background-color: rgba(0,0,0,.75);
-}
+}*/
 
-#isgw2calc .armor
+#isgw2calc .armor,
+#isgw2calc .amulet
 {
-	width:90px;
+	width: 50px;
+	height: 50px;
 	margin: 5px 0;
 	overflow: hidden;
 }
@@ -376,12 +379,42 @@
 }
 
 
-#isgw2calc .armor_img
+#isgw2calc .armor-img
 {
 	width:50px;
+	height: 50px;
+	background-size: 50px;
 	float:left;
 	margin-right:5px;
 	cursor: pointer;
+}
+
+#isgw2calc .armor-img.armor-helmet {
+	background-image: url('../images/armor/helmet.png');
+}
+
+#isgw2calc .armor-img.armor-shoulders {
+	background-image: url('../images/armor/shoulders.png');
+}
+
+#isgw2calc .armor-img.armor-chest {
+	background-image: url('../images/armor/chest.png');
+}
+
+#isgw2calc .armor-img.armor-gloves {
+	background-image: url('../images/armor/gloves.png');
+}
+
+#isgw2calc .armor-img.armor-leggings {
+	background-image: url('../images/armor/leggings.png');
+}
+
+#isgw2calc .armor-img.armor-boots {
+	background-image: url('../images/armor/boots.png');
+}
+
+#isgw2calc .armor-img.amulet-slot {
+	background-image: url('../images/amulet/amulet.png');
 }
 
 #isgw2calc .weapon_pick
@@ -1413,3 +1446,10 @@
 
 
 
+.hide {
+	display: none !important;
+}
+
+.show {
+	display: block;
+}

@@ -111,10 +111,40 @@ var ml = {
 		all: function() {
 			// Refresh the scroll
 			ml.listener.scrollRefresh();
+			ml.listener.armorSlot();
+			ml.listener.amuletSlot();
 		},
 		scrollRefresh: function() {
 			$('.selectionAreaNav li a').bind('click', function(e) {
 				$('.selectionAreaContent').sbscroller('refresh');
+			});
+		},
+		armorSlot: function() {
+			$('.armor').bind('click', function(){
+				var dataActive = $(this).attr('data-active');
+				var container = $('.selectionArea');
+				
+				// If container is not visible, make it visible
+				if ($(container).hasClass("hide")) {
+					$(container).removeClass("hide").addClass("show");
+				}
+				
+				// Sets data-active to the clicked armorSlot
+				$(container).attr('data-active', dataActive);
+			});
+		},
+		amuletSlot: function() {
+			$('.amulet').bind('click', function(){
+				var dataActive = $(this).attr('data-active');
+				var container = $('.selectionArea');
+				
+				// If container is not visible, make it visible
+				if ($(container).hasClass("hide")) {
+					$(container).removeClass("hide").addClass("show");
+				}
+				
+				// Sets data-active to the clicked armorSlot
+				$(container).attr('data-active', dataActive);
 			});
 		}
 	},
