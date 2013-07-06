@@ -50,6 +50,8 @@
 					<a href="#selectionAreaCosmetic" class="selectionAreaCosmetic"></a>
 				</li>
 			</ul>
+			
+			<span class="close"></span>
 		</div>
 		
 		

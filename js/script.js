@@ -113,6 +113,8 @@ var ml = {
 			ml.listener.scrollRefresh();
 			ml.listener.armorSlot();
 			ml.listener.amuletSlot();
+			ml.listener.selectionArea.close();
+			ml.listener.selectionArea.rune();
 		},
 		scrollRefresh: function() {
 			$('.selectionAreaNav li a').bind('click', function(e) {
@@ -127,6 +129,16 @@ var ml = {
 				// If container is not visible, make it visible
 				if ($(container).hasClass("hide")) {
 					$(container).removeClass("hide").addClass("show");
+				}
+				
+				// if another armor slot is .active, remove .active
+				// and make this .active
+				if (!$(this).hasClass("active")) {
+					$('.armor.active').removeClass('active');
+					$(this).addClass('active');
+				}
+				else {
+					// Something
 				}
 				
 				// Sets data-active to the clicked armorSlot
@@ -146,6 +158,32 @@ var ml = {
 				// Sets data-active to the clicked armorSlot
 				$(container).attr('data-active', dataActive);
 			});
+		},
+		selectionArea: {
+			close: function() {
+				$('.selectionAreaNavContainer .close').bind('click', function(){
+					ml.ops.selectionArea.close();
+				});
+			},
+			rune: function() {				
+				// Click events
+				$('#selectionAreaRunes img').on('click', function() {
+					var container = $('.selectionArea');
+					var dataActive = $(container).attr("data-active");
+					var activeSlot = $(".armor[data-active=" + dataActive + "]");
+					var runeSlot = $(activeSlot).find(".rune-slot");
+					var dataId = $(this).attr("data-id");
+					
+					$(runeSlot).attr('style', "background-image: url("  + ml.obj.pluginUrl + "images/runes/" + dataId  + ".jpg)");
+				})
+				// Double click
+				.on('dblclick', function() {
+					var allRuneSlots = $(".rune-slot");
+					var dataId = $(this).attr("data-id");
+					
+					$(allRuneSlots).attr('style', "background-image: url("  + ml.obj.pluginUrl + "images/runes/" + dataId  + ".jpg)");
+				});
+			}
 		}
 	},
 	
@@ -154,6 +192,17 @@ var ml = {
 		attributeProfession: function() {
 			// Changes .traits-profession into the according class name
 			$(".traits-profession").removeClass("traits-profession").addClass("traits-" + ml.general.uncapitalize(ml.obj.currentProfessionName));
+		},
+		selectionArea: {
+			close: function() {
+				var container = $('.selectionArea');
+					
+				// Make the container hidden
+				$(container).removeClass("show").addClass("hide");
+				
+				// Sets data-active to the clicked armorSlot
+				$(container).attr('data-active', "");
+			}
 		}
 	},
 	
