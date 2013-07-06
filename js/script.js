@@ -163,6 +163,7 @@ var ml = {
 			close: function() {
 				$('.selectionAreaNavContainer .close').bind('click', function(){
 					ml.ops.selectionArea.close();
+					$('.armor.active').removeClass('active');
 				});
 			},
 			rune: function() {				

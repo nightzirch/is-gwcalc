@@ -411,7 +411,9 @@
 }
 
 #isgw2calc .armor:hover .armor-img,
-#isgw2calc .armor.active .armor-img {
+#isgw2calc .armor.active .armor-img,
+#isgw2calc .amulet:hover .armor-img,
+#isgw2calc .amulet.active .armor-img {
 	-webkit-box-shadow: inset 0px 0px 0px 1px rgba(190, 181, 174, 1);
 	box-shadow: inset 0px 0px 0px 1px rgba(190, 181, 174, 1);
 }
