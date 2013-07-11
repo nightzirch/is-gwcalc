@@ -223,7 +223,8 @@ var ml = {
 	// View Model
 	MistLeagueViewModel: function() {
 		var self = this;
-		
+
+			
 		// Primary Attributes
 		self.attributePower = ko.observable(916);
 		self.attributePrecision = ko.observable(916);
@@ -269,41 +270,66 @@ var ml = {
 	slider: function() {
 		
 	}
+
+
 }
+
+//Holds invested trait points
+
+var traits = {
+    line1 : 0,
+    line2 : 0,
+    line3 : 0,
+    line4 : 0,
+    line5 : 0,
+    };
+
+var trait_points = 70;
+
+//Increases points in selected trait line
+function traitPlus(i)
+{
+    if (trait_points > 0)
+    {        
+        if (traits['line'+i] < 30)
+        {
+            trait_points -= 1;
+            traits['line'+i] += 1;
+            jQuery("#traits_invested-"+i).html(traits['line'+i]);
+            jQuery("#trait_points_left").html(trait_points);
+        }
+    }
+}
+
+//Decreases points in selected trait line
+function traitMinus(i)
+{
+    if (trait_points < 70)
+    {        
+        if (traits['line'+i] > 0)
+        {
+            trait_points += 1;
+            traits['line'+i] -= 1;
+            jQuery("#traits_invested-"+i).html(traits['line'+i]);
+            jQuery("#trait_points_left").html(trait_points);
+        }  
+    }
+}
+
+//Refunds all trait points
+function traitsRefund()
+{
+    trait_points = 70
+    jQuery("#trait_points_left").html(trait_points);
+
+    for (i=1;i<=5;i++)
+    {
+        jQuery("#traits_invested-"+i).html('0');
+        traits['line'+i] = 0;
+    }
+}
+
+function calculate()
+{
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+}
