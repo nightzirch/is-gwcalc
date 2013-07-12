@@ -248,6 +248,10 @@
 	background-position: right;
 }
 
+#isgw2calc .selectionArea .selectionAreaNav li a.selectionAreaCombat {
+	background-image: url('../images/menu/selectionAreaCombat.png');
+}
+
 #isgw2calc .selectionArea .selectionAreaNav li a.selectionAreaRunes {
 	background-image: url('../images/menu/selectionAreaCombat.png');
 }

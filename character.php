@@ -41,6 +41,9 @@
 		<div class="selectionAreaNavContainer">
 			<ul class="selectionAreaNav">
 				<li>
+					<a href="#selectionAreaCombat" class="selectionAreaCombat"></a>
+				</li>
+				<li>
 					<a href="#selectionAreaRunes" class="selectionAreaRunes"></a>
 				</li>
 				<li>
@@ -63,6 +66,141 @@
 		
 		
 		<div class="selectionAreaContent">
+			<div id="selectionAreaCombat">
+				<div class="accordionHeader selectionAreaWeaponsHeader">
+					<span class="accordionHeaderTitle">Weapons</span>
+				</div>
+				<div class="accordionContainer selectionAreaWeapons">
+					<?php foreach ($weapons as $w) { ?>
+						<span class="tooltip">
+							<img style="margin:5px;" title="'<?php echo $w->name; ?>'" src="<?php echo plugin_dir_url(__FILE__) ?>images/weapons/<?php echo $w->name; ?>.jpg" data-weapon='<?php echo $w->id; ?>' />
+							<div class="tooltip_frame">
+								<div class="tooltip_title">
+									<span style="vertical-align:top;padding:8px 0 8px 0;">'<?php echo $w->name; ?>'</span>
+								</div>
+								<div>
+									<ul class="tooltip_list">
+										<li style="font-size: 11px;padding-bottom: 8px;">Damage: <span class="weapon_tip">'<?php echo $w->stats; ?>'</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</span>
+					<?php }  ?>
+				</div>
+				
+				<div class="accordionHeader selectionAreaAmuletsHeader">
+					<span class="accordionHeaderTitle">Amulets</span>
+				</div>
+				<div class="accordionContainer selectionAreaAmulets">
+					<?php foreach($trinkets as $t) { ?>
+						<span class="tooltip">
+							<img style="margin:5px;" class="masterTooltip" data-id='<?php echo $t->id; ?>' src="<?php echo plugin_dir_url(__FILE__); ?>images/amulets/<?php echo $t->id?>.png" />
+							<div class="tooltip_frame">
+								<div class="tooltip_title">
+									<span style="vertical-align:top;padding:8px 0 8px 0;">
+										<?php echo $t->name?>
+									</span>
+								</div>
+								<div>
+									<ul>
+										<?php $stats = spliti (";", $t->stats);
+											foreach($stats as $s) {
+												echo '<li class="amulet_tip">'.$s.'</li>';
+											}
+										?>
+									</ul>
+								</div>
+							</div>
+						</span>
+					<?php } ?>
+				</div>
+				
+				<div class="accordionHeader selectionAreaJewelsHeader">
+					<span class="accordionHeaderTitle">Jewels</span>
+				</div>
+				<div class="accordionContainer selectionAreaJewels">
+					<?php foreach($orbs as $t) { ?>
+					<span class="tooltip" >
+						<img style="margin:5px;" data-id='<?php echo $t->id; ?>' src="<?php echo plugin_dir_url(__FILE__); ?>images/jewels/<?php echo $t->id?>.jpg" />
+						<div class="tooltip_frame">
+							<div class="tooltip_title">
+								<span>
+									<img src="<?php echo plugin_dir_url(__FILE__); ?>images/jewels/<?php echo $t->id?>.jpg"/>
+								</span>
+								<span style="vertical-align:top;padding:8px;">
+									<?php echo $t->name?>
+								</span>
+							</div>
+							<div>
+								<ul>
+									<?php $stats = spliti (";", $t->stats);
+										foreach($stats as $s) {
+											echo '<li class="orb_tip">'.$s.'</li>';
+										}
+									?>
+								</ul>
+							</div>
+						</div>
+					</span>
+				<?php } ?>
+				</div>
+				
+				<div class="accordionHeader selectionAreaRunesHeader">
+					<span class="accordionHeaderTitle">Runes</span>
+				</div>
+				<div class="accordionContainer selectionAreaRunes">
+					<div>
+						<?php foreach ($runes as $s) { ?>
+							<span class="tooltip" >
+								<img style="margin:5px;" data-id='<?php echo $s->id; ?>' src="<?php echo plugin_dir_url(__FILE__); ?>images/runes/<?php echo $s->id?>.jpg" />
+								<div class="tooltip_frame">
+									<div class="tooltip_title">
+											<img style="float:left"src="<?php echo plugin_dir_url(__FILE__); ?>images/runes/<?php echo $s->id?>.jpg"/><span style="padding-left:5px;font-size:11px;"><?php echo $s->name?></span>
+									</div>
+									<div style="clear:both;"></div>
+									<div class="tooltip_description" style="margin-top:8px;">
+										<ul>
+											<?php 
+												$rstats = explode(";", $s->stats);
+												for ($x=0;$x<sizeof($rstats);$x++)				 						
+												{
+													$c = $x+1;
+													echo '<li style="margin:6px 0 6px 0;"><span style="margin-right:5px;">('.$c.')</span><span>'.$rstats[$x].'</span></li>';
+												}
+											?>
+										</ul>
+									</div>
+								</div>
+							</span>
+						<?php }  ?>
+					</div>
+				</div>
+				
+				<div class="accordionHeader selectionAreaSigilsHeader">
+					<span class="accordionHeaderTitle">Sigils</span>
+				</div>
+				<div class="accordionContainer selectionAreaSigils">
+					<div>
+						<?php foreach ($sigils as $s) { ?>
+							<span class="tooltip" >
+								<img style="margin:5px;" data-id='<?php echo $s->id; ?>' src="<?php echo plugin_dir_url(__FILE__); ?>images/sigils/<?php echo $s->id?>.jpg" />
+								<div class="tooltip_frame">
+									<div class="tooltip_title">
+											<img style="float:left"src="<?php echo plugin_dir_url(__FILE__); ?>images/sigils/<?php echo $s->id?>.jpg"/><span style="padding-left:5px;font-size:11px;"><?php echo $s->name?></span>
+									</div>
+									<div style="clear:both;"></div>
+									<div class="tooltip_description" style="margin-top:5px;">
+										<?php echo $s->stats?>
+									</div>
+								</div>
+							</span>
+						<?php }  ?>
+					</div>
+				</div>
+				
+			</div>
+			
 			<div id="selectionAreaRunes">
 				<div id="rune_accordion">
 					<?php foreach ($rune_types as $k) { ?>

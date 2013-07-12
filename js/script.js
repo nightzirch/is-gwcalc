@@ -28,6 +28,17 @@ var ml = {
 		$("#build").tabs();
 		$(".selectionArea").tabs();
 		
+		// Initialize accordions
+		/*$("#selectionAreaCombat").accordion({
+			header: "div.accordionHeader",
+			active: true,
+			collapsible: true,
+			heightStyle: "content",
+			activate: function( event, ui ) {
+				ml.scroll.refresh();
+			}
+		});*/
+		
 		// Initialize the scrollbar and move it up in the DOM
 		$(".selectionAreaContent").sbscroller({
 			handleImage: ml.obj.pluginUrl + 'images/scrollbar/handleImage-16x32.png',
@@ -113,13 +124,15 @@ var ml = {
 			ml.listener.scrollRefresh();
 			ml.listener.armorSlot();
 			ml.listener.amuletSlot();
+			ml.listener.accordion();
 			ml.listener.selectionArea.close();
 			ml.listener.selectionArea.rune();
 			ml.listener.selectionArea.amulet();
+			ml.listener.selectionArea.jewel();
 		},
 		scrollRefresh: function() {
 			$('.selectionAreaNav li a').bind('click', function(e) {
-				$('.selectionAreaContent').sbscroller('refresh');
+				ml.scroll.refresh();
 			});
 		},
 		armorSlot: function() {
@@ -135,7 +148,7 @@ var ml = {
 				// if another armor slot is .active, remove .active
 				// and make this .active
 				if (!$(this).hasClass("active")) {
-					$('.armor.active').removeClass('active');
+					$('.armor-container.active').removeClass('active');
 					$(this).addClass('active');
 				}
 				else {
@@ -156,8 +169,30 @@ var ml = {
 					$(container).removeClass("hide").addClass("show");
 				}
 				
+				// if another armor slot is .active, remove .active
+				// and make this .active
+				if (!$(this).hasClass("active")) {
+					$('.armor-container.active').removeClass('active');
+					$(this).addClass('active');
+				}
+				else {
+					// Something
+				}
+				
 				// Sets data-active to the clicked armorSlot
 				$(container).attr('data-active', dataActive);
+			});
+		},
+		accordion: function() {
+			$(".accordionHeader").bind("click", function(e) {
+				$(this).next().slideToggle({
+					duration: 400,
+					easing: "swing",
+					queue: false,
+					complete: function() {
+						ml.scroll.refresh();
+					}
+				});
 			});
 		},
 		selectionArea: {
@@ -217,6 +252,22 @@ var ml = {
 					
 					// Sets the attribute data-jewel of the .armor-container.
 					// data-amulet is already set from the click listener
+					$(activeSlot).attr('data-jewel', dataId);
+					
+					// Sets the background image of the runeSlot to match the selected rune
+					$(jewelSlot).attr('style', "background-image: url("  + ml.obj.pluginUrl + "images/jewels/" + dataId  + ".jpg)");
+				});
+			},
+			jewel: function() {
+				// Click events
+				$('#selectionAreaJewels img').on('click', function() {
+					var container = $('.selectionArea');
+					var dataActive = $(container).attr("data-active");
+					var activeSlot = $(".amulet[data-active=" + dataActive + "]");
+					var jewelSlot = $(activeSlot).find(".jewel-slot");
+					var dataId = $(this).attr("data-id");
+					
+					// Sets the attribute data-id of the .armor-container
 					$(activeSlot).attr('data-jewel', dataId);
 					
 					// Sets the background image of the runeSlot to match the selected rune
@@ -404,9 +455,11 @@ var ml = {
 		return amulet;
 	},
 	
-	// Slider
-	slider: function() {
-		
+	// Scrollbar
+	scroll: {
+		refresh: function() {
+			$('.selectionAreaContent').sbscroller('refresh');
+		}
 	}
 
 
