@@ -1,31 +1,31 @@
 <div class="armorAccessoryContainer">
 	<div id="gear">
 		<!--h2>Armor & Runes</h2-->
-		<div class="armor" data-active="activeHelmet">
+		<div class="armor armor-container helmet-container" data-active="activeHelmet">
 			<div class="armor-img armor-slot armor-helmet"></div>
 			<div class="empty-slot rune-slot rune-helmet"></div>
 		</div>
-		<div class="armor" data-active="activeShoulders">
+		<div class="armor armor-container shoulders-container" data-active="activeShoulders">
 			<div class="armor-img armor-slot armor-shoulders"></div>
 			<div class="empty-slot rune-slot rune-shoulders"></div>
 		</div>
-		<div class="armor" data-active="activeChest">
+		<div class="armor armor-container chest-container" data-active="activeChest">
 			<div class="armor-img armor-slot armor-chest"></div>
 			<div class="empty-slot rune-slot rune-chest"></div>
 		</div>
-		<div class="armor" data-active="activeGloves">
+		<div class="armor armor-container gloves-container" data-active="activeGloves">
 			<div class="armor-img armor-slot armor-gloves"></div>
 			<div class="empty-slot rune-slot rune-gloves"></div>
 		</div>
-		<div class="armor" data-active="activeLeggings">
+		<div class="armor armor-container leggings-container" data-active="activeLeggings">
 			<div class="armor-img armor-slot armor-leggings"></div>
 			<div class="empty-slot rune-slot rune-leggings"></div>
 		</div>
-		<div class="armor" data-active="activeBoots">
+		<div class="armor armor-container boots-container" data-active="activeBoots">
 			<div class="armor-img armor-slot armor-boots"></div>
 			<div class="empty-slot rune-slot rune-boots"></div>
 		</div>
-		<div class="amulet" data-active="activeAmulet">
+		<div class="amulet armor-container amulet-container" data-active="activeAmulet">
 			<div class="armor-img amulet-slot"></div>
 			<div class="empty-slot jewel-slot"></div>
 		</div>
@@ -45,6 +45,12 @@
 				</li>
 				<li>
 					<a href="#selectionAreaSigils" class="selectionAreaSigils"></a>
+				</li>
+				<li>
+					<a href="#selectionAreaAmulets" class="selectionAreaAmulets"></a>
+				</li>
+				<li>
+					<a href="#selectionAreaJewels" class="selectionAreaJewels"></a>
 				</li>
 				<li>
 					<a href="#selectionAreaCosmetic" class="selectionAreaCosmetic"></a>
@@ -118,6 +124,57 @@
 				</div>
 			</div>
 			
+			<div id="selectionAreaAmulets">
+				<?php foreach($trinkets as $t) { ?>
+					<span class="tooltip">
+						<img style="margin:5px;" class="masterTooltip" data-id='<?php echo $t->id; ?>' src="<?php echo plugin_dir_url(__FILE__); ?>images/amulets/<?php echo $t->id?>.png" />
+						<div class="tooltip_frame">
+							<div class="tooltip_title">
+								<span style="vertical-align:top;padding:8px 0 8px 0;">
+									<?php echo $t->name?>
+								</span>
+							</div>
+							<div>
+								<ul>
+									<?php $stats = spliti (";", $t->stats);
+										foreach($stats as $s) {
+											echo '<li class="amulet_tip">'.$s.'</li>';
+										}
+									?>
+								</ul>
+							</div>
+						</div>
+					</span>
+				<?php } ?>
+			</div>
+			
+			<div id="selectionAreaJewels">
+				<?php foreach($orbs as $t) { ?>
+					<span class="tooltip" >
+						<img style="margin:5px;" data-id='<?php echo $t->id; ?>' src="<?php echo plugin_dir_url(__FILE__); ?>images/jewels/<?php echo $t->id?>.jpg" />
+						<div class="tooltip_frame">
+							<div class="tooltip_title">
+								<span>
+									<img src="<?php echo plugin_dir_url(__FILE__); ?>images/jewels/<?php echo $t->id?>.jpg"/>
+								</span>
+								<span style="vertical-align:top;padding:8px;">
+									<?php echo $t->name?>
+								</span>
+							</div>
+							<div>
+								<ul>
+									<?php $stats = spliti (";", $t->stats);
+										foreach($stats as $s) {
+											echo '<li class="orb_tip">'.$s.'</li>';
+										}
+									?>
+								</ul>
+							</div>
+						</div>
+					</span>
+				<?php } ?>
+			</div>
+			
 			<div id="selectionAreaCosmetic">selectionAreaCosmetic</div>
 		</div>
 	</div> <!-- selectionArea -->
@@ -130,19 +187,15 @@
 
 	<div class="weapon">
 		<div class="separate_weapon">
-			<div id="weapon_set_1_mainhand" onClick="weaponPicker('mainhand','1')" class="weapon_pick"></div>
-			<div class="sigils">
-				<div id="sigil_mainhand1" onClick="sigilPicker('mainhand','1')" class="empty-slot"></div>
-			</div>
+			<div class="weapon-img weapon-slot weapon-main weapon-main1"></div>
+			<div class="empty-slot sigil-slot sigil-main1"></div>
 		</div>
 		
 		<div class="weapon_set_1 weapon_set_icon"></div>
 		
 		<div class="separate_weapon">
-			<div id="weapon_set_1_offhand" onClick="weaponPicker('offhand','1')" class="weapon_pick"></div>
-			<div class="sigils">
-				<div id="sigil_offhand1" onClick="sigilPicker('offhand','1')" class="empty-slot"></div>
-			</div>
+			<div class="weapon-img weapon-slot weapon-off weapon-off1"></div>
+			<div class="empty-slot sigil-slot sigil-off1"></div>
 		</div>
 	</div>
 	
@@ -152,19 +205,15 @@
 
 	<div class="weapon">
 		<div class="separate_weapon">
-			<div id="weapon_set_2_mainhand" onClick="weaponPicker('mainhand','2')" class="weapon_pick"></div>
-			<div class="sigils">
-				<div id="sigil_mainhand2" onClick="sigilPicker('mainhand','2')" class="empty-slot"></div>
-			</div>
+			<div class="weapon-img weapon-slot weapon-main weapon-main2"></div>
+			<div class="empty-slot sigil-slot sigil-main2"></div>
 		</div>
 		
 		<div class="weapon_set_2 weapon_set_icon"></div>
 		
 		<div class="separate_weapon">
-			<div id="weapon_set_2_offhand" onClick="weaponPicker('offhand','2')" class="weapon_pick"></div>
-			<div class="sigils">
-				<div id="sigil_offhand2" onClick="sigilPicker('offhand','2')" class="empty-slot"></div>
-			</div>
+			<div class="weapon-img weapon-slot weapon-off weapon-off2"></div>
+			<div class="empty-slot sigil-slot sigil-off2"></div>
 		</div>
 	</div>
 	<?php } ?>

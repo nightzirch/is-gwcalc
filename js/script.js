@@ -15,7 +15,7 @@ $(document).ready(function() {
 
 // Creates a new name space
 var ml = {
-	// View Model
+	// Models
 	vm: null,
 	
 	// Ready functions
@@ -115,6 +115,7 @@ var ml = {
 			ml.listener.amuletSlot();
 			ml.listener.selectionArea.close();
 			ml.listener.selectionArea.rune();
+			ml.listener.selectionArea.amulet();
 		},
 		scrollRefresh: function() {
 			$('.selectionAreaNav li a').bind('click', function(e) {
@@ -166,7 +167,7 @@ var ml = {
 					$('.armor.active').removeClass('active');
 				});
 			},
-			rune: function() {				
+			rune: function() {
 				// Click events
 				$('#selectionAreaRunes img').on('click', function() {
 					var container = $('.selectionArea');
@@ -175,14 +176,51 @@ var ml = {
 					var runeSlot = $(activeSlot).find(".rune-slot");
 					var dataId = $(this).attr("data-id");
 					
+					// Sets the attribute data-id of the .armor-container
+					$(activeSlot).attr('data-rune', dataId);
+					
+					// Sets the background image of the runeSlot to match the selected rune
 					$(runeSlot).attr('style', "background-image: url("  + ml.obj.pluginUrl + "images/runes/" + dataId  + ".jpg)");
 				})
 				// Double click
 				.on('dblclick', function() {
 					var allRuneSlots = $(".rune-slot");
+					var allArmorSlots = $('.armor.armor-container');
 					var dataId = $(this).attr("data-id");
 					
+					$(allArmorSlots).attr('data-rune', dataId);
 					$(allRuneSlots).attr('style', "background-image: url("  + ml.obj.pluginUrl + "images/runes/" + dataId  + ".jpg)");
+				});
+			},
+			amulet: function() {
+				// Click events
+				$('#selectionAreaAmulets img').on('click', function() {
+					var container = $('.selectionArea');
+					var dataActive = $(container).attr("data-active");
+					var activeSlot = $(".amulet[data-active=" + dataActive + "]");
+					var amuletSlot = $(activeSlot).find(".amulet-slot");
+					var dataId = $(this).attr("data-id");
+					
+					// Sets the attribute data-id of the .armor-container
+					$(activeSlot).attr('data-amulet', dataId);
+					
+					// Sets the background image of the runeSlot to match the selected rune
+					$(amuletSlot).attr('style', "background-image: url("  + ml.obj.pluginUrl + "images/amulets/" + dataId  + ".png)");
+				})
+				// Double click
+				.on('dblclick', function() {
+					var container = $('.selectionArea');
+					var dataActive = $(container).attr("data-active");
+					var activeSlot = $(".amulet[data-active=" + dataActive + "]");
+					var jewelSlot = $(activeSlot).find(".jewel-slot");
+					var dataId = $(this).attr("data-id");
+					
+					// Sets the attribute data-jewel of the .armor-container.
+					// data-amulet is already set from the click listener
+					$(activeSlot).attr('data-jewel', dataId);
+					
+					// Sets the background image of the runeSlot to match the selected rune
+					$(jewelSlot).attr('style', "background-image: url("  + ml.obj.pluginUrl + "images/jewels/" + dataId  + ".jpg)");
 				});
 			}
 		}
@@ -204,6 +242,20 @@ var ml = {
 				// Sets data-active to the clicked armorSlot
 				$(container).attr('data-active', "");
 			}
+		},
+		getRuneId: function(armor) {
+			return parseInt($('.' + armor + '-container').attr('data-rune'));
+		},
+		searchRunes: function(id) {
+			for(var i = 0; i < runes.length; i++) {
+				return (parseInt(runes[i].id) == id) ? runes[i] : false;
+			}
+		},
+		getAmuletId: function() {
+			return parseInt($('.amulet-container').attr('data-amulet'));
+		},
+		getJewelId: function() {
+			return parseInt($('.amulet-container').attr('data-jewel'));
 		}
 	},
 	
@@ -264,6 +316,92 @@ var ml = {
 			
 			return health;
 		});
+	},
+	
+	// Runes Model
+	RunesModel: function() {
+		return [
+			{
+				id: ml.ops.getRuneId('helmet'),
+				slot: 'helmet',
+				rune: ml.ops.searchRunes(ml.ops.getRuneId('helmet'))
+			},
+			{
+				id: ml.ops.getRuneId('shoulders'),
+				slot: 'shoulders',
+				rune: ml.ops.searchRunes(ml.ops.getRuneId('shoulders'))
+			},
+			{
+				id: ml.ops.getRuneId('chest'),
+				slot: 'chest',
+				rune: ml.ops.searchRunes(ml.ops.getRuneId('chest'))
+			},
+			{
+				id: ml.ops.getRuneId('gloves'),
+				slot: 'gloves',
+				rune: ml.ops.searchRunes(ml.ops.getRuneId('gloves'))
+			},
+			{
+				id: ml.ops.getRuneId('leggings'),
+				slot: 'leggings',
+				rune: ml.ops.searchRunes(ml.ops.getRuneId('leggings'))
+			},
+			{
+				id: ml.ops.getRuneId('boots'),
+				slot: 'boots',
+				rune: ml.ops.searchRunes(ml.ops.getRuneId('boots'))
+			}
+		]
+	},
+	
+	// Stats Model
+	StatsModel: function() {
+		var self = this;
+		
+		// Primary attributes
+		self.power = ml.vm.attributePower();
+		self.precision = ml.vm.attributePrecision();
+		self.toughness = ml.vm.attributeToughness();
+		self.vitality = ml.vm.attributeVitality();
+		
+		// Secondary attributes
+		self.armor = ml.vm.attributeArmor();
+		self.attack = ml.vm.attributeAttack();
+		self.boonDuration = ml.vm.attributeBoonDuration();
+		self.conditionDamage = ml.vm.attributeConditionDamage();
+		self.conditionDuration = ml.vm.attributeConditionDuration();
+		self.criticalChance = ml.vm.attributeCriticalChance();
+		self.criticalDamage = ml.vm.attributeCriticalDamage();
+		self.healingPower = ml.vm.attributeHealingPower();
+		self.health = ml.vm.attributeHealth();
+	},
+	
+	AccsessoryModel: function() {
+		
+	},
+	
+	// Get runes
+	runes: function() {
+		// Creates a new instance
+		var runes = new ml.RunesModel();
+		
+		return runes;
+	},
+	
+	// Get stats
+	stats: function() {
+		// Creates a new instance
+		var stats = new ml.StatsModel();
+		
+		return stats;
+	},
+	
+	// Get amulet
+	amulet: function() {
+		// Creates a new instance
+		var amulet = new ml.AmuletModel();
+		
+		return amulet;
 	},
 	
 	// Slider

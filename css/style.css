@@ -100,7 +100,7 @@
 
 #isgw2calc .selectionAreaContainer {
 	overflow: hidden;
-	height: 425px;
+	height: 403px;
 	background: url('../images/comingSoon.png') center center no-repeat;
 }
 
@@ -188,7 +188,7 @@
 }
 
 #isgw2calc .selectionArea[data-active=activeAmulet] .activeVertical {
-	margin-top: 327px;
+	margin-top: 337px;
 }
 
 #isgw2calc .selectionArea[data-active=activeMain1] .activeHorizontal {
@@ -212,7 +212,7 @@
 	height: 32px;
 	cursor: pointer;
 	float: right;
-	margin: -38px 10px 0 0;
+	margin: -46px -2px 0 0;
 	background: url("../images/menu/close.png");
 	background-position: left;
 }
@@ -256,24 +256,31 @@
 	background-image: url('../images/menu/selectionAreaCombat.png');
 }
 
+#isgw2calc .selectionArea .selectionAreaNav li a.selectionAreaAmulets {
+	background-image: url('../images/menu/selectionAreaCombat.png');
+}
+
+#isgw2calc .selectionArea .selectionAreaNav li a.selectionAreaJewels {
+	background-image: url('../images/menu/selectionAreaCombat.png');
+}
+
 #isgw2calc .selectionArea .selectionAreaNav li a.selectionAreaCosmetic {
 	background-image: url('../images/menu/selectionAreaCosmetic.png');
 }
 
 #isgw2calc .selectionArea .selectionAreaContent {
-	height: 385px;
+	height: 360px;
 }
 
 
 #isgw2calc #weapons
 {
 	display: block;
-	margin-left: 81px;
+	margin: 10px 0 0 68px;
 	float: left;
 }
 
 #isgw2calc #weapons .weapon {
-	margin-left: 5px;
 	display: inline-block;
 }
 
@@ -369,6 +376,10 @@
 	overflow: hidden;
 }
 
+#isgw2calc .amulet {
+	margin-top: 15px;
+}
+
 #isgw2calc .weapon
 {
 	/*float: left;
@@ -380,21 +391,13 @@
 	display: inline-block;
 }
 
-#isgw2calc .weapon .separate_weapon > div:first-child {
-	margin-right: 5px;
-}
-
-#isgw2calc .weapon .separate_weapon:nth-child(n+2) {
-	margin-top: 4px;
-}
-
 #isgw2calc .weapon_swap
 {
 	height: 24px;
 	width: 27px;
 	display: inline-block;
 	background: url('../images/weapon_swap.png') no-repeat center;
-	margin: 18px 5px 0;
+	margin: 12px 5px 0;
 	vertical-align: top;
 	cursor: pointer;
 }
@@ -443,11 +446,10 @@
 }
 
 #isgw2calc .armor-img.amulet-slot {
-	background-image: url('../images/amulet/amulet.png');
+	background-image: url('../images/amulets/amulet.png');
 }
 
-#isgw2calc .weapon_pick
-{
+#isgw2calc .weapon-img {
 	height: 50px;
 	width: 50px;
 	float:left;
@@ -455,11 +457,11 @@
 	cursor: pointer;
 }
 
-#isgw2calc .weapon .separate_weapon:first-child .weapon_pick {
+#isgw2calc .weapon .separate_weapon .weapon-main {
 	background: url('../images/weapons/mainhand.png') no-repeat center;
 }
 
-#isgw2calc .weapon .separate_weapon:last-child .weapon_pick {
+#isgw2calc .weapon .separate_weapon .weapon-off {
 	background: url('../images/weapons/offhand.png') no-repeat center;
 }
 
@@ -474,12 +476,12 @@
 }
 
 #isgw2calc .weapon_set_icon {
-	margin: 0 0 0 -3px;
+	margin: 0 -10px;
 	width: 19px;
 	height: 19px;
 	display: inline-block;
 	position: relative;
-	top: -25px;
+	top: -19px;
 }
 
 #isgw2calc .weapon_set_1 {
