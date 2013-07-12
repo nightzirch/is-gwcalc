@@ -204,7 +204,7 @@ var ml = {
 			},
 			rune: function() {
 				// Click events
-				$('#selectionAreaRunes img').on('click', function() {
+				$('.selectionAreaRunes img').on('click', function() {
 					var container = $('.selectionArea');
 					var dataActive = $(container).attr("data-active");
 					var activeSlot = $(".armor[data-active=" + dataActive + "]");
@@ -229,7 +229,7 @@ var ml = {
 			},
 			amulet: function() {
 				// Click events
-				$('#selectionAreaAmulets img').on('click', function() {
+				$('.selectionAreaAmulets img').on('click', function() {
 					var container = $('.selectionArea');
 					var dataActive = $(container).attr("data-active");
 					var activeSlot = $(".amulet[data-active=" + dataActive + "]");
@@ -260,7 +260,7 @@ var ml = {
 			},
 			jewel: function() {
 				// Click events
-				$('#selectionAreaJewels img').on('click', function() {
+				$('.selectionAreaJewels img').on('click', function() {
 					var container = $('.selectionArea');
 					var dataActive = $(container).attr("data-active");
 					var activeSlot = $(".amulet[data-active=" + dataActive + "]");
@@ -272,6 +272,21 @@ var ml = {
 					
 					// Sets the background image of the runeSlot to match the selected rune
 					$(jewelSlot).attr('style', "background-image: url("  + ml.obj.pluginUrl + "images/jewels/" + dataId  + ".jpg)");
+				})
+				// Double click
+				.on('dblclick', function() {
+					var container = $('.selectionArea');
+					var dataActive = $(container).attr("data-active");
+					var activeSlot = $(".amulet[data-active=" + dataActive + "]");
+					var amuletSlot = $(activeSlot).find(".amulet-slot");
+					var dataId = $(this).attr("data-id");
+					
+					// Sets the attribute data-amulet of the .armor-container.
+					// data-jewel is already set from the click listener
+					$(activeSlot).attr('data-amulet', dataId);
+					
+					// Sets the background image of the runeSlot to match the selected rune
+					$(amuletSlot).attr('style', "background-image: url("  + ml.obj.pluginUrl + "images/amulets/" + dataId  + ".png)");
 				});
 			}
 		}

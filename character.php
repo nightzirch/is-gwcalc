@@ -44,18 +44,6 @@
 					<a href="#selectionAreaCombat" class="selectionAreaCombat"></a>
 				</li>
 				<li>
-					<a href="#selectionAreaRunes" class="selectionAreaRunes"></a>
-				</li>
-				<li>
-					<a href="#selectionAreaSigils" class="selectionAreaSigils"></a>
-				</li>
-				<li>
-					<a href="#selectionAreaAmulets" class="selectionAreaAmulets"></a>
-				</li>
-				<li>
-					<a href="#selectionAreaJewels" class="selectionAreaJewels"></a>
-				</li>
-				<li>
 					<a href="#selectionAreaCosmetic" class="selectionAreaCosmetic"></a>
 				</li>
 			</ul>
@@ -197,120 +185,7 @@
 							</span>
 						<?php }  ?>
 					</div>
-				</div>
-				
-			</div>
-			
-			<div id="selectionAreaRunes">
-				<div id="rune_accordion">
-					<?php foreach ($rune_types as $k) { ?>
-						<h3><?php echo $rune_keys[$k->type]?></h3>
-						<div>
-					   <?php foreach ($runes as $s) {
-							if ($s->type == $k->type)
-							{ ?>
-								<span class="tooltip" >
-									<img style="margin:5px;" data-id='<?php echo $s->id; ?>' src="<?php echo plugin_dir_url(__FILE__); ?>images/runes/<?php echo $s->id?>.jpg" />
-									<div class="tooltip_frame">
-										<div class="tooltip_title">
-												<img style="float:left"src="<?php echo plugin_dir_url(__FILE__); ?>images/runes/<?php echo $s->id?>.jpg"/><span style="padding-left:5px;font-size:11px;"><?php echo $s->name?></span>
-										</div>
-										<div style="clear:both;"></div>
-										<div class="tooltip_description" style="margin-top:8px;">
-											<ul>
-											<?php 
-												$rstats = explode(";", $s->stats);
-												for ($x=0;$x<sizeof($rstats);$x++)				 						
-												{
-													$c = $x+1;
-													echo '<li style="margin:6px 0 6px 0;"><span style="margin-right:5px;">('.$c.')</span><span>'.$rstats[$x].'</span></li>';
-												}
-											?>
-											</ul>
-										</div>
-									</div>
-								</span>
-							<?php } }  ?>
-						</div>
-					<?php } ?>
-				</div>
-			</div>
-			
-			<div id="selectionAreaSigils">
-				<div id="sigil_accordion">
-					<?php foreach ($sigil_types as $k) { ?>
-						<h3><?php echo $sigil_keys[$k->type]?></h3>
-						<div>
-					   <?php foreach ($sigils as $s) {
-							if ($s->type == $k->type)
-							{ ?>
-							<span class="tooltip" >
-								<img style="margin:5px;" data-id='<?php echo $s->id; ?>' src="<?php echo plugin_dir_url(__FILE__); ?>images/sigils/<?php echo $s->id?>.jpg" />
-								<div class="tooltip_frame">
-									<div class="tooltip_title">
-											<img style="float:left"src="<?php echo plugin_dir_url(__FILE__); ?>images/sigils/<?php echo $s->id?>.jpg"/><span style="padding-left:5px;font-size:11px;"><?php echo $s->name?></span>
-									</div>
-									<div style="clear:both;"></div>
-									<div class="tooltip_description" style="margin-top:5px;">
-										<?php echo $s->stats?>
-									</div>
-								</div>
-							</span>
-							<?php } }  ?>
-						</div>
-					<?php } ?>
-				</div>
-			</div>
-			
-			<div id="selectionAreaAmulets">
-				<?php foreach($trinkets as $t) { ?>
-					<span class="tooltip">
-						<img style="margin:5px;" class="masterTooltip" data-id='<?php echo $t->id; ?>' src="<?php echo plugin_dir_url(__FILE__); ?>images/amulets/<?php echo $t->id?>.png" />
-						<div class="tooltip_frame">
-							<div class="tooltip_title">
-								<span style="vertical-align:top;padding:8px 0 8px 0;">
-									<?php echo $t->name?>
-								</span>
-							</div>
-							<div>
-								<ul>
-									<?php $stats = spliti (";", $t->stats);
-										foreach($stats as $s) {
-											echo '<li class="amulet_tip">'.$s.'</li>';
-										}
-									?>
-								</ul>
-							</div>
-						</div>
-					</span>
-				<?php } ?>
-			</div>
-			
-			<div id="selectionAreaJewels">
-				<?php foreach($orbs as $t) { ?>
-					<span class="tooltip" >
-						<img style="margin:5px;" data-id='<?php echo $t->id; ?>' src="<?php echo plugin_dir_url(__FILE__); ?>images/jewels/<?php echo $t->id?>.jpg" />
-						<div class="tooltip_frame">
-							<div class="tooltip_title">
-								<span>
-									<img src="<?php echo plugin_dir_url(__FILE__); ?>images/jewels/<?php echo $t->id?>.jpg"/>
-								</span>
-								<span style="vertical-align:top;padding:8px;">
-									<?php echo $t->name?>
-								</span>
-							</div>
-							<div>
-								<ul>
-									<?php $stats = spliti (";", $t->stats);
-										foreach($stats as $s) {
-											echo '<li class="orb_tip">'.$s.'</li>';
-										}
-									?>
-								</ul>
-							</div>
-						</div>
-					</span>
-				<?php } ?>
+				</div>	
 			</div>
 			
 			<div id="selectionAreaCosmetic">selectionAreaCosmetic</div>
