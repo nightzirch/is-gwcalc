@@ -50,7 +50,9 @@ function db_install () {
   			id mediumint(9) NOT NULL AUTO_INCREMENT,
 			cid mediumint(9) NOT NULL,
  			name varchar(50) NOT NULL,
-  			type varchar(20) NOT NULL,
+  		mainhand tinyint(1) NOT NULL,
+      offhand tinyint(1) NOT NULL,
+      twohand tinyint(1) NOT NULL,
 			stats varchar(255) NOT NULL,
   			PRIMARY KEY (id,cid)
 			);";
@@ -154,15 +156,14 @@ function db_install_data() {
    
    $weapons = array();
    
-   array_push($weapons, array('cid' => '5', 'name' => 'Axe', 'type' => 'mainhand', 'stats' => '857-1048' ));
-   array_push($weapons, array('cid' => '5', 'name' => 'Dagger', 'type' => 'mainhand', 'stats' => '924-981' ));
-   array_push($weapons, array('cid' => '5', 'name' => 'Dagger', 'type' => 'offhand', 'stats' => '924-981' ));
-   array_push($weapons, array('cid' => '5', 'name' => 'Staff', 'type' => 'twohand', 'stats' => '985-1111' ));
+   array_push($weapons, array('cid' => '5', 'name' => 'Axe', 'mainhand' => '1', 'offhand' => '0', 'twohand' => '0', 'stats' => '857-1048' ));
+   array_push($weapons, array('cid' => '5', 'name' => 'Dagger', 'mainhand' => '1','offhand' => '1', 'twohand' => '0', 'stats' => '924-981' ));
+   array_push($weapons, array('cid' => '5', 'name' => 'Staff', 'mainhand' => '0','offhand' => '0', 'twohand' => '1', 'stats' => '985-1111' ));
 
    
    foreach ($weapons as $w)
    {
-	 $rows_affected = $wpdb->insert( $table_name, array('cid' => $w['cid'], 'name' => $w['name'], 'type' => $w['type'], 'stats' => $w['stats'] ) );
+	 $rows_affected = $wpdb->insert( $table_name, array('cid' => $w['cid'], 'name' => $w['name'], 'mainhand' => $w['mainhand'], 'offhand' => $w['offhand'], 'twohand' => $w['twohand'], 'stats' => $w['stats'] ) );
    }
    
    /// END WEAPON DATA

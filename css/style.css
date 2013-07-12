@@ -876,15 +876,15 @@
 	background-position: -64px -32px;
 }
 
-.traits-elementalist {
+.traits-elementalist, .traits-attunementrechargerate {
 	background-position: -96px -32px;
 }
 
-.traits-engineer {
+.traits-engineer, .traits-toolbeltrechargerate {
 	background-position: -128px -32px;
 }
 
-.traits-guardian {
+.traits-guardian, .traits-virtuerechargerate {
 	background-position: 0px -64px;
 }
 
@@ -900,11 +900,11 @@
 	background-position: -96px -64px;
 }
 
-.traits-mesmer {
+.traits-mesmer, .traits-shreddingrechargerate {
 	background-position: -128px -64px;
 }
 
-.traits-necromancer {
+.traits-necromancer, .traits-lifeforcepool {
 	background-position: 0px -96px;
 }
 
@@ -916,11 +916,11 @@
 	background-position: -64px -96px;
 }
 
-.traits-ranger {
+.traits-ranger, .traits-petattributebonus {
 	background-position: -96px -96px;
 }
 
-.traits-thief {
+.traits-thief, .traits-stealrechargerate  {
 	background-position: -128px -96px;
 }
 
@@ -932,7 +932,7 @@
 	background-position: -32px -128px;
 }
 
-.traits-warrior {
+.traits-warrior, .traits-burstdamage {
 	background-position: -64px -128px;
 }
 

@@ -360,12 +360,10 @@ var ml = {
 		var self = this;
 
 
-		///Traits
-
-		//Total trait points
+		// Total trait points
 		self.traitPoints = ko.observable(70);
 
-		//Points per line
+		// Trait points per line
 		self.traitLine1 = ko.observable(0);
 		self.traitLine2 = ko.observable(0);
 		self.traitLine3 = ko.observable(0);
@@ -507,12 +505,4 @@ var ml = {
 	}
 
 
-}
-
-//Holds invested trait points
-
-
-function calculate()
-{
-	
 }
