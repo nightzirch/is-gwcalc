@@ -1,6 +1,6 @@
 			<div class="traits_top">
-				<div id="trait_points_refund" onClick="traitsRefund()" title="Refund trait points"></div>
-				<div stlye="float:left;"><span id="trait_points_left">70</span> <span style="margin-left:5px;width: 57px;height: 24px;display: block;font-size: 9px;float: right;margin-top: 7px;">unspent trait points</span></div>
+				<div id="trait_points_refund" onClick="ml.ops.traitsRefund()" title="Refund trait points"></div>
+				<div stlye="float:left;"><span id="trait_points_left" data-bind="text: traitPoints"></span> <span style="margin-left:5px;width: 57px;height: 24px;display: block;font-size: 9px;float: right;margin-top: 7px;">unspent trait points</span></div>
 			</div>
 			<div style="clear:both;"></div>
 			<div class="<?php echo strtolower($profession->name).'-traits' ?>">
@@ -10,9 +10,9 @@
 		 			<h3 id="traitLineName"><?php echo $line->name; ?></h3>
 		 			<div id="<?php echo 'traitLine-'.$i ?>" class="traitField">
 		 				<div class="traitField1">
-		 					<div class="plus_box" style="cursor:pointer" onClick="traitPlus('<?php echo $i ?>')"></div>
-		 					<div class="minus_box" style="cursor:pointer" onClick="traitMinus('<?php echo $i ?>')"></div>
-							<div id="<?php echo 'traits_invested-'.$i; ?>" class="traits_invested">0</div>
+		 					<div class="plus_box" style="cursor:pointer" onClick="ml.ops.traitPlus('<?php echo $i ?>')"></div>
+		 					<div class="minus_box" style="cursor:pointer" onClick="ml.ops.traitMinus('<?php echo $i ?>')"></div>
+							<div class="traits_invested" data-bind="text: <?php echo 'traitLine'.$i ?>"></div>
 							<div class="traits_pri">
 								<div class="traits_iconcontainer">
 									<span class="<?php echo 'traits-'.strtolower($line->pri); ?>"></span>
