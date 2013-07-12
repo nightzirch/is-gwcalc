@@ -307,6 +307,38 @@ var ml = {
 		},
 		getJewelId: function() {
 			return parseInt($('.amulet-container').attr('data-jewel'));
+		},
+
+		traitPlus: function(i) {
+		    if (ml.vm.traitPoints() > 0)
+		    {        
+		        if (ml.vm['traitLine'+i]() < 30)
+		        {
+		            ml.vm.traitPoints(ml.vm.traitPoints() - 5)
+		            ml.vm['traitLine'+i](ml.vm['traitLine'+i]() + 5);
+		        }
+		    }
+		},
+
+		traitMinus: function(i) {
+		    if (ml.vm.traitPoints() < 70)
+		    {        
+		        if (ml.vm['traitLine'+i]() > 0)
+		        {
+		            ml.vm.traitPoints(ml.vm.traitPoints() + 5)
+		            ml.vm['traitLine'+i](ml.vm['traitLine'+i]() - 5);
+		        }  
+		    }
+		},
+
+		//Refunds all trait points
+		traitsRefund: function() {
+		    ml.vm.traitPoints(70);
+
+		    for (i=1;i<=5;i++)
+		    {
+		    	ml.vm['traitLine'+i](0); 
+		    }
 		}
 	},
 	
@@ -327,7 +359,19 @@ var ml = {
 	MistLeagueViewModel: function() {
 		var self = this;
 
-			
+
+		///Traits
+
+		//Total trait points
+		self.traitPoints = ko.observable(70);
+
+		//Points per line
+		self.traitLine1 = ko.observable(0);
+		self.traitLine2 = ko.observable(0);
+		self.traitLine3 = ko.observable(0);
+		self.traitLine4 = ko.observable(0);
+		self.traitLine5 = ko.observable(0);
+
 		// Primary Attributes
 		self.attributePower = ko.observable(916);
 		self.attributePrecision = ko.observable(916);
@@ -467,58 +511,6 @@ var ml = {
 
 //Holds invested trait points
 
-var traits = {
-    line1 : 0,
-    line2 : 0,
-    line3 : 0,
-    line4 : 0,
-    line5 : 0,
-    };
-
-var trait_points = 70;
-
-//Increases points in selected trait line
-function traitPlus(i)
-{
-    if (trait_points > 0)
-    {        
-        if (traits['line'+i] < 30)
-        {
-            trait_points -= 1;
-            traits['line'+i] += 1;
-            jQuery("#traits_invested-"+i).html(traits['line'+i]);
-            jQuery("#trait_points_left").html(trait_points);
-        }
-    }
-}
-
-//Decreases points in selected trait line
-function traitMinus(i)
-{
-    if (trait_points < 70)
-    {        
-        if (traits['line'+i] > 0)
-        {
-            trait_points += 1;
-            traits['line'+i] -= 1;
-            jQuery("#traits_invested-"+i).html(traits['line'+i]);
-            jQuery("#trait_points_left").html(trait_points);
-        }  
-    }
-}
-
-//Refunds all trait points
-function traitsRefund()
-{
-    trait_points = 70
-    jQuery("#trait_points_left").html(trait_points);
-
-    for (i=1;i<=5;i++)
-    {
-        jQuery("#traits_invested-"+i).html('0');
-        traits['line'+i] = 0;
-    }
-}
 
 function calculate()
 {
