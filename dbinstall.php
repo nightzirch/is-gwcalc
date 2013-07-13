@@ -305,53 +305,53 @@ function db_install_data() {
    
    $array = array();
 
-      array_push($array, array('name' => 'Fire Magic', 'cid' => '1', 'position' => '1','pri' => 'Power', 'sec' => 'ConditionDuration'));
-      array_push($array, array('name' => 'Air Magic', 'cid' => '1', 'position' => '2','pri' => 'Precision', 'sec' => 'CriticalDamage'));
-      array_push($array, array('name' => 'Earth Magic', 'cid' => '1', 'position' => '3', 'pri' => 'Toughness', 'sec' => 'ConditionDamage')); 
-      array_push($array, array('name' => 'Water Magic', 'cid' => '1', 'position' => '4', 'pri' => 'Vitality', 'sec' => 'HealingPower')); 
-      array_push($array, array('name' => 'Arcana', 'cid' => '1', 'position' => '5', 'pri' => 'AttunementRechargeRate', 'sec' => 'BoonDuration')); 
+      array_push($array, array('name' => 'Fire Magic', 'cid' => '1', 'position' => '1','pri' => 'Power', 'sec' => 'Condition Duration'));
+      array_push($array, array('name' => 'Air Magic', 'cid' => '1', 'position' => '2','pri' => 'Precision', 'sec' => 'Critical Damage'));
+      array_push($array, array('name' => 'Earth Magic', 'cid' => '1', 'position' => '3', 'pri' => 'Toughness', 'sec' => 'Condition Damage')); 
+      array_push($array, array('name' => 'Water Magic', 'cid' => '1', 'position' => '4', 'pri' => 'Vitality', 'sec' => 'Healing Power')); 
+      array_push($array, array('name' => 'Arcana', 'cid' => '1', 'position' => '5', 'pri' => 'Attunement Recharge Rate', 'sec' => 'Boon Duration')); 
 
-      array_push($array, array('name' => 'Explosives', 'cid' => '2', 'position' => '1','pri' => 'Power', 'sec' => 'ConditionDuration'));
-      array_push($array, array('name' => 'Firearms', 'cid' => '2', 'position' => '2','pri' => 'Precision', 'sec' => 'ConditionDamage'));
-      array_push($array, array('name' => 'Inventions', 'cid' => '2', 'position' => '3', 'pri' => 'Toughness', 'sec' => 'HealingPower')); 
-      array_push($array, array('name' => 'Alchemy', 'cid' => '2', 'position' => '4', 'pri' => 'Vitality', 'sec' => 'BoonDuration')); 
-      array_push($array, array('name' => 'Tools', 'cid' => '2', 'position' => '5', 'pri' => 'ToolBeltRechargeRate', 'sec' => 'CriticalDamage')); 
+      array_push($array, array('name' => 'Explosives', 'cid' => '2', 'position' => '1','pri' => 'Power', 'sec' => 'Condition Duration'));
+      array_push($array, array('name' => 'Firearms', 'cid' => '2', 'position' => '2','pri' => 'Precision', 'sec' => 'Condition Damage'));
+      array_push($array, array('name' => 'Inventions', 'cid' => '2', 'position' => '3', 'pri' => 'Toughness', 'sec' => 'Healing Power')); 
+      array_push($array, array('name' => 'Alchemy', 'cid' => '2', 'position' => '4', 'pri' => 'Vitality', 'sec' => 'Boon Duration')); 
+      array_push($array, array('name' => 'Tools', 'cid' => '2', 'position' => '5', 'pri' => 'Tool Belt Recharge Rate', 'sec' => 'Critical Damage')); 
 
-      array_push($array, array('name' => 'Zeal', 'cid' => '3', 'position' => '1','pri' => 'Power', 'sec' => 'ConditionDuration'));
-      array_push($array, array('name' => 'Radiance', 'cid' => '3', 'position' => '2','pri' => 'Precision', 'sec' => 'ConditionDamage'));
-      array_push($array, array('name' => 'Valor', 'cid' => '3', 'position' => '3', 'pri' => 'Toughness', 'sec' => 'CriticalDamage')); 
-      array_push($array, array('name' => 'Honor', 'cid' => '3', 'position' => '4', 'pri' => 'Vitality', 'sec' => 'HealingPower')); 
-      array_push($array, array('name' => 'Virtues', 'cid' => '3', 'position' => '5', 'pri' => 'VirtueRechargeRate', 'sec' => 'BoonDuration')); 
+      array_push($array, array('name' => 'Zeal', 'cid' => '3', 'position' => '1','pri' => 'Power', 'sec' => 'Condition Duration'));
+      array_push($array, array('name' => 'Radiance', 'cid' => '3', 'position' => '2','pri' => 'Precision', 'sec' => 'Condition Damage'));
+      array_push($array, array('name' => 'Valor', 'cid' => '3', 'position' => '3', 'pri' => 'Toughness', 'sec' => 'Critical Damage')); 
+      array_push($array, array('name' => 'Honor', 'cid' => '3', 'position' => '4', 'pri' => 'Vitality', 'sec' => 'Healing Power')); 
+      array_push($array, array('name' => 'Virtues', 'cid' => '3', 'position' => '5', 'pri' => 'Virtue Recharge Rate', 'sec' => 'Boon Duration')); 
 
-      array_push($array, array('name' => 'Domination', 'cid' => '4', 'position' => '1','pri' => 'Power', 'sec' => 'ConditionDuration'));
-      array_push($array, array('name' => 'Dueling', 'cid' => '4', 'position' => '2','pri' => 'Precision', 'sec' => 'CriticalDamage'));
-      array_push($array, array('name' => 'Chaos', 'cid' => '4', 'position' => '3', 'pri' => 'Toughness', 'sec' => 'BoonDuration')); 
-      array_push($array, array('name' => 'Inspiration', 'cid' => '4', 'position' => '4', 'pri' => 'Vitality', 'sec' => 'HealingPower')); 
-      array_push($array, array('name' => 'Illusions', 'cid' => '4', 'position' => '5', 'pri' => 'ShreddingRechargeRate', 'sec' => 'ConditionDamage')); 
+      array_push($array, array('name' => 'Domination', 'cid' => '4', 'position' => '1','pri' => 'Power', 'sec' => 'Condition Duration'));
+      array_push($array, array('name' => 'Dueling', 'cid' => '4', 'position' => '2','pri' => 'Precision', 'sec' => 'Critical Damage'));
+      array_push($array, array('name' => 'Chaos', 'cid' => '4', 'position' => '3', 'pri' => 'Toughness', 'sec' => 'Boon Duration')); 
+      array_push($array, array('name' => 'Inspiration', 'cid' => '4', 'position' => '4', 'pri' => 'Vitality', 'sec' => 'Healing Power')); 
+      array_push($array, array('name' => 'Illusions', 'cid' => '4', 'position' => '5', 'pri' => 'Shredding Recharge Rate', 'sec' => 'Condition Damage')); 
 
-      array_push($array, array('name' => 'Spite', 'cid' => '5', 'position' => '1', 'pri' => 'Power', 'sec' => 'ConditionDuration'));
-      array_push($array, array('name' => 'Curses', 'cid' => '5', 'position' => '2', 'pri' => 'Precision', 'sec' => 'ConditionDamage'));
-      array_push($array, array('name' => 'Death Magic', 'cid' => '5', 'position' => '3', 'pri' => 'Toughness', 'sec' => 'BoonDuration'));
-      array_push($array, array('name' => 'Blood Magic', 'cid' => '5', 'position' => '4', 'pri' => 'Vitality', 'sec' => 'HealingPower'));
-      array_push($array, array('name' => 'Soul Reaping', 'cid' => '5', 'position' => '5', 'pri' => 'LifeForcePool', 'sec' => 'CriticalDamage'));  
+      array_push($array, array('name' => 'Spite', 'cid' => '5', 'position' => '1', 'pri' => 'Power', 'sec' => 'Condition Duration'));
+      array_push($array, array('name' => 'Curses', 'cid' => '5', 'position' => '2', 'pri' => 'Precision', 'sec' => 'Condition Damage'));
+      array_push($array, array('name' => 'Death Magic', 'cid' => '5', 'position' => '3', 'pri' => 'Toughness', 'sec' => 'Boon Duration'));
+      array_push($array, array('name' => 'Blood Magic', 'cid' => '5', 'position' => '4', 'pri' => 'Vitality', 'sec' => 'Healing Power'));
+      array_push($array, array('name' => 'Soul Reaping', 'cid' => '5', 'position' => '5', 'pri' => 'Life Force Pool', 'sec' => 'Critical Damage'));  
 
-      array_push($array, array('name' => 'Marksmanship', 'cid' => '6', 'position' => '1', 'pri' => 'Power', 'sec' => 'ConditionDuration'));
-      array_push($array, array('name' => 'Skirmishing', 'cid' => '6', 'position' => '2', 'pri' => 'Precision', 'sec' => 'CriticalDamage'));
-      array_push($array, array('name' => 'Wilderness Survival', 'cid' => '6', 'position' => '3', 'pri' => 'Toughness', 'sec' => 'ConditionDamage'));
-      array_push($array, array('name' => 'Nature Magic', 'cid' => '6', 'position' => '4', 'pri' => 'Vitality', 'sec' => 'BoonDuration'));
-      array_push($array, array('name' => 'Beastmastery', 'cid' => '6', 'position' => '5', 'pri' => 'PetAttributeBonus', 'sec' => 'HealingPower')); 
+      array_push($array, array('name' => 'Marksmanship', 'cid' => '6', 'position' => '1', 'pri' => 'Power', 'sec' => 'Condition Duration'));
+      array_push($array, array('name' => 'Skirmishing', 'cid' => '6', 'position' => '2', 'pri' => 'Precision', 'sec' => 'Critical Damage'));
+      array_push($array, array('name' => 'Wilderness Survival', 'cid' => '6', 'position' => '3', 'pri' => 'Toughness', 'sec' => 'Condition Damage'));
+      array_push($array, array('name' => 'Nature Magic', 'cid' => '6', 'position' => '4', 'pri' => 'Vitality', 'sec' => 'Boon Duration'));
+      array_push($array, array('name' => 'Beastmastery', 'cid' => '6', 'position' => '5', 'pri' => 'Pet Attribute Bonus', 'sec' => 'Healing Power')); 
 
-      array_push($array, array('name' => 'Deadly Arts', 'cid' => '7', 'position' => '1', 'pri' => 'Power', 'sec' => 'ConditionDuration'));
-      array_push($array, array('name' => 'Critical Strikes', 'cid' => '7', 'position' => '2', 'pri' => 'Precision', 'sec' => 'CriticalDamage'));
-      array_push($array, array('name' => 'Shadow Arts', 'cid' => '7', 'position' => '3', 'pri' => 'Toughness', 'sec' => 'HealingPower'));
-      array_push($array, array('name' => 'Acrobatics', 'cid' => '7', 'position' => '4', 'pri' => 'Vitality', 'sec' => 'BoonDuration'));
-      array_push($array, array('name' => 'Trickery', 'cid' => '7', 'position' => '5', 'pri' => 'StealRechargeRate', 'sec' => 'ConditionDamage'));
+      array_push($array, array('name' => 'Deadly Arts', 'cid' => '7', 'position' => '1', 'pri' => 'Power', 'sec' => 'Condition Duration'));
+      array_push($array, array('name' => 'Critical Strikes', 'cid' => '7', 'position' => '2', 'pri' => 'Precision', 'sec' => 'Critical Damage'));
+      array_push($array, array('name' => 'Shadow Arts', 'cid' => '7', 'position' => '3', 'pri' => 'Toughness', 'sec' => 'Healing Power'));
+      array_push($array, array('name' => 'Acrobatics', 'cid' => '7', 'position' => '4', 'pri' => 'Vitality', 'sec' => 'Boon Duration'));
+      array_push($array, array('name' => 'Trickery', 'cid' => '7', 'position' => '5', 'pri' => 'Steal Recharge Rate', 'sec' => 'Condition Damage'));
 
-      array_push($array, array('name' => 'Strength', 'cid' => '8', 'position' => '1','pri' => 'Power', 'sec' => 'ConditionDuration'));
-      array_push($array, array('name' => 'Arms', 'cid' => '8', 'position' => '2','pri' => 'Precision', 'sec' => 'ConditionDamage'));
-      array_push($array, array('name' => 'Defense', 'cid' => '8', 'position' => '3', 'pri' => 'Toughness', 'sec' => 'HealingPower')); 
-      array_push($array, array('name' => 'Tactics', 'cid' => '8', 'position' => '4', 'pri' => 'Vitality', 'sec' => 'BoonDuration')); 
-      array_push($array, array('name' => 'Discipline', 'cid' => '8', 'position' => '5', 'pri' => 'BurstDamage', 'sec' => 'CriticalDamage'));   
+      array_push($array, array('name' => 'Strength', 'cid' => '8', 'position' => '1','pri' => 'Power', 'sec' => 'Condition Duration'));
+      array_push($array, array('name' => 'Arms', 'cid' => '8', 'position' => '2','pri' => 'Precision', 'sec' => 'Condition Damage'));
+      array_push($array, array('name' => 'Defense', 'cid' => '8', 'position' => '3', 'pri' => 'Toughness', 'sec' => 'Healing Power')); 
+      array_push($array, array('name' => 'Tactics', 'cid' => '8', 'position' => '4', 'pri' => 'Vitality', 'sec' => 'Boon Duration')); 
+      array_push($array, array('name' => 'Discipline', 'cid' => '8', 'position' => '5', 'pri' => 'Burst Damage', 'sec' => 'Critical Damage'));   
 
    
    

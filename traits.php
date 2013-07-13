@@ -15,13 +15,13 @@
 							<div class="traits_invested" data-bind="text: <?php echo 'traitLine'.$i ?>"></div>
 							<div class="traits_pri">
 								<div class="traits_iconcontainer">
-									<span class="<?php echo 'traits-'.strtolower($line->pri); ?>"></span>
+									<span title="<?php echo $line->pri; ?>" class="<?php echo 'traits-'.strtolower(str_replace(' ', '',$line->pri)); ?>"></span>
 								</div>
 								<strong id="<?php echo 'trait_bonus-'.$i.'-1'; ?>" class="trait_bonus">+0</strong>
 							</div>
 							<div class="traits_sec">
 								<div class="traits_iconcontainer">
-									<span class="<?php echo 'traits-'.strtolower($line->sec); ?>"></span>
+									<span title="<?php echo $line->sec; ?>" class="<?php echo 'traits-'.strtolower(str_replace(' ', '',$line->sec)); ?>"></span>
 								</div>
 								<strong id="<?php echo 'trait_bonus-'.$i.'-2'; ?>" class="trait_bonus">+0</strong>
 							</div>
