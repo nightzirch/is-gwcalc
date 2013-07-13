@@ -127,6 +127,8 @@ var ml = {
 			ml.listener.weaponSlot();
 			ml.listener.accordion();
 			ml.listener.selectionArea.close();
+			ml.listener.selectionArea.weapon();
+			ml.listener.selectionArea.sigil();
 			ml.listener.selectionArea.rune();
 			ml.listener.selectionArea.amulet();
 			ml.listener.selectionArea.jewel();
@@ -239,6 +241,57 @@ var ml = {
 					$('.armor-container.active').removeClass('active');
 					$('.weapon-container.active').removeClass('active');
 				});
+			},
+			weapon: function() {
+				// Click events
+				$('.selectionAreaWeapons img').on('click', function() {
+					var container = $('.selectionArea');
+					var dataActive = $(container).attr("data-active");
+					var activeSlot = $(".weapon-container[data-active=" + dataActive + "]");
+					var weaponSlot = $(activeSlot).find(".weapon-slot");
+					var title = $(this).attr("title");
+					var dataId = $(this).attr("data-id");
+					
+					// Sets the attribute data-id of the .armor-container
+					$(activeSlot).attr('data-weapon', dataId);
+					
+					// Sets the background image of the runeSlot to match the selected rune
+					$(weaponSlot).attr('style', "background-image: url("  + ml.obj.pluginUrl + "images/weapons/" + title  + ".jpg)");
+				});
+				/*// Double click
+				.on('dblclick', function() {
+					var allRuneSlots = $(".rune-slot");
+					var allArmorSlots = $('.armor.armor-container');
+					var dataId = $(this).attr("data-id");
+					
+					$(allArmorSlots).attr('data-rune', dataId);
+					$(allRuneSlots).attr('style', "background-image: url("  + ml.obj.pluginUrl + "images/runes/" + dataId  + ".jpg)");
+				});*/
+			},
+			sigil: function() {
+				// Click events
+				$('.selectionAreaSigils img').on('click', function() {
+					var container = $('.selectionArea');
+					var dataActive = $(container).attr("data-active");
+					var activeSlot = $(".weapon-container[data-active=" + dataActive + "]");
+					var sigilSlot = $(activeSlot).find(".sigil-slot");
+					var dataId = $(this).attr("data-id");
+					
+					// Sets the attribute data-id of the .armor-container
+					$(activeSlot).attr('data-sigil', dataId);
+					
+					// Sets the background image of the runeSlot to match the selected rune
+					$(sigilSlot).attr('style', "background-image: url("  + ml.obj.pluginUrl + "images/sigils/" + dataId  + ".jpg)");
+				});
+				/*// Double click
+				.on('dblclick', function() {
+					var allRuneSlots = $(".rune-slot");
+					var allArmorSlots = $('.armor.armor-container');
+					var dataId = $(this).attr("data-id");
+					
+					$(allArmorSlots).attr('data-rune', dataId);
+					$(allRuneSlots).attr('style', "background-image: url("  + ml.obj.pluginUrl + "images/runes/" + dataId  + ".jpg)");
+				});*/
 			},
 			rune: function() {
 				// Click events

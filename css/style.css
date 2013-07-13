@@ -12,7 +12,8 @@
 #isgw2calc #professions
 {
 	margin:0 auto; 
-	width:500px; 
+	width: auto; 
+	display: table;
 }
 
 #isgw2calc #professions a img
@@ -344,9 +345,9 @@
 }
 
 
-#isgw2calc #sigils .empty-slot
+#isgw2calc .empty-slot.sigil-slot
 {
-	margin:0 0 0 20px;
+	margin: 18px 0 5px -32px;
 }
 
 

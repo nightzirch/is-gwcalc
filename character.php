@@ -61,10 +61,10 @@
 				<div class="accordionContainer selectionAreaWeapons">
 					<?php foreach ($weapons as $w) { ?>
 						<span class="tooltip">
-							<img style="margin:5px;" title="'<?php echo $w->name; ?>'" src="<?php echo plugin_dir_url(__FILE__) ?>images/weapons/<?php echo $w->name; ?>.jpg" data-weapon='<?php echo $w->id; ?>' />
+							<img style="margin:5px;" title='<?php echo $w->name; ?>' src="<?php echo plugin_dir_url(__FILE__) ?>images/weapons/<?php echo $w->name; ?>.jpg" data-id='<?php echo $w->id; ?>' />
 							<div class="tooltip_frame">
 								<div class="tooltip_title">
-									<span style="vertical-align:top;padding:8px 0 8px 0;">'<?php echo $w->name; ?>'</span>
+									<span style="vertical-align:top;padding:8px 0 8px 0;"><?php echo $w->name; ?></span>
 								</div>
 								<div>
 									<ul class="tooltip_list">
@@ -214,50 +214,22 @@
 	
 
 	<?php if ($profession->sets==2){ ?>
-	<div class="weapon_swap" onClick="swapWeapons()"></div>
-
-	<div class="weapon">
-		<div class="weapon-container separate_weapon" data-active="activeMain2">
-			<div class="weapon-img weapon-slot weapon-main weapon-main2"></div>
-			<div class="empty-slot sigil-slot sigil-main2"></div>
+		<div class="weapon_swap" onClick="swapWeapons()"></div>
+	
+		<div class="weapon">
+			<div class="weapon-container separate_weapon" data-active="activeMain2">
+				<div class="weapon-img weapon-slot weapon-main weapon-main2"></div>
+				<div class="empty-slot sigil-slot sigil-main2"></div>
+			</div>
+			
+			<div class="weapon_set_2 weapon_set_icon"></div>
+			
+			<div class="weapon-container separate_weapon" data-active="activeOff2">
+				<div class="weapon-img weapon-slot weapon-off weapon-off2"></div>
+				<div class="empty-slot sigil-slot sigil-off2"></div>
+			</div>
 		</div>
-		
-		<div class="weapon_set_2 weapon_set_icon"></div>
-		
-		<div class="weapon-container separate_weapon" data-active="activeOff2">
-			<div class="weapon-img weapon-slot weapon-off weapon-off2"></div>
-			<div class="empty-slot sigil-slot sigil-off2"></div>
-		</div>
-	</div>
 	<?php } ?>
-
-	<div id="sigil_pick" title="Sigils" class="dialog" style="display:none;">
-		<div id="sigil_accordion">
-			<?php foreach ($sigil_types as $k) { ?>
-				<h3><?php echo $sigil_keys[$k->type]?></h3>
-				<div>
-			   <?php foreach ($sigils as $s) {
-					if ($s->type == $k->type)
-					{ ?>
-					<span class="tooltip" >
-						<img style="margin:5px;" onClick="sigilPick('<?php echo $s->id; ?>')" src="<?php echo plugin_dir_url(__FILE__); ?>images/sigils/<?php echo $s->id?>.jpg" />
-						<div class="tooltip_frame">
-							<div class="tooltip_title">
-									<img style="float:left"src="<?php echo plugin_dir_url(__FILE__); ?>images/sigils/<?php echo $s->id?>.jpg"/><span style="padding-left:5px;font-size:11px;"><?php echo $s->name?></span>
-							</div>
-							<div style="clear:both;"></div>
-							<div class="tooltip_description" style="margin-top:5px;">
-								<?php echo $s->stats?>
-							</div>
-						</div>
-					</span>
-					<?php } }  ?>
-				</div>
-			<?php } ?>
-		</div>
-	</div>
-
-	<div id="weapon_picker" title="Pick a weapon" class="dialog"></div>
 </div><!-- Weapons -->
 
 
