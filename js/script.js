@@ -124,6 +124,7 @@ var ml = {
 			ml.listener.scrollRefresh();
 			ml.listener.armorSlot();
 			ml.listener.amuletSlot();
+			ml.listener.weaponSlot();
 			ml.listener.accordion();
 			ml.listener.selectionArea.close();
 			ml.listener.selectionArea.rune();
@@ -143,12 +144,16 @@ var ml = {
 				// If container is not visible, make it visible
 				if ($(container).hasClass("hide")) {
 					$(container).removeClass("hide").addClass("show");
+					
+					// Refresh the scrollbar
+					ml.scroll.refresh();
 				}
 				
-				// if another armor slot is .active, remove .active
+				// if another weapon or armor slot is .active, remove .active
 				// and make this .active
 				if (!$(this).hasClass("active")) {
 					$('.armor-container.active').removeClass('active');
+					$('.weapon-container.active').removeClass('active');
 					$(this).addClass('active');
 				}
 				else {
@@ -167,12 +172,44 @@ var ml = {
 				// If container is not visible, make it visible
 				if ($(container).hasClass("hide")) {
 					$(container).removeClass("hide").addClass("show");
+					
+					// Refresh the scrollbar
+					ml.scroll.refresh();
 				}
 				
-				// if another armor slot is .active, remove .active
+				// if another weapon or armor slot is .active, remove .active
 				// and make this .active
 				if (!$(this).hasClass("active")) {
 					$('.armor-container.active').removeClass('active');
+					$('.weapon-container.active').removeClass('active');
+					$(this).addClass('active');
+				}
+				else {
+					// Something
+				}
+				
+				// Sets data-active to the clicked armorSlot
+				$(container).attr('data-active', dataActive);
+			});
+		},
+		weaponSlot: function() {
+			$('.weapon-container').bind('click', function(){
+				var dataActive = $(this).attr('data-active');
+				var container = $('.selectionArea');
+				
+				// If container is not visible, make it visible
+				if ($(container).hasClass("hide")) {
+					$(container).removeClass("hide").addClass("show");
+					
+					// Refresh the scrollbar
+					ml.scroll.refresh();
+				}
+				
+				// if another weapon or armor slot is .active, remove .active
+				// and make this .active
+				if (!$(this).hasClass("active")) {
+					$('.armor-container.active').removeClass('active');
+					$('.weapon-container.active').removeClass('active');
 					$(this).addClass('active');
 				}
 				else {
@@ -199,7 +236,8 @@ var ml = {
 			close: function() {
 				$('.selectionAreaNavContainer .close').bind('click', function(){
 					ml.ops.selectionArea.close();
-					$('.armor.active').removeClass('active');
+					$('.armor-container.active').removeClass('active');
+					$('.weapon-container.active').removeClass('active');
 				});
 			},
 			rune: function() {

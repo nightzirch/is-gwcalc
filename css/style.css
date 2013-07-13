@@ -100,7 +100,7 @@
 
 #isgw2calc .selectionAreaContainer {
 	overflow: hidden;
-	height: 403px;
+	height: 428px;
 	background: url('../images/comingSoon.png') center center no-repeat;
 }
 
@@ -116,7 +116,9 @@
 }
 
 #isgw2calc .selectionArea .activeArrow {
-	display: none;
+	/*display: none;*/
+	opacity: 0;
+	position: absolute;
 	
 	-webkit-transition: all 0.5s ease-in-out;
 	-moz-transition: all 0.5s ease-in-out;
@@ -129,6 +131,7 @@
 	width: 20px;
 	height: 60px;
 	margin-left: -3px;
+	margin-top: 365px;
 	background: url('../images/menu/selectionAreaVertical.png');
 }
 
@@ -149,6 +152,7 @@
 #isgw2calc .selectionArea[data-active=activeAmulet] .activeVertical {
 	display: block;
 	float: left;
+	opacity: 1;
 }
 
 #isgw2calc .selectionArea[data-active=activeMain1] .activeHorizontal,
@@ -161,9 +165,10 @@
 #isgw2calc .selectionArea[data-active=activeWaterOff2] .activeHorizontal {
 	display: block;
 	float: left;
+	opacity: 1;
 }
 
-#isgw2calc .selectionArea[data-active=activeHead] .activeVertical {
+#isgw2calc .selectionArea[data-active=activeHelmet] .activeVertical {
 	margin-top: -4px;
 }
 
@@ -192,19 +197,19 @@
 }
 
 #isgw2calc .selectionArea[data-active=activeMain1] .activeHorizontal {
-	margin-left: 21px;
+	margin-left: 25px;
 }
 
 #isgw2calc .selectionArea[data-active=activeOff1] .activeHorizontal {
-	margin-left: 101px;
+	margin-left: 84px;
 }
 
 #isgw2calc .selectionArea[data-active=activeMain2] .activeHorizontal {
-	margin-left: 209px;
+	margin-left: 182px;
 }
 
 #isgw2calc .selectionArea[data-active=activeOff2] .activeHorizontal {
-	margin-left: 289px;
+	margin-left: 241px;
 }
 
 #isgw2calc .selectionAreaNavContainer .close {
@@ -280,7 +285,7 @@
 #isgw2calc #weapons
 {
 	display: block;
-	margin: 10px 0 0 68px;
+	margin: 10px 0 0 93px;
 	float: left;
 }
 
@@ -420,7 +425,9 @@
 #isgw2calc .armor:hover .armor-img,
 #isgw2calc .armor.active .armor-img,
 #isgw2calc .amulet:hover .armor-img,
-#isgw2calc .amulet.active .armor-img {
+#isgw2calc .amulet.active .armor-img,
+#isgw2calc .weapon-container:hover .weapon-img,
+#isgw2calc .weapon-container.active .weapon-img {
 	-webkit-box-shadow: inset 0px 0px 0px 1px rgba(190, 181, 174, 1);
 	box-shadow: inset 0px 0px 0px 1px rgba(190, 181, 174, 1);
 }
