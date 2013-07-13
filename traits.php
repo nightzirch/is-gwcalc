@@ -17,13 +17,14 @@
 								<div class="traits_iconcontainer">
 									<span title="<?php echo $line->pri; ?>" class="<?php echo 'traits-'.strtolower(str_replace(' ', '',$line->pri)); ?>"></span>
 								</div>
-								<strong id="<?php echo 'trait_bonus-'.$i.'-1'; ?>" class="trait_bonus">+0</strong>
+								<?php if ($line->position == 5) {$line->pri = Profession;} ?>
+								<strong class="trait_bonus" data-bind="text: trait<?php echo str_replace(' ', '',$line->pri); ?>"></strong>
 							</div>
 							<div class="traits_sec">
 								<div class="traits_iconcontainer">
 									<span title="<?php echo $line->sec; ?>" class="<?php echo 'traits-'.strtolower(str_replace(' ', '',$line->sec)); ?>"></span>
 								</div>
-								<strong id="<?php echo 'trait_bonus-'.$i.'-2'; ?>" class="trait_bonus">+0</strong>
+								<strong class="trait_bonus" data-bind="text: trait<?php echo str_replace(' ', '',$line->sec); ?>"></strong>
 							</div>
 		 				</div>
 		 				<div class="traitField2">

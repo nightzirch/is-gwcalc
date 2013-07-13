@@ -119,6 +119,7 @@ function display_func(){
 	wp_localize_script('gw2calc', 'orbs', $orbs);
 	wp_localize_script('gw2calc', 'runes', $runes);
 	wp_localize_script('gw2calc', 'sigils', $sigils);
+	wp_localize_script('gw2calc', 'traitLines', $traitLines);
 	wp_localize_script('gw2calc', 'pluginUrl', plugin_dir_url(__FILE__) );
 	
 	ob_start();

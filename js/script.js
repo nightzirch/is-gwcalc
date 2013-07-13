@@ -458,6 +458,7 @@ var ml = {
 		orbs: orbs,
 		runes: runes,
 		sigils: sigils,
+		traitLines: traitLines,
 		pluginUrl: pluginUrl
 	},
 	
@@ -476,19 +477,106 @@ var ml = {
 		self.traitLine4 = ko.observable(0);
 		self.traitLine5 = ko.observable(0);
 
+		//Trait line primary stats bonus
+		self.traitPower = ko.computed(function() {
+			return parseInt(self.traitLine1())*10;
+		});
+
+		self.traitPrecision = ko.computed(function() {
+			return parseInt(self.traitLine2())*10;
+		});
+
+		self.traitToughness = ko.computed(function() {
+			return parseInt(self.traitLine3())*10;
+		});
+
+		self.traitVitality = ko.computed(function() {
+			return parseInt(self.traitLine4())*10;
+		});
+
+		self.traitProfession = ko.computed(function() {
+			if (ml.obj.currentProfession[0].name != 'Ranger') {
+				return parseInt(self.traitLine5()) + '%';
+			}
+			else {
+				return parseInt(self.traitLine5());
+			}
+		});
+		
+		
+		//Trait line secondary stats bonus
+		self.traitBoonDuration = ko.computed(function() {
+			var traitLine = jQuery.grep(ml.obj.traitLines, function(e){ return e.sec == 'Boon Duration'; });
+			return parseInt(self['traitLine'+traitLine[0].position]()) + '%';
+		});
+
+		self.traitConditionDamage = ko.computed(function() {
+			var traitLine = jQuery.grep(ml.obj.traitLines, function(e){ return e.sec == 'Condition Damage'; });
+			return parseInt(self['traitLine'+traitLine[0].position]())*10;
+		});
+
+		self.traitConditionDuration = ko.computed(function() {
+			var traitLine = jQuery.grep(ml.obj.traitLines, function(e){ return e.sec == 'Condition Duration'; });
+			return parseInt(self['traitLine'+traitLine[0].position]()) + '%';
+		});
+
+		self.traitCriticalDamage = ko.computed(function() {
+			var traitLine = jQuery.grep(ml.obj.traitLines, function(e){ return e.sec == 'Critical Damage'; });
+			return parseInt(self['traitLine'+traitLine[0].position]()) + '%';
+		});
+
+		self.traitHealingPower = ko.computed(function() {
+			var traitLine = jQuery.grep(ml.obj.traitLines, function(e){ return e.sec == 'Healing Power'; });
+			return parseInt(self['traitLine'+traitLine[0].position]())*10;
+		});
+
+
 		// Primary Attributes
-		self.attributePower = ko.observable(916);
-		self.attributePrecision = ko.observable(916);
-		self.attributeToughness = ko.observable(916);
-		self.attributeVitality = ko.observable(916);
+		self.attributePower = ko.computed(function() {
+			return 916+parseInt(self.traitPower());
+		});
+
+		self.attributePrecision = ko.computed(function() {
+			return 916+parseInt(self.traitPrecision());
+		});
+
+		self.attributeToughness = ko.computed(function() {
+			return 916+parseInt(self.traitToughness());
+		});
+
+		self.attributeVitality = ko.computed(function() {
+			return 916+parseInt(self.traitVitality());
+		});
 		
 		// Secondary Attributes
-		self.attributeBoonDuration = ko.observable(0 + "%");
-		self.attributeProfession = ko.observable(0);
-		self.attributeConditionDamage = ko.observable(0);
-		self.attributeConditionDuration = ko.observable(0 + "%");
-		self.attributeCriticalDamage = ko.observable(0);
-		self.attributeHealingPower = ko.observable(0);
+		self.attributeBoonDuration = ko.computed(function() {
+			return 0 + parseInt(self.traitBoonDuration()) + '%';
+		});
+
+		self.attributeProfession = ko.computed(function() {
+			if (ml.obj.currentProfession[0].name != 'Ranger') {
+				return 0 + parseInt(self.traitProfession()) + '%';
+			}
+			else {
+				return 0 + parseInt(self.traitProfession());
+			}
+		});
+
+		self.attributeConditionDamage = ko.computed(function() {
+			return 0 + parseInt(self.traitConditionDamage());
+		});
+
+		self.attributeConditionDuration = ko.computed(function() {
+			return 0 + parseInt(self.traitConditionDuration()) + '%';
+		});
+
+		self.attributeCriticalDamage = ko.computed(function() {
+			return 0 + parseInt(self.traitCriticalDamage()) + '%';
+		});
+
+		self.attributeHealingPower = ko.computed(function() {
+			return 0 +parseInt(self.traitHealingPower());
+		});
 		
 		self.attributeArmor = ko.computed(function() {
 			var baseArmor = parseInt(ml.obj.currentProfession[0].armor);
