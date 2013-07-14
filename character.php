@@ -199,14 +199,14 @@
 	<!--h2>Weapon set</h2-->
 
 	<div class="weapon">
-		<div class="weapon-container separate_weapon" data-active="activeMain1">
+		<div class="weapon-container separate_weapon" data-active="activeMain1" data-slot="mainhand">
 			<div class="weapon-img weapon-slot weapon-main weapon-main1"></div>
 			<div class="empty-slot sigil-slot sigil-main1"></div>
 		</div>
 		
 		<div class="weapon_set_1 weapon_set_icon"></div>
 		
-		<div class="weapon-container separate_weapon" data-active="activeOff1">
+		<div class="weapon-container separate_weapon" data-active="activeOff1" data-slot="offhand">
 			<div class="weapon-img weapon-slot weapon-off weapon-off1"></div>
 			<div class="empty-slot sigil-slot sigil-off1"></div>
 		</div>
@@ -217,14 +217,14 @@
 		<div class="weapon_swap" onClick="swapWeapons()"></div>
 	
 		<div class="weapon">
-			<div class="weapon-container separate_weapon" data-active="activeMain2">
+			<div class="weapon-container separate_weapon" data-active="activeMain2" data-slot="mainhand">
 				<div class="weapon-img weapon-slot weapon-main weapon-main2"></div>
 				<div class="empty-slot sigil-slot sigil-main2"></div>
 			</div>
 			
 			<div class="weapon_set_2 weapon_set_icon"></div>
 			
-			<div class="weapon-container separate_weapon" data-active="activeOff2">
+			<div class="weapon-container separate_weapon" data-active="activeOff2" data-slot="offhand">
 				<div class="weapon-img weapon-slot weapon-off weapon-off2"></div>
 				<div class="empty-slot sigil-slot sigil-off2"></div>
 			</div>

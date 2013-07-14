@@ -252,21 +252,65 @@ var ml = {
 					var title = $(this).attr("title");
 					var dataId = $(this).attr("data-id");
 					
-					// Sets the attribute data-id of the .armor-container
-					$(activeSlot).attr('data-weapon', dataId);
+					// Fetches the selected weapon as an object
+					var weapon = ml.ops.getWeapon(dataId);
 					
-					// Sets the background image of the runeSlot to match the selected rune
-					$(weaponSlot).attr('style', "background-image: url("  + ml.obj.pluginUrl + "images/weapons/" + title  + ".jpg)");
-				});
-				/*// Double click
+					// Checks if the weapon is mainhand, offhand or twohand
+					var weaponMainhand = (parseInt(weapon.mainhand)) ? true : false;
+					var weaponOffhand = (parseInt(weapon.offhand)) ? true : false;
+					var weaponTwohand = (parseInt(weapon.twohand)) ? true : false;
+					
+					// Checks what kind of slot is active
+					var slotType = $(activeSlot).attr("data-slot");
+					
+					// Creates a string with weaponType
+					var weaponType;
+					if(weaponTwohand) {
+						// The weapon is a twohand
+						// Clear the offhand slot
+						ml.ops.clearSlot(activeSlot, "offhand");
+						
+						// Change some variables to fit this weaponType
+						var slotMainhand = $(activeSlot).parent().find("[data-slot=mainhand]");
+						activeSlot = slotMainhand;
+						weaponSlot = $(activeSlot).find(".weapon-slot");
+						
+						// Sets the attribute data-id of the .armor-container
+						$(activeSlot).attr('data-weapon', dataId);
+						
+						// Sets the background image of the runeSlot to match the selected rune
+						$(weaponSlot).attr('style', "background-image: url("  + ml.obj.pluginUrl + "images/weapons/" + title  + ".jpg)");
+						
+					}
+					else if(weaponTwohand || (weaponMainhand && slotType == "mainhand") || (weaponOffhand && slotType == "offhand")) {
+						// Both slot and weapon is either mainhand or offhand
+						// Add the weapon to this slot
+						
+						// Checks if there is a twohand in mainSlot.
+						// If so, remove it
+						var slotMainhand = $(activeSlot).parent().find("[data-slot=mainhand]");
+						var slottedWeapon = ml.ops.getWeapon($(slotMainhand).attr("data-weapon"));
+						
+						if(slottedWeapon && parseInt(slottedWeapon.twohand)) {
+							ml.ops.clearSlot(slotMainhand);
+						}
+						
+						// Sets the attribute data-id of the .armor-container
+						$(activeSlot).attr('data-weapon', dataId);
+						
+						// Sets the background image of the runeSlot to match the selected rune
+						$(weaponSlot).attr('style', "background-image: url("  + ml.obj.pluginUrl + "images/weapons/" + title  + ".jpg)");
+					}
+					else {
+						// Weapons dont match
+						// Some sort of error
+					}
+				})
+				// Double click
+				// We want to add that weapon to both mainhand and offhand slots
 				.on('dblclick', function() {
-					var allRuneSlots = $(".rune-slot");
-					var allArmorSlots = $('.armor.armor-container');
-					var dataId = $(this).attr("data-id");
-					
-					$(allArmorSlots).attr('data-rune', dataId);
-					$(allRuneSlots).attr('style', "background-image: url("  + ml.obj.pluginUrl + "images/runes/" + dataId  + ".jpg)");
-				});*/
+					// Checks if the weapon have both mainhand and offhand active
+				});
 			},
 			sigil: function() {
 				// Click events
@@ -414,7 +458,30 @@ var ml = {
 		getJewelId: function() {
 			return parseInt($('.amulet-container').attr('data-jewel'));
 		},
-
+		getWeapon: function(id) {
+			for(i in weapons) {
+				if(id == weapons[i].id) {
+					return weapons[i];
+				}
+			}
+		},
+		clearSlot: function(el, type) {
+			// The slot we wanna manipulate
+			var slot = el;
+			
+			// If type is present, means that we want to
+			// clear that type of slot in the parent node
+			if(type && (type == "mainhand" || type == "offhand")) {
+				var parent = $(el).parent();
+				
+				// The slot we actually wanna manipulate
+				slot = $(parent).find("[data-slot=" + type + "]");
+			}
+			
+			// Clear data-weapon and the background image in .weapon-img
+			$(slot).removeAttr("data-weapon");
+			$(slot).find(".weapon-img").removeAttr("style");			
+		},
 		traitPlus: function(i) {
 		    if (ml.vm.traitPoints() > 0)
 		    {        
