@@ -489,6 +489,24 @@ var ml = {
 		        {
 		            ml.vm.traitPoints(ml.vm.traitPoints() - 5)
 		            ml.vm['traitLine'+i](ml.vm['traitLine'+i]() + 5);
+
+		            if (ml.vm['traitLine'+i]() >= 5)
+		            {
+		            	jQuery('.traitField2 img.trait_minor_'+i).attr('src', ml.obj.pluginUrl+'images/traits/minor_'+ml.obj.currentProfession[0].name+'.png');
+		            	jQuery('.traitField2 img.trait_minor_'+i).addClass('minor_class');
+		            }
+
+		            if (ml.vm['traitLine'+i]() >= 15)
+		            {
+		            	jQuery('.traitField3 img.trait_minor_'+i).attr('src', ml.obj.pluginUrl+'images/traits/minor_'+ml.obj.currentProfession[0].name+'.png');
+		            	jQuery('.traitField3 img.trait_minor_'+i).addClass('minor_class');
+		            }
+
+		            if (ml.vm['traitLine'+i]() >= 25)
+		            {
+		            	jQuery('.traitField4 img.trait_minor_'+i).attr('src', ml.obj.pluginUrl+'images/traits/minor_'+ml.obj.currentProfession[0].name+'.png');
+		            	jQuery('.traitField4 img.trait_minor_'+i).addClass('minor_class');
+		            }
 		        }
 		    }
 		},
@@ -500,7 +518,25 @@ var ml = {
 		        {
 		            ml.vm.traitPoints(ml.vm.traitPoints() + 5)
 		            ml.vm['traitLine'+i](ml.vm['traitLine'+i]() - 5);
-		        }  
+		        }
+				if (ml.vm['traitLine'+i]() < 5)
+		        {
+		          	jQuery('.traitField2 img.trait_minor_'+i).attr('src', ml.obj.pluginUrl+'images/traits/minor_locked.png');
+		          	jQuery('.traitField2 img.trait_minor_'+i).removeClass('minor_class');
+		        }
+
+		        if (ml.vm['traitLine'+i]() < 15)
+		        {
+		            jQuery('.traitField3 img.trait_minor_'+i).attr('src', ml.obj.pluginUrl+'images/traits/minor_locked.png');
+		            jQuery('.traitField3 img.trait_minor_'+i).removeClass('minor_class');
+		        }
+
+		        if (ml.vm['traitLine'+i]() < 25)
+		        {
+		            jQuery('.traitField4 img.trait_minor_'+i).attr('src', ml.obj.pluginUrl+'images/traits/minor_locked.png');
+		            jQuery('.traitField4 img.trait_minor_'+i).removeClass('minor_class');
+		        }
+
 		    }
 		},
 

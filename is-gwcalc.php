@@ -103,6 +103,10 @@ function display_func(){
 		$query = "SELECT * FROM $table_trait_lines WHERE cid = $profession->id";	
 		$traitLines = $wpdb->get_results($query);
 
+		$table_traits = $wpdb->prefix . "isgw2calc_traits";
+		$query = "SELECT * FROM $table_traits WHERE cid = $profession->id";	
+		$traits = $wpdb->get_results($query);
+
 		//get skills
 	}
 	

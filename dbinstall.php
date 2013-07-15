@@ -19,7 +19,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 function db_uninstall () {
    global $wpdb;
 
-   $table_names = array("class","weapons","trinkets","orbs","runes","sigils","trait_lines");
+   $table_names = array("class","weapons","trinkets","orbs","runes","sigils","trait_lines","traits");
    
    foreach ($table_names as $table)
    {
@@ -120,7 +120,24 @@ function db_install () {
  
   $wpdb->query( $query ); 
 
+  $table_name = $wpdb->prefix . "isgw2calc_traits"; 
+
+  $query = "CREATE TABLE $table_name (
+          id mediumint(8) NOT NULL AUTO_INCREMENT,
+          name varchar(32) NOT NULL,
+          description varchar(255) NOT NULL,
+          type varchar(32) NOT NULL,
+          tier varchar(32) NOT NULL,
+          num mediumint(8) NOT NULL,
+          trait_line mediumint(8) NOT NULL,
+          cid mediumint(8) NOT NULL,
+          PRIMARY KEY (id)
+        );"; 
+ 
+  $wpdb->query( $query ); 
+
 }
+  
 
 function db_install_data() {
    global $wpdb;
@@ -360,8 +377,47 @@ function db_install_data() {
    $rows_affected = $wpdb->insert( $table_name, array('id' => $w['id'], 'name' => $w['name'], 'cid' => $w['cid'],'position' => $w['position'],'pri' => $w['pri'],'sec' => $w['sec'] ) );
    }
    
-   /// END TRAIT LINE  DATA
+   /// END TRAIT LINE DATA
    /////////////////////
+
+   /////////////////////
+   /// BEGIN TRAIT DATA
+
+   // array_push($array, array('name' => '', 'description' => '', 'type' => '', 'tier' => '', 'num' => '', 'trait_line' => '', 'cid' => '' ));
+   
+   $table_name = $wpdb->prefix . "isgw2calc_traits"; 
+
+   $array = array();
+
+   //Necromancer
+   array_push($array, array('name' => 'Parasitic Bond', 'description' => 'Gain life whenever you kill something.', 'type' => 'minor', 'tier' => 'adept', 'num' => '0', 'trait_line' => '1', 'cid' => '5' ));
+   array_push($array, array('name' => 'Death into Life', 'description' => '5% of power is given as a bonus to healing.', 'type' => 'minor', 'tier' => 'master', 'num' => '0', 'trait_line' => '1', 'cid' => '5' ));
+   array_push($array, array('name' => 'Siphoned Power', 'description' => 'Gain might when hit and under 25% health.', 'type' => 'minor', 'tier' => 'grandmaster', 'num' => '0', 'trait_line' => '1', 'cid' => '5' ));
+   
+   array_push($array, array('name' => 'Barbed Precision', 'description' => 'Critical hits have a 66% chance to cause bleeding.', 'type' => 'minor', 'tier' => 'adept', 'num' => '0', 'trait_line' => '2', 'cid' => '5' ));
+   array_push($array, array('name' => 'Furious Demise', 'description' => 'Gain fury for 5 seconds when entering Death Shroud.', 'type' => 'minor', 'tier' => 'master', 'num' => '0', 'trait_line' => '2', 'cid' => '5' ));
+   array_push($array, array('name' => 'Target the Weak', 'description' => '2% increased damage for each condition on a foe.', 'type' => 'minor', 'tier' => 'grandmaster', 'num' => '0', 'trait_line' => '2', 'cid' => '5' ));
+   
+   array_push($array, array('name' => 'Reanimator', 'description' => 'Summon a jagged horror whenever you kill a foe. 30 second cooldown.', 'type' => 'minor', 'tier' => 'adept', 'num' => '0', 'trait_line' => '3', 'cid' => '5' ));
+   array_push($array, array('name' => 'Protection of the Horde', 'description' => 'Gain +20 toughness for each minion under your control.', 'type' => 'minor', 'tier' => 'master', 'num' => '0', 'trait_line' => '3', 'cid' => '5' ));
+   array_push($array, array('name' => 'Deadly Strength', 'description' => '5% of toughness is given as a bonus to power.', 'type' => 'minor', 'tier' => 'grandmaster', 'num' => '0', 'trait_line' => '3', 'cid' => '5' ));
+   
+   array_push($array, array('name' => 'Full of Life', 'description' => 'Gain 5 seconds of regeneration when your health reaches 90% (30-second cooldown).', 'type' => 'minor', 'tier' => 'adept', 'num' => '0', 'trait_line' => '4', 'cid' => '5' ));
+   array_push($array, array('name' => 'Vampiric', 'description' => 'Siphon health whenever you hit a foe.', 'type' => 'minor', 'tier' => 'master', 'num' => '0', 'trait_line' => '4', 'cid' => '5' ));
+   array_push($array, array('name' => 'Blood to Power', 'description' => 'Deal 5% more damage while your health is above 90%.', 'type' => 'minor', 'tier' => 'grandmaster', 'num' => '0', 'trait_line' => '4', 'cid' => '5' ));
+
+   array_push($array, array('name' => 'Gluttony', 'description' => 'Increases life force gain from skills by 10%.', 'type' => 'minor', 'tier' => 'adept', 'num' => '0', 'trait_line' => '5', 'cid' => '5' ));
+   array_push($array, array('name' => 'Last Gasp', 'description' => 'Gain Spectral Armor at 50% health (60-second cooldown).', 'type' => 'minor', 'tier' => 'master', 'num' => '0', 'trait_line' => '5', 'cid' => '5' ));
+   array_push($array, array('name' => 'Strength of Undeath', 'description' => 'You do 5% more damage if you have more than 50% life force.', 'type' => 'minor', 'tier' => 'grandmaster', 'num' => '0', 'trait_line' => '5', 'cid' => '5' ));
+
+   foreach ($array as $w)
+   {
+   $rows_affected = $wpdb->insert( $table_name, array('id' => $w['id'], 'name' => $w['name'], 'description' => $w['description'], 'type' => $w['type'], 'tier' => $w['tier'], 'num' => $w['num'], 'trait_line' => $w['trait_line'], 'cid' => $w['cid']) );
+   }
+
+   /// END TRAIT DATA
+   /////////////////////
+   
    
 }	
 

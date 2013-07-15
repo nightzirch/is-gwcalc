@@ -566,11 +566,18 @@
     display: none; 
 }
 
+.tooltip .trait_tooltip_frame
+{ 
+    display: none; 
+}
+
+
 
 
 .tooltip:hover
 { 
-    position: relative; 
+    position: relative;
+    z-index: 79; 
 }
 
 .tooltip:hover .tooltip_frame 
@@ -586,10 +593,29 @@
     padding:5px; 
 }
 
+.tooltip:hover .trait_tooltip_frame 
+{ 
+    display: block;
+    width: 200px;
+    color: #eee; 
+    position: absolute;
+    bottom:250%;
+    left:105%; 
+    background: rgba(0,0,0,.8);
+	border: 2px solid rgba(0,0,0,.9);
+    padding:5px; 
+}
+
 .tooltip .tooltip_title
 {
 	color:#fda500;
 	margin-bottom: 10px;
+}
+
+.trait_tooltip_frame .tooltip_title
+{
+	color:#f0c172;
+	margin-bottom: 5px;
 }
 
 .tooltip .orb_tip 
@@ -1039,6 +1065,11 @@
 	margin-right: 11px;
 	float: left;
 	position: relative;
+}
+
+.minor_class
+{
+	margin: 2px 0 0 1px;
 }
 
 .trait_major
