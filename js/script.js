@@ -546,7 +546,16 @@ var ml = {
 
 		    for (i=1;i<=5;i++)
 		    {
-		    	ml.vm['traitLine'+i](0); 
+		    	ml.vm['traitLine'+i](0);
+
+		    	jQuery('.traitField2 img.trait_minor_'+i).attr('src', ml.obj.pluginUrl+'images/traits/minor_locked.png');
+		        jQuery('.traitField2 img.trait_minor_'+i).removeClass('minor_class');
+
+		    	jQuery('.traitField3 img.trait_minor_'+i).attr('src', ml.obj.pluginUrl+'images/traits/minor_locked.png');
+		        jQuery('.traitField3 img.trait_minor_'+i).removeClass('minor_class');
+
+		    	jQuery('.traitField4 img.trait_minor_'+i).attr('src', ml.obj.pluginUrl+'images/traits/minor_locked.png');
+		        jQuery('.traitField4 img.trait_minor_'+i).removeClass('minor_class');
 		    }
 		}
 	},
