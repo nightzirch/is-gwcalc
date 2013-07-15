@@ -143,6 +143,7 @@ function display_func(){
 	 	<?php if(isset($args['class'])){ ?>
 	 	
 	 	<div id="build">
+	 		<div>
 	 		<ul class="build_navigation">
 				<li class="character">
 					<span class="gradient-line gradient-left line-top"></span>
@@ -169,6 +170,7 @@ function display_func(){
 					<span class="gradient-line gradient-left line-bottom"></span>
 				</li>
 			</ul>
+			</div>
 			
 			<div class="build_container">
 				<span class="gradient-line gradient-right line-top"></span>

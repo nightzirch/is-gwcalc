@@ -32,7 +32,7 @@
 		 						<div class="trait_minor_locked">
 		 							<?php foreach($traits as $t) { if ( ($t->tier == 'adept') && ($t->trait_line == $i)) { ?>
 		 							<span class="tooltip">
-		 								<img class="trait_minor_<?php echo $i ?>" src="<?php echo plugin_dir_url(__FILE__); ?>images/traits/minor_locked.png" />
+		 								<img class="trait_minor_<?php echo $i ?>" onClick="ml.ops.setTraitLine('<?php echo $i ?>','5')" src="<?php echo plugin_dir_url(__FILE__); ?>images/traits/minor_locked.png" />
 										<div class="trait_tooltip_frame">
 											<div class="tooltip_title">
 												<span style="vertical-align:top;padding:8px 0 8px 0;"><?php echo $t->name; ?></span>
@@ -57,7 +57,7 @@
 		 						<div class="trait_minor_locked">
 		 							<?php foreach($traits as $t) { if ( ($t->tier == 'master') && ($t->trait_line == $i)) { ?>
 		 							<span class="tooltip">
-		 								<img class="trait_minor_<?php echo $i ?>" src="<?php echo plugin_dir_url(__FILE__); ?>images/traits/minor_locked.png" />
+		 								<img class="trait_minor_<?php echo $i ?>" onClick="ml.ops.setTraitLine('<?php echo $i ?>','15')" src="<?php echo plugin_dir_url(__FILE__); ?>images/traits/minor_locked.png" />
 										<div class="trait_tooltip_frame">
 											<div class="tooltip_title">
 												<span style="vertical-align:top;padding:8px 0 8px 0;"><?php echo $t->name; ?></span>
@@ -82,7 +82,7 @@
 		 						<div class="trait_minor_locked">	
 		 							<?php foreach($traits as $t) { if ( ($t->tier == 'grandmaster') && ($t->trait_line == $i)) { ?>
 		 							<span class="tooltip">
-		 								<img class="trait_minor_<?php echo $i ?> minor_class" src="<?php echo plugin_dir_url(__FILE__); ?>images/traits/minor_locked.png" />
+		 								<img class="trait_minor_<?php echo $i ?>" onClick="ml.ops.setTraitLine('<?php echo $i ?>','25')" src="<?php echo plugin_dir_url(__FILE__); ?>images/traits/minor_locked.png" />
 										<div class="trait_tooltip_frame">
 											<div class="tooltip_title">
 												<span style="vertical-align:top;padding:8px 0 8px 0;"><?php echo $t->name; ?></span>

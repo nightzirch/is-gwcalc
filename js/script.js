@@ -487,26 +487,10 @@ var ml = {
 		    {        
 		        if (ml.vm['traitLine'+i]() < 30)
 		        {
-		            ml.vm.traitPoints(ml.vm.traitPoints() - 5)
-		            ml.vm['traitLine'+i](ml.vm['traitLine'+i]() + 5);
+		            ml.vm.traitPoints(parseInt(ml.vm.traitPoints()) - 5)
+		            ml.vm['traitLine'+i](parseInt(ml.vm['traitLine'+i]()) + 5);
 
-		            if (ml.vm['traitLine'+i]() >= 5)
-		            {
-		            	jQuery('.traitField2 img.trait_minor_'+i).attr('src', ml.obj.pluginUrl+'images/traits/minor_'+ml.obj.currentProfession[0].name+'.png');
-		            	jQuery('.traitField2 img.trait_minor_'+i).addClass('minor_class');
-		            }
-
-		            if (ml.vm['traitLine'+i]() >= 15)
-		            {
-		            	jQuery('.traitField3 img.trait_minor_'+i).attr('src', ml.obj.pluginUrl+'images/traits/minor_'+ml.obj.currentProfession[0].name+'.png');
-		            	jQuery('.traitField3 img.trait_minor_'+i).addClass('minor_class');
-		            }
-
-		            if (ml.vm['traitLine'+i]() >= 25)
-		            {
-		            	jQuery('.traitField4 img.trait_minor_'+i).attr('src', ml.obj.pluginUrl+'images/traits/minor_'+ml.obj.currentProfession[0].name+'.png');
-		            	jQuery('.traitField4 img.trait_minor_'+i).addClass('minor_class');
-		            }
+		            ml.ops.setMinorTraits('set');
 		        }
 		    }
 		},
@@ -516,27 +500,11 @@ var ml = {
 		    {        
 		        if (ml.vm['traitLine'+i]() > 0)
 		        {
-		            ml.vm.traitPoints(ml.vm.traitPoints() + 5)
-		            ml.vm['traitLine'+i](ml.vm['traitLine'+i]() - 5);
-		        }
-				if (ml.vm['traitLine'+i]() < 5)
-		        {
-		          	jQuery('.traitField2 img.trait_minor_'+i).attr('src', ml.obj.pluginUrl+'images/traits/minor_locked.png');
-		          	jQuery('.traitField2 img.trait_minor_'+i).removeClass('minor_class');
-		        }
+		            ml.vm.traitPoints(parseInt(ml.vm.traitPoints()) + 5)
+		            ml.vm['traitLine'+i](parseInt(ml.vm['traitLine'+i]()) - 5);
 
-		        if (ml.vm['traitLine'+i]() < 15)
-		        {
-		            jQuery('.traitField3 img.trait_minor_'+i).attr('src', ml.obj.pluginUrl+'images/traits/minor_locked.png');
-		            jQuery('.traitField3 img.trait_minor_'+i).removeClass('minor_class');
+		            ml.ops.setMinorTraits('lock');
 		        }
-
-		        if (ml.vm['traitLine'+i]() < 25)
-		        {
-		            jQuery('.traitField4 img.trait_minor_'+i).attr('src', ml.obj.pluginUrl+'images/traits/minor_locked.png');
-		            jQuery('.traitField4 img.trait_minor_'+i).removeClass('minor_class');
-		        }
-
 		    }
 		},
 
@@ -557,6 +525,63 @@ var ml = {
 		    	jQuery('.traitField4 img.trait_minor_'+i).attr('src', ml.obj.pluginUrl+'images/traits/minor_locked.png');
 		        jQuery('.traitField4 img.trait_minor_'+i).removeClass('minor_class');
 		    }
+		},
+
+		setTraitLine: function (i,num) {
+			if (ml.vm['traitLine'+i]() < num)
+			{
+				x = parseInt(num)-parseInt(ml.vm['traitLine'+i]());
+				if ((parseInt(ml.vm.traitPoints())-x) >= 0)
+		        {
+		        	ml.vm['traitLine'+i](parseInt(num));
+					ml.vm.traitPoints(ml.vm.traitPoints() - x);
+					ml.ops.setMinorTraits('set');
+				}
+			}	
+			
+		},
+
+		setMinorTraits: function(op) {
+			if (op = 'set') {
+				for(i=1;i<=5;i++) {
+					if (ml.vm['traitLine'+i]() >= 5) {
+			            jQuery('.traitField2 img.trait_minor_'+i).attr('src', ml.obj.pluginUrl+'images/traits/minor_'+ml.obj.currentProfession[0].name+'.png');
+			            jQuery('.traitField2 img.trait_minor_'+i).addClass('minor_class');
+			        }
+
+			        if (ml.vm['traitLine'+i]() >= 15) {
+			           	jQuery('.traitField3 img.trait_minor_'+i).attr('src', ml.obj.pluginUrl+'images/traits/minor_'+ml.obj.currentProfession[0].name+'.png');
+			           	jQuery('.traitField3 img.trait_minor_'+i).addClass('minor_class');
+			        }
+
+			        if (ml.vm['traitLine'+i]() >= 25) {
+			          	jQuery('.traitField4 img.trait_minor_'+i).attr('src', ml.obj.pluginUrl+'images/traits/minor_'+ml.obj.currentProfession[0].name+'.png');
+			           	jQuery('.traitField4 img.trait_minor_'+i).addClass('minor_class');
+			        }
+				}
+			}
+
+			if (op = 'lock') {
+				for(i=1;i<=5;i++) {
+					if (ml.vm['traitLine'+i]() < 5)
+			        {
+			          	jQuery('.traitField2 img.trait_minor_'+i).attr('src', ml.obj.pluginUrl+'images/traits/minor_locked.png');
+			          	jQuery('.traitField2 img.trait_minor_'+i).removeClass('minor_class');
+			        }
+
+			        if (ml.vm['traitLine'+i]() < 15)
+			        {
+			            jQuery('.traitField3 img.trait_minor_'+i).attr('src', ml.obj.pluginUrl+'images/traits/minor_locked.png');
+			            jQuery('.traitField3 img.trait_minor_'+i).removeClass('minor_class');
+			        }
+
+			        if (ml.vm['traitLine'+i]() < 25)
+			        {
+			            jQuery('.traitField4 img.trait_minor_'+i).attr('src', ml.obj.pluginUrl+'images/traits/minor_locked.png');
+			            jQuery('.traitField4 img.trait_minor_'+i).removeClass('minor_class');
+			        }
+			    }
+			}
 		}
 	},
 	

@@ -280,6 +280,7 @@
 
 #isgw2calc .selectionArea .selectionAreaContent {
 	height: 360px;
+	overflow-x: visible;
 }
 
 
