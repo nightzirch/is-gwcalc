@@ -27,7 +27,7 @@ var ml = {
 		// Initialize tabs
 		$("#build").tabs();
 		$(".selectionArea").tabs();
-		
+	
 		// Initialize accordions
 		/*$("#selectionAreaCombat").accordion({
 			header: "div.accordionHeader",
@@ -582,6 +582,27 @@ var ml = {
 			        }
 			    }
 			}
+		},
+
+		traitPicker: function (tier,i)
+		{  
+		    ml.ops.closeOpenDialog();
+
+		    jQuery("#traitPick").dialog(
+		    {
+		        position: { my: "left top", at: "left bottom", of: "."+tier+'_'+i},
+		        //resize: "auto",
+		        minHeight: 50,
+		        width: 188,
+		        modal: false,
+		        draggable: false
+		     });
+		},
+
+		closeOpenDialog: function()	{
+		    jQuery(".dialog").dialog();
+		    jQuery(".dialog").dialog("close");
+		    jQuery(".active").removeClass("active");
 		}
 	},
 	

@@ -47,7 +47,7 @@
 								<span class="t5"></span>
 							</div>
 
-							<div class="trait_major">
+							<div class="trait_major adept_<?php echo $i ?>" onClick="ml.ops.traitPicker('adept','<?php echo $i ?>')">
 								<div class="trait_major_locked"></div>
 								<span class="t10"></span>
 							</div>
@@ -106,4 +106,8 @@
 		 		</div>
 		 			
 				<?php $i++;}	?>
+		 	</div>
+
+		 	<div id="traitPick">
+		 		<span>test</span>
 		 	</div>

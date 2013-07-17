@@ -390,22 +390,42 @@ function db_install_data() {
    $array = array();
 
    //Necromancer
+   //Spite
    array_push($array, array('name' => 'Parasitic Bond', 'description' => 'Gain life whenever you kill something.', 'type' => 'minor', 'tier' => 'adept', 'num' => '0', 'trait_line' => '1', 'cid' => '5' ));
    array_push($array, array('name' => 'Death into Life', 'description' => '5% of power is given as a bonus to healing.', 'type' => 'minor', 'tier' => 'master', 'num' => '0', 'trait_line' => '1', 'cid' => '5' ));
    array_push($array, array('name' => 'Siphoned Power', 'description' => 'Gain might when hit and under 25% health.', 'type' => 'minor', 'tier' => 'grandmaster', 'num' => '0', 'trait_line' => '1', 'cid' => '5' ));
+
+   array_push($array, array('name' => 'Death\'s Embrace', 'description' => 'Deal 50% more damage while downed.', 'type' => 'major', 'tier' => 'adept', 'num' => '1', 'trait_line' => '1', 'cid' => '5' ));
+   array_push($array, array('name' => 'Spiteful Talisman', 'description' => 'Focus skills recharge 20% faster and have increased range.', 'type' => 'major', 'tier' => 'adept', 'num' => '2', 'trait_line' => '', 'cid' => '1' ));
+   array_push($array, array('name' => 'Spiteful Removal', 'description' => 'When you kill a foe you lose three conditions.', 'type' => 'major', 'tier' => 'adept', 'num' => '3', 'trait_line' => '1', 'cid' => '5' ));
+   array_push($array, array('name' => 'Signet Mastery', 'description' => 'Signets recharge 20% faster. Activating a signet gives you three stacks of might for 10 seconds.', 'type' => 'major', 'tier' => 'adept', 'num' => '4', 'trait_line' => '1', 'cid' => '5' )); 
+   array_push($array, array('name' => 'Spiteful Spirit', 'description' => 'Gain retaliation for 3 seconds when entering Death Shroud.', 'type' => 'major', 'tier' => 'adept', 'num' => '5', 'trait_line' => '1', 'cid' => '5' ));
+   array_push($array, array('name' => 'Reaper\'s Might', 'description' => 'Life Blast grants might for 15 seconds.', 'type' => 'major', 'tier' => 'adept', 'num' => '6', 'trait_line' => '1', 'cid' => '5' ));    
+
+   array_push($array, array('name' => 'Spiteful Marks', 'description' => 'Marks deal 10% more damage.', 'type' => 'major', 'tier' => 'master', 'num' => '7', 'trait_line' => '1', 'cid' => '5' ));
+   array_push($array, array('name' => 'Axe Training', 'description' => 'Axe damage is increased and axe skills recharge 20% faster.', 'type' => 'major', 'tier' => 'master', 'num' => '8', 'trait_line' => '1', 'cid' => '5' ));
+   array_push($array, array('name' => 'Training of the Master', 'description' => 'Minion damage is increased by 30%.', 'type' => 'major', 'tier' => 'master', 'num' => '9', 'trait_line' => '1', 'cid' => '5' ));
+   array_push($array, array('name' => 'Chill of Death', 'description' => 'Cast Spinal Shivers on an enemy when they hit 25% health. This effect can trigger only once every 20 seconds.', 'type' => 'major', 'tier' => 'master', 'num' => '10', 'trait_line' => '1', 'cid' => '5' ));
+
+   array_push($array, array('name' => 'Dhuumfire', 'description' => '100% chance to inflict burning for 4 seconds on critical hits. This effect can only trigger once every 10 seconds.', 'type' => 'major', 'tier' => 'grandmaster', 'num' => '11', 'trait_line' => '1', 'cid' => '5' ));
+   array_push($array, array('name' => 'Close to Death', 'description' => 'Increases damage by 20% to enemies below 50% health.', 'type' => 'major', 'tier' => 'grandmaster', 'num' => '12', 'trait_line' => '1', 'cid' => '5' ));      
    
+   //Curses
    array_push($array, array('name' => 'Barbed Precision', 'description' => 'Critical hits have a 66% chance to cause bleeding.', 'type' => 'minor', 'tier' => 'adept', 'num' => '0', 'trait_line' => '2', 'cid' => '5' ));
    array_push($array, array('name' => 'Furious Demise', 'description' => 'Gain fury for 5 seconds when entering Death Shroud.', 'type' => 'minor', 'tier' => 'master', 'num' => '0', 'trait_line' => '2', 'cid' => '5' ));
    array_push($array, array('name' => 'Target the Weak', 'description' => '2% increased damage for each condition on a foe.', 'type' => 'minor', 'tier' => 'grandmaster', 'num' => '0', 'trait_line' => '2', 'cid' => '5' ));
    
+   //Death Magic
    array_push($array, array('name' => 'Reanimator', 'description' => 'Summon a jagged horror whenever you kill a foe. 30 second cooldown.', 'type' => 'minor', 'tier' => 'adept', 'num' => '0', 'trait_line' => '3', 'cid' => '5' ));
    array_push($array, array('name' => 'Protection of the Horde', 'description' => 'Gain +20 toughness for each minion under your control.', 'type' => 'minor', 'tier' => 'master', 'num' => '0', 'trait_line' => '3', 'cid' => '5' ));
    array_push($array, array('name' => 'Deadly Strength', 'description' => '5% of toughness is given as a bonus to power.', 'type' => 'minor', 'tier' => 'grandmaster', 'num' => '0', 'trait_line' => '3', 'cid' => '5' ));
    
+   //Blood Magic
    array_push($array, array('name' => 'Full of Life', 'description' => 'Gain 5 seconds of regeneration when your health reaches 90% (30-second cooldown).', 'type' => 'minor', 'tier' => 'adept', 'num' => '0', 'trait_line' => '4', 'cid' => '5' ));
    array_push($array, array('name' => 'Vampiric', 'description' => 'Siphon health whenever you hit a foe.', 'type' => 'minor', 'tier' => 'master', 'num' => '0', 'trait_line' => '4', 'cid' => '5' ));
    array_push($array, array('name' => 'Blood to Power', 'description' => 'Deal 5% more damage while your health is above 90%.', 'type' => 'minor', 'tier' => 'grandmaster', 'num' => '0', 'trait_line' => '4', 'cid' => '5' ));
 
+   //Soul Reaping
    array_push($array, array('name' => 'Gluttony', 'description' => 'Increases life force gain from skills by 10%.', 'type' => 'minor', 'tier' => 'adept', 'num' => '0', 'trait_line' => '5', 'cid' => '5' ));
    array_push($array, array('name' => 'Last Gasp', 'description' => 'Gain Spectral Armor at 50% health (60-second cooldown).', 'type' => 'minor', 'tier' => 'master', 'num' => '0', 'trait_line' => '5', 'cid' => '5' ));
    array_push($array, array('name' => 'Strength of Undeath', 'description' => 'You do 5% more damage if you have more than 50% life force.', 'type' => 'minor', 'tier' => 'grandmaster', 'num' => '0', 'trait_line' => '5', 'cid' => '5' ));
