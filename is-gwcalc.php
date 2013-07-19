@@ -134,7 +134,12 @@ function display_func(){
 	?> 
 	<div id="isgw2calc">
 	<div>
-		<span class="tooltip" data-id="weapons:1" rel="#tooltip">tooltip</span>
+		<span class="tooltip" data-id="weapons:1" rel="#tooltip">weapon tooltip  |  </span>
+		<span class="tooltip" data-id="runes:1" rel="#tooltip">rune tooltip  |  </span>
+		<span class="tooltip" data-id="traits:1" rel="#tooltip">trait tooltip  |  </span>
+		<span class="tooltip" data-id="sigils:1" rel="#tooltip">sigil tooltip  |  </span>
+		<span class="tooltip" data-id="orbs:1" rel="#tooltip">orb tooltip  |  </span>
+		<span class="tooltip" data-id="trinkets:1" rel="#tooltip">trinket tooltip</span>
 	</div>
 	<div id="tooltip" style="display:none;">
 		<div class="tooltip_title" style="vertical-align:top;padding:5px 0 5px 0;"></div>
