@@ -83,7 +83,7 @@
 				<div class="accordionContainer selectionAreaAmulets">
 					<?php foreach($trinkets as $t) { ?>
 						<span class="tooltip">
-							<img style="margin:5px;" class="masterTooltip" data-id='<?php echo $t->id; ?>' src="<?php echo plugin_dir_url(__FILE__); ?>images/amulets/<?php echo $t->id?>.png" />
+							<img style="margin:5px;" class="masterTooltip" data-id='<?php echo $t->id; ?>' src="<?php echo plugin_dir_url(__FILE__); ?>images/amulets/<?php echo $t->id?>.jpg" />
 							<div class="tooltip_frame">
 								<div class="tooltip_title">
 									<span style="vertical-align:top;padding:8px 0 8px 0;">

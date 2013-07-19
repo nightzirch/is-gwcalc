@@ -27,6 +27,76 @@ var ml = {
 		// Initialize tabs
 		$("#build").tabs();
 		$(".selectionArea").tabs();
+		
+		//activates major traits picker
+		jQuery('.trait_major').cluetip(
+		{
+			local:true,
+			cursor: 'pointer',
+			activation: 'click',
+			leftOffset:5,
+			onShow: function() {
+				jQuery('.cluetip-inner').removeClass('ui-widget-content');
+				jQuery('#cluetip').removeClass('ui-widget ui-widget-content'); 
+				jQuery(document).one('mousedown',function() { 
+					jQuery(document).trigger('hideCluetip');
+				})
+			}
+		});
+
+		jQuery('.tooltip').cluetip(
+		{
+			local:true,
+			showTitle: false,
+			dropShadows: false,
+			tracking: true,
+			leftOffset: 3,
+			onActivate: function() {
+				jQuery('.cluetip-inner').removeClass('ui-widget-content');
+				jQuery('#cluetip').removeClass('ui-widget ui-widget-content');
+				var data = jQuery(this).attr('data-id');
+				data = data.split(':');
+
+				var item = jQuery.grep(ml.obj[data[0]], function(e){ return e.id == parseInt(data[1]); });
+				
+				if( data[0] == 'traits') {
+					jQuery('#tooltip .tooltip_title').html('<span class="'+data[0]+'_title">'+item[0].name+'</span>');
+					jQuery('#tooltip .tooltip_content').html(item[0].description);
+				}
+				else if (data[0] == 'weapons') {
+						jQuery('#tooltip .tooltip_title').html('<span class="'+data[0]+'_title">'+item[0].name+'</span>');
+						jQuery('#tooltip .tooltip_content').html('<span>Damage: </span><span class="weapons_stats">'+item[0].stats+'</span>');
+				}
+				else {
+					if (data[0] == "trinkets") {data[0] = 'amulets'}
+					jQuery('#tooltip .tooltip_title').html('<img height="34px" src="'+ml.obj.pluginUrl+'/images/'+data[0]+'/'+item[0].id+'.jpg" style="margin-right:5px;" /><span style="vertical-align:top;padding-left:5px;" class="'+data[0]+'_title">'+item[0].name+'</span>');
+
+					if (data[0] == 'sigils') {
+						jQuery('#tooltip .tooltip_content').html(item[0].stats);
+					}
+					else if (data[0] == 'runes') {
+						stats = item[0].stats;
+						stats = stats.split(';');
+						jQuery('#tooltip .tooltip_content').html('<ul class="rune_stats"></ul>');
+						for (var x = 0;x<stats.length;x++)
+						{
+							jQuery('.rune_stats').append('<li>('+(x+1)+') '+stats[x]+'</li>')
+						}
+					}
+					else if (data[0] == 'amulets' || data[0] == 'orbs') {
+						stats = item[0].stats;
+						stats = stats.split(';');
+						if (data[0]=='orbs'){data[0] = 'jewels'}
+						jQuery('#tooltip .tooltip_content').html('<ul class="stats_'+data[0]+'"></ul>');
+						for (var x = 0;x<stats.length;x++)
+						{
+							jQuery('.stats_'+data[0]).append('<li>'+stats[x]+'</li>')
+						}
+					}
+				}
+			}
+
+		});
 	
 		// Initialize accordions
 		/*$("#selectionAreaCombat").accordion({
@@ -490,7 +560,7 @@ var ml = {
 		            ml.vm.traitPoints(parseInt(ml.vm.traitPoints()) - 5)
 		            ml.vm['traitLine'+i](parseInt(ml.vm['traitLine'+i]()) + 5);
 
-		            ml.ops.setMinorTraits('set');
+		            ml.ops.setTraits('unlock');
 		        }
 		    }
 		},
@@ -503,7 +573,7 @@ var ml = {
 		            ml.vm.traitPoints(parseInt(ml.vm.traitPoints()) + 5)
 		            ml.vm['traitLine'+i](parseInt(ml.vm['traitLine'+i]()) - 5);
 
-		            ml.ops.setMinorTraits('lock');
+		            ml.ops.setTraits('lock');
 		        }
 		    }
 		},
@@ -524,6 +594,15 @@ var ml = {
 
 		    	jQuery('.traitField4 img.trait_minor_'+i).attr('src', ml.obj.pluginUrl+'images/traits/minor_locked.png');
 		        jQuery('.traitField4 img.trait_minor_'+i).removeClass('minor_class');
+
+		        jQuery('#traitLine-'+i+' .traitField2 .trait_major_unlocked').addClass('trait_major_locked');
+			    jQuery('#traitLine-'+i+' .traitField2 .trait_major_unlocked').removeClass('trait_major_unlocked');
+			    
+			    jQuery('#traitLine-'+i+' .traitField3 .trait_major_unlocked').addClass('trait_major_locked');
+			    jQuery('#traitLine-'+i+' .traitField3 .trait_major_unlocked').removeClass('trait_major_unlocked');
+			    
+			    jQuery('#traitLine-'+i+' .traitField4 .trait_major_unlocked').addClass('trait_major_locked');
+			    jQuery('#traitLine-'+i+' .traitField4 .trait_major_unlocked').removeClass('trait_major_unlocked');
 		    }
 		},
 
@@ -535,28 +614,46 @@ var ml = {
 		        {
 		        	ml.vm['traitLine'+i](parseInt(num));
 					ml.vm.traitPoints(ml.vm.traitPoints() - x);
-					ml.ops.setMinorTraits('set');
+					ml.ops.setTraits('unlock');
 				}
 			}	
 			
 		},
 
-		setMinorTraits: function(op) {
-			if (op = 'set') {
+		setTraits: function(op) {
+			if (op = 'unlock') {
 				for(i=1;i<=5;i++) {
 					if (ml.vm['traitLine'+i]() >= 5) {
-			            jQuery('.traitField2 img.trait_minor_'+i).attr('src', ml.obj.pluginUrl+'images/traits/minor_'+ml.obj.currentProfession[0].name+'.png');
+			            jQuery('.traitField2 img.trait_minor_'+i).attr('src', ml.obj.pluginUrl+'images/traits/minor_'+ml.obj.currentProfession[0].name.toLowerCase()+'.png');
 			            jQuery('.traitField2 img.trait_minor_'+i).addClass('minor_class');
 			        }
 
+			        if (ml.vm['traitLine'+i]() >= 10) {
+			        	jQuery('#traitLine-'+i+' .traitField2 .trait_major_locked').addClass('trait_major_unlocked');
+			        	jQuery('#traitLine-'+i+' .traitField2 .trait_major_locked').removeClass('trait_major_locked');
+
+			        }
+
 			        if (ml.vm['traitLine'+i]() >= 15) {
-			           	jQuery('.traitField3 img.trait_minor_'+i).attr('src', ml.obj.pluginUrl+'images/traits/minor_'+ml.obj.currentProfession[0].name+'.png');
+			           	jQuery('.traitField3 img.trait_minor_'+i).attr('src', ml.obj.pluginUrl+'images/traits/minor_'+ml.obj.currentProfession[0].name.toLowerCase()+'.png');
 			           	jQuery('.traitField3 img.trait_minor_'+i).addClass('minor_class');
 			        }
 
+			        if (ml.vm['traitLine'+i]() >= 20) {
+			        	jQuery('#traitLine-'+i+' .traitField3 .trait_major_locked').addClass('trait_major_unlocked');
+			        	jQuery('#traitLine-'+i+' .traitField3 .trait_major_locked').removeClass('trait_major_locked');
+
+			        }
+
 			        if (ml.vm['traitLine'+i]() >= 25) {
-			          	jQuery('.traitField4 img.trait_minor_'+i).attr('src', ml.obj.pluginUrl+'images/traits/minor_'+ml.obj.currentProfession[0].name+'.png');
+			          	jQuery('.traitField4 img.trait_minor_'+i).attr('src', ml.obj.pluginUrl+'images/traits/minor_'+ml.obj.currentProfession[0].name.toLowerCase()+'.png');
 			           	jQuery('.traitField4 img.trait_minor_'+i).addClass('minor_class');
+			        }
+
+			        if (ml.vm['traitLine'+i]() >= 30) {
+			        	jQuery('#traitLine-'+i+' .traitField4 .trait_major_locked').addClass('trait_major_unlocked');
+			        	jQuery('#traitLine-'+i+' .traitField4 .trait_major_locked').removeClass('trait_major_locked');
+
 			        }
 				}
 			}
@@ -569,10 +666,22 @@ var ml = {
 			          	jQuery('.traitField2 img.trait_minor_'+i).removeClass('minor_class');
 			        }
 
+			        if (ml.vm['traitLine'+i]() < 10) {
+			        	jQuery('#traitLine-'+i+' .traitField2 .trait_major_unlocked').addClass('trait_major_locked');
+			        	jQuery('#traitLine-'+i+' .traitField2 .trait_major_unlocked').removeClass('trait_major_unlocked');
+
+			        }
+
 			        if (ml.vm['traitLine'+i]() < 15)
 			        {
 			            jQuery('.traitField3 img.trait_minor_'+i).attr('src', ml.obj.pluginUrl+'images/traits/minor_locked.png');
 			            jQuery('.traitField3 img.trait_minor_'+i).removeClass('minor_class');
+			        }
+
+			        if (ml.vm['traitLine'+i]() < 20) {
+			        	jQuery('#traitLine-'+i+' .traitField3 .trait_major_unlocked').addClass('trait_major_locked');
+			        	jQuery('#traitLine-'+i+' .traitField3 .trait_major_unlocked').removeClass('trait_major_unlocked');
+
 			        }
 
 			        if (ml.vm['traitLine'+i]() < 25)
@@ -580,29 +689,47 @@ var ml = {
 			            jQuery('.traitField4 img.trait_minor_'+i).attr('src', ml.obj.pluginUrl+'images/traits/minor_locked.png');
 			            jQuery('.traitField4 img.trait_minor_'+i).removeClass('minor_class');
 			        }
+
+			        if (ml.vm['traitLine'+i]() < 30) {
+			        	jQuery('#traitLine-'+i+' .traitField4 .trait_major_unlocked').addClass('trait_major_locked');
+			        	jQuery('#traitLine-'+i+' .traitField4 .trait_major_unlocked').removeClass('trait_major_unlocked');
+
+			        }
 			    }
 			}
 		},
 
-		traitPicker: function (tier,i)
+		getTraits: function (tier,i)
 		{  
-		    ml.ops.closeOpenDialog();
 
-		    jQuery("#traitPick").dialog(
+			jQuery('.cluetip-inner').removeClass('ui-widget-content');
+			jQuery('#cluetip').removeClass('ui-widget ui-widget-content');
+
+		    if (tier == 'adept')
 		    {
-		        position: { my: "left top", at: "left bottom", of: "."+tier+'_'+i},
-		        //resize: "auto",
-		        minHeight: 50,
-		        width: 188,
-		        modal: false,
-		        draggable: false
-		     });
-		},
+		    	tier = 6;
+		    }
+		    else if (tier == 'master')
+		    {
+		    	tier = 10;
+		    }
+		    else if (tier == 'grandmaster')
+		    {
+		    	tier = 12;
+		    }
 
-		closeOpenDialog: function()	{
-		    jQuery(".dialog").dialog();
-		    jQuery(".dialog").dialog("close");
-		    jQuery(".active").removeClass("active");
+		    jQuery('#traitPick').html('');
+
+		    for(var x = 0; x<ml.obj.traits.length;x++)
+		    {
+		    	o = ml.obj.traits[x];
+
+		    	if (((o.num <= tier) && (o.trait_line == i)) && (o.type == 'major'))
+		    	{
+		    		jQuery('#traitPick').append('<img style="padding:5px" title="'+o.name+'" src="'+ml.obj.pluginUrl+'images/traits/major_'+o.num+'.png" />')
+		    	}
+		    }
+		    
 		}
 	},
 	
@@ -617,6 +744,7 @@ var ml = {
 		runes: runes,
 		sigils: sigils,
 		traitLines: traitLines,
+		traits: traits,
 		pluginUrl: pluginUrl
 	},
 	

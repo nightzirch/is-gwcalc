@@ -519,6 +519,7 @@
 	background-color: rgba(0,0,0,.75) !important;
 	border: 1px solid #000 !important;
 	position: absolute;
+	padding: 0 !important;
 }
 
 .ui-button
@@ -528,6 +529,7 @@
 	width: 11px !important;
 	float: right !important;
 	border: none !important;
+	margin: -4px 0 0 0 !important;
 }
 
 .ui-button:hover
@@ -542,20 +544,43 @@
 	font-size: 11px !important;
 	background-color: #000 !important;
 	height:14px !important;
+	padding: 0 !important; 
 }
 
-/*.ui-widget-header 
+.ui-dialog-content
 {
-	border: none !important;
-	background: none !important;
-	color:none !important;
-	font-weight: normal !important;
+	width: 200px;
+}
+
+.ui-cluetip-content
+{
+	background-color: rgba(0,0,0,.75) !important;
+	padding: 5px 0px 0px 12px;
+	color: #fff;
+}
+
+.cluetip-title
+{
+	background: #000;
+	border: none;
+	color: #fff;
+	font-size: 11px;
+	font-weight: normal;
+	padding: 3px;
+}
+
+.cluetip-outer
+{
+	height:100%;
 }
 
 .ui-widget-content
 {
-	background: none !important;
-}*/
+	background:none !important;
+	border: none !important;
+}
+
+
 
 #rune_bonus
 {
@@ -611,11 +636,55 @@
 	margin-bottom: 10px;
 }
 
-.trait_tooltip_frame .tooltip_title
+.tooltip 
 {
-	color:#f0c172;
-	margin-bottom: 5px;
+	cursor: pointer;
 }
+
+#tooltip .tooltip_title
+{
+	color: #fda500;
+	font-size: 11px;
+	padding-bottom: 8px;
+}
+
+#tooltip .traits_title
+{
+	color: #f0c172;
+}
+
+#tooltip .tooltip_content
+{
+	font-size: 11px;
+	padding-bottom: 10px; 
+}
+
+#tooltip .rune_stats
+{
+	color:#949494;
+}
+
+#tooltip .stats_jewels
+{
+	color: #5599ff;
+}
+
+#tooltip .stats_amulets
+{
+	color: #03d204;
+}
+
+#tooltip .weapons_stats
+{
+	color: #03d204;
+}
+
+#tooltip li
+{
+	padding-bottom: 5px;
+}
+
+
 
 .tooltip .orb_tip 
 {
@@ -1102,6 +1171,14 @@
 .trait_major_locked
 {
 	background: transparent url(../images/traits/trait_icons.png) -80px 0px no-repeat;
+	width: 53px;
+	height: 60px;
+	margin: 11px 0px 0px 2px;
+}
+
+.trait_major_unlocked
+{
+	background: transparent url(../images/traits/trait_icons.png) -782px 0px no-repeat;
 	width: 53px;
 	height: 60px;
 	margin: 11px 0px 0px 2px;

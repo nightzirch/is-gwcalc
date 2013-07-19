@@ -113,6 +113,8 @@ function display_func(){
 	wp_enqueue_script( 'knockout', plugins_url( 'js/lib/knockout-2.2.1.js', __FILE__));
 	wp_enqueue_script( 'jquery_slider', plugins_url( 'js/lib/jquery.sbscroller.js', __FILE__), array('jquery'));
 	wp_enqueue_script( 'jquery_mousewheel', plugins_url( 'js/lib/jquery.mousewheel.js', __FILE__), array('jquery'));
+	wp_enqueue_script( 'clueTip', plugins_url( 'js/lib/jquery.cluetip.js', __FILE__));
+	wp_enqueue_script( 'clueTipHover', plugins_url( 'js/lib/jquery.hoverIntent.js', __FILE__));
 	
 	wp_enqueue_script( 'gw2calc', plugins_url( 'js/script.js', __FILE__ ), array('knockout', 'jquery')); 
 	wp_localize_script('gw2calc', 'professions', $classes);
@@ -124,12 +126,20 @@ function display_func(){
 	wp_localize_script('gw2calc', 'runes', $runes);
 	wp_localize_script('gw2calc', 'sigils', $sigils);
 	wp_localize_script('gw2calc', 'traitLines', $traitLines);
+	wp_localize_script('gw2calc', 'traits', $traits);
 	wp_localize_script('gw2calc', 'pluginUrl', plugin_dir_url(__FILE__) );
 	
 	ob_start();
 	/// HTML START //////////////////////
 	?> 
 	<div id="isgw2calc">
+	<div>
+		<span class="tooltip" data-id="weapons:1" rel="#tooltip">tooltip</span>
+	</div>
+	<div id="tooltip" style="display:none;">
+		<div class="tooltip_title" style="vertical-align:top;padding:5px 0 5px 0;"></div>
+		<div class="tooltip_content"></div>
+	</div>
 	<div id="professions">
 	<?php foreach ($classes as $c) { ?>
 	
@@ -197,7 +207,8 @@ function display_func(){
 	 		<?php include('aside.php') ?>
 	 	</div>
 	</div>
-	<?php }  ?>	
+	<?php }  ?>
+	<div id="tooltip" style="display:none;"></div>	
 	</div>
 	 <?php
 	 /// HTML END ///////////////////////

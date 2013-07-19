@@ -30,24 +30,14 @@
 		 				<div class="traitField2">
 		 					<div class="trait_minor">
 		 						<div class="trait_minor_locked">
-		 							<?php foreach($traits as $t) { if ( ($t->tier == 'adept') && ($t->trait_line == $i)) { ?>
-		 							<span class="tooltip">
-		 								<img class="trait_minor_<?php echo $i ?>" onClick="ml.ops.setTraitLine('<?php echo $i ?>','5')" src="<?php echo plugin_dir_url(__FILE__); ?>images/traits/minor_locked.png" />
-										<div class="trait_tooltip_frame">
-											<div class="tooltip_title">
-												<span style="vertical-align:top;padding:8px 0 8px 0;"><?php echo $t->name; ?></span>
-											</div>
-											<div>									
-												<span style="font-size: 11px;width:100%;"><?php echo $t->description; ?></span>
-											</div>
-										</div>
-									</span>
+		 							<?php foreach($traits as $t) { if ((($t->tier == 'adept') && ($t->trait_line == $i)) && ($t->type == 'minor')) { ?>		 	
+		 							<img class="trait_minor_<?php echo $i ?> tooltip" rel="#tooltip" data-id="traits:<?php echo $t->id; ?>" onClick="ml.ops.setTraitLine('<?php echo $i ?>','5')" src="<?php echo plugin_dir_url(__FILE__); ?>images/traits/minor_locked.png" />										
 									<?php } } ?>
 		 						</div>
 								<span class="t5"></span>
 							</div>
 
-							<div class="trait_major adept_<?php echo $i ?>" onClick="ml.ops.traitPicker('adept','<?php echo $i ?>')">
+							<div class="trait_major" rel="#traitPick" title="Pick a major trait" onClick="ml.ops.getTraits('adept','<?php echo $i ?>')">
 								<div class="trait_major_locked"></div>
 								<span class="t10"></span>
 							</div>
@@ -55,24 +45,14 @@
 		 				<div class="traitField3">
 		 					<div class="trait_minor">
 		 						<div class="trait_minor_locked">
-		 							<?php foreach($traits as $t) { if ( ($t->tier == 'master') && ($t->trait_line == $i)) { ?>
-		 							<span class="tooltip">
-		 								<img class="trait_minor_<?php echo $i ?>" onClick="ml.ops.setTraitLine('<?php echo $i ?>','15')" src="<?php echo plugin_dir_url(__FILE__); ?>images/traits/minor_locked.png" />
-										<div class="trait_tooltip_frame">
-											<div class="tooltip_title">
-												<span style="vertical-align:top;padding:8px 0 8px 0;"><?php echo $t->name; ?></span>
-											</div>
-											<div>									
-												<span style="font-size: 11px;width:100%;"><?php echo $t->description; ?></span>
-											</div>
-										</div>
-									</span>
+		 							<?php foreach($traits as $t) { if ( (($t->tier == 'master') && ($t->trait_line == $i)) && ($t->type == 'minor')) { ?>		 			
+		 								<img class="trait_minor_<?php echo $i ?> tooltip" rel="#tooltip" data-id="traits:<?php echo $t->id; ?>" onClick="ml.ops.setTraitLine('<?php echo $i ?>','15')" src="<?php echo plugin_dir_url(__FILE__); ?>images/traits/minor_locked.png" />										
 									<?php } } ?>
 		 						</div>
 								<span class="t15"></span>
 							</div>
 
-							<div class="trait_major">
+							<div class="trait_major" rel="#traitPick" title="Pick a major trait" onClick="ml.ops.getTraits('master','<?php echo $i ?>')">
 								<div class="trait_major_locked"></div>
 								<span class="t20"></span>
 							</div>
@@ -80,24 +60,14 @@
 		 				<div class="traitField4">
 		 					<div class="trait_minor">
 		 						<div class="trait_minor_locked">	
-		 							<?php foreach($traits as $t) { if ( ($t->tier == 'grandmaster') && ($t->trait_line == $i)) { ?>
-		 							<span class="tooltip">
-		 								<img class="trait_minor_<?php echo $i ?>" onClick="ml.ops.setTraitLine('<?php echo $i ?>','25')" src="<?php echo plugin_dir_url(__FILE__); ?>images/traits/minor_locked.png" />
-										<div class="trait_tooltip_frame">
-											<div class="tooltip_title">
-												<span style="vertical-align:top;padding:8px 0 8px 0;"><?php echo $t->name; ?></span>
-											</div>
-											<div>									
-												<span style="font-size: 11px;"><?php echo $t->description; ?></span>
-											</div>
-										</div>
-									</span>
+		 							<?php foreach($traits as $t) { if ( (($t->tier == 'grandmaster') && ($t->trait_line == $i)) && ($t->type == 'minor')) { ?>		 			
+		 								<img class="trait_minor_<?php echo $i ?> tooltip" rel="#tooltip" data-id="traits:<?php echo $t->id; ?>" onClick="ml.ops.setTraitLine('<?php echo $i ?>','25')" src="<?php echo plugin_dir_url(__FILE__); ?>images/traits/minor_locked.png" />										
 									<?php } } ?>
 		 						</div>
 								<span class="t25"></span>
 							</div>
 
-							<div class="trait_major">
+							<div class="trait_major" rel="#traitPick" title="Pick a major trait" onClick="ml.ops.getTraits('grandmaster','<?php echo $i ?>')">
 								<div class="trait_major_locked"></div>
 								<span class="t30"></span>
 							</div>
@@ -108,6 +78,6 @@
 				<?php $i++;}	?>
 		 	</div>
 
-		 	<div id="traitPick">
+		 	<div id="traitPick" style="display:none" title="Chose a rune">
 		 		<span>test</span>
 		 	</div>
