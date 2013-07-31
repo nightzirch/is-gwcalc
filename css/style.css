@@ -107,7 +107,7 @@
 
 #isgw2calc .selectionArea {
 	height: 100%;
-	background: #72543c;
+	background: #72543c !important;
 	border: none;
 	padding-right: 0;
 	
@@ -424,14 +424,28 @@
 	cursor: pointer;
 }
 
+#isgw2calc .armor .armor-img,
+#isgw2calc .amulet .armor-img,
+#isgw2calc .weapon-container .weapon-img {
+	-webkit-border-radius: 1px;
+    border-radius: 1px;
+}
+
+#isgw2calc .armor[data-armor] .armor-img,
+#isgw2calc .amulet[data-amulet] .armor-img,
+#isgw2calc .weapon-container[data-weapon] .weapon-img {
+	-webkit-box-shadow: inset 0px 0px 0px 2px rgba(190, 181, 174, 0.5);
+	box-shadow: inset 0px 0px 0px 2px rgba(190, 181, 174, 0.5);
+}
+
 #isgw2calc .armor:hover .armor-img,
 #isgw2calc .armor.active .armor-img,
 #isgw2calc .amulet:hover .armor-img,
 #isgw2calc .amulet.active .armor-img,
 #isgw2calc .weapon-container:hover .weapon-img,
 #isgw2calc .weapon-container.active .weapon-img {
-	-webkit-box-shadow: inset 0px 0px 0px 1px rgba(190, 181, 174, 1);
-	box-shadow: inset 0px 0px 0px 1px rgba(190, 181, 174, 1);
+	-webkit-box-shadow: inset 0px 0px 0px 2px rgba(190, 181, 174, 1);
+	box-shadow: inset 0px 0px 0px 2px rgba(190, 181, 174, 1);
 }
 
 #isgw2calc .armor-img.armor-helmet {

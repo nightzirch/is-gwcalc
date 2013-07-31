@@ -8,7 +8,7 @@
 */
 
 // Document ready
-$(document).ready(function() {
+jQuery(document).ready(function() {
 	// Calls ML's ready function
 	ml.ready();
 });
@@ -25,8 +25,8 @@ var ml = {
 		ko.applyBindings(ml.vm, ml.find("#isgw2calc"));
 		
 		// Initialize tabs
-		$("#build").tabs();
-		$(".selectionArea").tabs();
+		jQuery("#build").tabs();
+		jQuery(".selectionArea").tabs();
 		
 		//activates major traits picker
 		jQuery('.trait_major').cluetip(
@@ -99,7 +99,7 @@ var ml = {
 		});
 	
 		// Initialize accordions
-		/*$("#selectionAreaCombat").accordion({
+		/*jQuery("#selectionAreaCombat").accordion({
 			header: "div.accordionHeader",
 			active: true,
 			collapsible: true,
@@ -110,13 +110,13 @@ var ml = {
 		});*/
 		
 		// Initialize the scrollbar and move it up in the DOM
-		$(".selectionAreaContent").sbscroller({
+		jQuery(".selectionAreaContent").sbscroller({
 			handleImage: ml.obj.pluginUrl + 'images/scrollbar/handleImage-16x32.png',
 			handleTopImage: ml.obj.pluginUrl + 'images/scrollbar/handleTopImage-16x9.png',
 			handleBottomImage: ml.obj.pluginUrl + 'images/scrollbar/handleBottomImage-16x9.png',
 			handleGripImage: ml.obj.pluginUrl + 'images/scrollbar/handleGripImage-16x8.png'
 		});
-		var sliderWrap = $(".slider-wrap");
+		var sliderWrap = jQuery(".slider-wrap");
 		sliderWrap.parent().parent().append(sliderWrap);
 		
 		// Calling all the listeners
@@ -204,18 +204,18 @@ var ml = {
 			ml.listener.selectionArea.jewel();
 		},
 		scrollRefresh: function() {
-			$('.selectionAreaNav li a').bind('click', function(e) {
+			jQuery('.selectionAreaNav li a').bind('click', function(e) {
 				ml.scroll.refresh();
 			});
 		},
 		armorSlot: function() {
-			$('.armor').bind('click', function(){
-				var dataActive = $(this).attr('data-active');
-				var container = $('.selectionArea');
+			jQuery('.armor').bind('click', function(){
+				var dataActive = jQuery(this).attr('data-active');
+				var container = jQuery('.selectionArea');
 				
 				// If container is not visible, make it visible
-				if ($(container).hasClass("hide")) {
-					$(container).removeClass("hide").addClass("show");
+				if (jQuery(container).hasClass("hide")) {
+					jQuery(container).removeClass("hide").addClass("show");
 					
 					// Refresh the scrollbar
 					ml.scroll.refresh();
@@ -223,27 +223,27 @@ var ml = {
 				
 				// if another weapon or armor slot is .active, remove .active
 				// and make this .active
-				if (!$(this).hasClass("active")) {
-					$('.armor-container.active').removeClass('active');
-					$('.weapon-container.active').removeClass('active');
-					$(this).addClass('active');
+				if (!jQuery(this).hasClass("active")) {
+					jQuery('.armor-container.active').removeClass('active');
+					jQuery('.weapon-container.active').removeClass('active');
+					jQuery(this).addClass('active');
 				}
 				else {
 					// Something
 				}
 				
 				// Sets data-active to the clicked armorSlot
-				$(container).attr('data-active', dataActive);
+				jQuery(container).attr('data-active', dataActive);
 			});
 		},
 		amuletSlot: function() {
-			$('.amulet').bind('click', function(){
-				var dataActive = $(this).attr('data-active');
-				var container = $('.selectionArea');
+			jQuery('.amulet').bind('click', function(){
+				var dataActive = jQuery(this).attr('data-active');
+				var container = jQuery('.selectionArea');
 				
 				// If container is not visible, make it visible
-				if ($(container).hasClass("hide")) {
-					$(container).removeClass("hide").addClass("show");
+				if (jQuery(container).hasClass("hide")) {
+					jQuery(container).removeClass("hide").addClass("show");
 					
 					// Refresh the scrollbar
 					ml.scroll.refresh();
@@ -251,27 +251,27 @@ var ml = {
 				
 				// if another weapon or armor slot is .active, remove .active
 				// and make this .active
-				if (!$(this).hasClass("active")) {
-					$('.armor-container.active').removeClass('active');
-					$('.weapon-container.active').removeClass('active');
-					$(this).addClass('active');
+				if (!jQuery(this).hasClass("active")) {
+					jQuery('.armor-container.active').removeClass('active');
+					jQuery('.weapon-container.active').removeClass('active');
+					jQuery(this).addClass('active');
 				}
 				else {
 					// Something
 				}
 				
 				// Sets data-active to the clicked armorSlot
-				$(container).attr('data-active', dataActive);
+				jQuery(container).attr('data-active', dataActive);
 			});
 		},
 		weaponSlot: function() {
-			$('.weapon-container').bind('click', function(){
-				var dataActive = $(this).attr('data-active');
-				var container = $('.selectionArea');
+			jQuery('.weapon-container').bind('click', function(){
+				var dataActive = jQuery(this).attr('data-active');
+				var container = jQuery('.selectionArea');
 				
 				// If container is not visible, make it visible
-				if ($(container).hasClass("hide")) {
-					$(container).removeClass("hide").addClass("show");
+				if (jQuery(container).hasClass("hide")) {
+					jQuery(container).removeClass("hide").addClass("show");
 					
 					// Refresh the scrollbar
 					ml.scroll.refresh();
@@ -279,22 +279,22 @@ var ml = {
 				
 				// if another weapon or armor slot is .active, remove .active
 				// and make this .active
-				if (!$(this).hasClass("active")) {
-					$('.armor-container.active').removeClass('active');
-					$('.weapon-container.active').removeClass('active');
-					$(this).addClass('active');
+				if (!jQuery(this).hasClass("active")) {
+					jQuery('.armor-container.active').removeClass('active');
+					jQuery('.weapon-container.active').removeClass('active');
+					jQuery(this).addClass('active');
 				}
 				else {
 					// Something
 				}
 				
 				// Sets data-active to the clicked armorSlot
-				$(container).attr('data-active', dataActive);
+				jQuery(container).attr('data-active', dataActive);
 			});
 		},
 		accordion: function() {
-			$(".accordionHeader").bind("click", function(e) {
-				$(this).next().slideToggle({
+			jQuery(".accordionHeader").bind("click", function(e) {
+				jQuery(this).next().slideToggle({
 					duration: 400,
 					easing: "swing",
 					queue: false,
@@ -306,21 +306,21 @@ var ml = {
 		},
 		selectionArea: {
 			close: function() {
-				$('.selectionAreaNavContainer .close').bind('click', function(){
+				jQuery('.selectionAreaNavContainer .close').bind('click', function(){
 					ml.ops.selectionArea.close();
-					$('.armor-container.active').removeClass('active');
-					$('.weapon-container.active').removeClass('active');
+					jQuery('.armor-container.active').removeClass('active');
+					jQuery('.weapon-container.active').removeClass('active');
 				});
 			},
 			weapon: function() {
 				// Click events
-				$('.selectionAreaWeapons img').on('click', function() {
-					var container = $('.selectionArea');
-					var dataActive = $(container).attr("data-active");
-					var activeSlot = $(".weapon-container[data-active=" + dataActive + "]");
-					var weaponSlot = $(activeSlot).find(".weapon-slot");
-					var title = $(this).attr("title");
-					var dataId = $(this).attr("data-id");
+				jQuery('.selectionAreaWeapons img').on('click', function() {
+					var container = jQuery('.selectionArea');
+					var dataActive = jQuery(container).attr("data-active");
+					var activeSlot = jQuery(".weapon-container[data-active=" + dataActive + "]");
+					var weaponSlot = jQuery(activeSlot).find(".weapon-slot");
+					var title = jQuery(this).attr("title");
+					var dataId = jQuery(this).attr("data-id");
 					
 					// Fetches the selected weapon as an object
 					var weapon = ml.ops.getWeapon(dataId);
@@ -331,25 +331,26 @@ var ml = {
 					var weaponTwohand = (parseInt(weapon.twohand)) ? true : false;
 					
 					// Checks what kind of slot is active
-					var slotType = $(activeSlot).attr("data-slot");
+					var slotType = jQuery(activeSlot).attr("data-slot");
 					
 					// Creates a string with weaponType
 					var weaponType;
+					
 					if(weaponTwohand) {
 						// The weapon is a twohand
-						// Clear the offhand slot
+						// Clear the offhand slot for weapon and sigil
 						ml.ops.clearSlot(activeSlot, "offhand");
 						
 						// Change some variables to fit this weaponType
-						var slotMainhand = $(activeSlot).parent().find("[data-slot=mainhand]");
+						var slotMainhand = jQuery(activeSlot).parent().find("[data-slot=mainhand]");
 						activeSlot = slotMainhand;
-						weaponSlot = $(activeSlot).find(".weapon-slot");
+						weaponSlot = jQuery(activeSlot).find(".weapon-slot");
 						
 						// Sets the attribute data-id of the .armor-container
-						$(activeSlot).attr('data-weapon', dataId);
+						jQuery(activeSlot).attr('data-weapon', dataId);
 						
 						// Sets the background image of the runeSlot to match the selected rune
-						$(weaponSlot).attr('style', "background-image: url("  + ml.obj.pluginUrl + "images/weapons/" + title  + ".jpg)");
+						jQuery(weaponSlot).attr('style', "background-image: url("  + ml.obj.pluginUrl + "images/weapons/" + title  + ".jpg)");
 						
 					}
 					else if(weaponTwohand || (weaponMainhand && slotType == "mainhand") || (weaponOffhand && slotType == "offhand")) {
@@ -358,18 +359,18 @@ var ml = {
 						
 						// Checks if there is a twohand in mainSlot.
 						// If so, remove it
-						var slotMainhand = $(activeSlot).parent().find("[data-slot=mainhand]");
-						var slottedWeapon = ml.ops.getWeapon($(slotMainhand).attr("data-weapon"));
+						var slotMainhand = jQuery(activeSlot).parent().find("[data-slot=mainhand]");
+						var slottedWeapon = ml.ops.getWeapon(jQuery(slotMainhand).attr("data-weapon"));
 						
 						if(slottedWeapon && parseInt(slottedWeapon.twohand)) {
 							ml.ops.clearSlot(slotMainhand);
 						}
 						
 						// Sets the attribute data-id of the .armor-container
-						$(activeSlot).attr('data-weapon', dataId);
+						jQuery(activeSlot).attr('data-weapon', dataId);
 						
-						// Sets the background image of the runeSlot to match the selected rune
-						$(weaponSlot).attr('style', "background-image: url("  + ml.obj.pluginUrl + "images/weapons/" + title  + ".jpg)");
+						// Sets the background image of the weaponSlot to match the selected weapon
+						jQuery(weaponSlot).attr('style', "background-image: url("  + ml.obj.pluginUrl + "images/weapons/" + title  + ".jpg)");
 					}
 					else {
 						// Weapons dont match
@@ -379,119 +380,145 @@ var ml = {
 				// Double click
 				// We want to add that weapon to both mainhand and offhand slots
 				.on('dblclick', function() {
+					var container = jQuery('.selectionArea');
+					var dataActive = jQuery(container).attr("data-active");
+					var activeSlots = jQuery(".weapon-container[data-active=" + dataActive + "]").parent().find(".weapon-container");
+					var weaponSlots = jQuery(activeSlots).find(".weapon-slot");
+					var title = jQuery(this).attr("title");
+					var dataId = jQuery(this).attr("data-id");
+					
+					// Fetches the selected weapon as an object
+					var weapon = ml.ops.getWeapon(dataId);
+					
+					// Checks if the weapon is mainhand, offhand or twohand
+					var weaponMainhand = (parseInt(weapon.mainhand)) ? true : false;
+					var weaponOffhand = (parseInt(weapon.offhand)) ? true : false;
+					var weaponTwohand = (parseInt(weapon.twohand)) ? true : false;
+					
 					// Checks if the weapon have both mainhand and offhand active
+					if(weaponMainhand && weaponOffhand) {
+						// Sets the attribute data-id of the .armor-container
+						jQuery(activeSlots).attr('data-weapon', dataId);
+						
+						// Sets the background image of the weaponSlot to match the selected weapon
+						jQuery(weaponSlots).attr('style', "background-image: url("  + ml.obj.pluginUrl + "images/weapons/" + title  + ".jpg)");
+					}
 				});
 			},
 			sigil: function() {
 				// Click events
-				$('.selectionAreaSigils img').on('click', function() {
-					var container = $('.selectionArea');
-					var dataActive = $(container).attr("data-active");
-					var activeSlot = $(".weapon-container[data-active=" + dataActive + "]");
-					var sigilSlot = $(activeSlot).find(".sigil-slot");
-					var dataId = $(this).attr("data-id");
+				jQuery('.selectionAreaSigils img').on('click', function() {
+					var container = jQuery('.selectionArea');
+					var dataActive = jQuery(container).attr("data-active");
+					var activeSlot = jQuery(".weapon-container[data-active=" + dataActive + "]");
+					var sigilSlot = jQuery(activeSlot).find(".sigil-slot");
+					var dataId = jQuery(this).attr("data-id");
 					
 					// Sets the attribute data-id of the .armor-container
-					$(activeSlot).attr('data-sigil', dataId);
+					jQuery(activeSlot).attr('data-sigil', dataId);
 					
 					// Sets the background image of the runeSlot to match the selected rune
-					$(sigilSlot).attr('style', "background-image: url("  + ml.obj.pluginUrl + "images/sigils/" + dataId  + ".jpg)");
+					jQuery(sigilSlot).attr('style', "background-image: url("  + ml.obj.pluginUrl + "images/sigils/" + dataId  + ".jpg)");
 				});
 				/*// Double click
 				.on('dblclick', function() {
-					var allRuneSlots = $(".rune-slot");
-					var allArmorSlots = $('.armor.armor-container');
-					var dataId = $(this).attr("data-id");
+					var allRuneSlots = jQuery(".rune-slot");
+					var allArmorSlots = jQuery('.armor.armor-container');
+					var dataId = jQuery(this).attr("data-id");
 					
-					$(allArmorSlots).attr('data-rune', dataId);
-					$(allRuneSlots).attr('style', "background-image: url("  + ml.obj.pluginUrl + "images/runes/" + dataId  + ".jpg)");
+					jQuery(allArmorSlots).attr('data-rune', dataId);
+					jQuery(allRuneSlots).attr('style', "background-image: url("  + ml.obj.pluginUrl + "images/runes/" + dataId  + ".jpg)");
 				});*/
 			},
 			rune: function() {
 				// Click events
-				$('.selectionAreaRunes img').on('click', function() {
-					var container = $('.selectionArea');
-					var dataActive = $(container).attr("data-active");
-					var activeSlot = $(".armor[data-active=" + dataActive + "]");
-					var runeSlot = $(activeSlot).find(".rune-slot");
-					var dataId = $(this).attr("data-id");
+				jQuery('.selectionAreaRunes img').on('click', function() {
+					var container = jQuery('.selectionArea');
+					var dataActive = jQuery(container).attr("data-active");
+					var activeSlot = jQuery(".armor[data-active=" + dataActive + "]");
+					var runeSlot = jQuery(activeSlot).find(".rune-slot");
+					var dataId = jQuery(this).attr("data-id");
 					
 					// Sets the attribute data-id of the .armor-container
-					$(activeSlot).attr('data-rune', dataId);
+					jQuery(activeSlot).attr('data-rune', dataId);
 					
 					// Sets the background image of the runeSlot to match the selected rune
-					$(runeSlot).attr('style', "background-image: url("  + ml.obj.pluginUrl + "images/runes/" + dataId  + ".jpg)");
+					jQuery(runeSlot).attr('style', "background-image: url("  + ml.obj.pluginUrl + "images/runes/" + dataId  + ".jpg)");
 				})
 				// Double click
 				.on('dblclick', function() {
-					var allRuneSlots = $(".rune-slot");
-					var allArmorSlots = $('.armor.armor-container');
-					var dataId = $(this).attr("data-id");
+					var allRuneSlots = jQuery(".rune-slot");
+					var allArmorSlots = jQuery('.armor.armor-container');
+					var dataId = jQuery(this).attr("data-id");
 					
-					$(allArmorSlots).attr('data-rune', dataId);
-					$(allRuneSlots).attr('style', "background-image: url("  + ml.obj.pluginUrl + "images/runes/" + dataId  + ".jpg)");
+					jQuery(allArmorSlots).attr('data-rune', dataId);
+					jQuery(allRuneSlots).attr('style', "background-image: url("  + ml.obj.pluginUrl + "images/runes/" + dataId  + ".jpg)");
 				});
 			},
 			amulet: function() {
 				// Click events
-				$('.selectionAreaAmulets img').on('click', function() {
-					var container = $('.selectionArea');
-					var dataActive = $(container).attr("data-active");
-					var activeSlot = $(".amulet[data-active=" + dataActive + "]");
-					var amuletSlot = $(activeSlot).find(".amulet-slot");
-					var dataId = $(this).attr("data-id");
+				jQuery('.selectionAreaAmulets img').on('click', function() {
+					var container = jQuery('.selectionArea');
+					var dataActive = jQuery(container).attr("data-active");
+//					var activeSlot = jQuery(".amulet[data-active=" + dataActive + "]");
+					var activeSlot = jQuery(".amulet");
+					var amuletSlot = jQuery(activeSlot).find(".amulet-slot");
+					var dataId = jQuery(this).attr("data-id");
 					
 					// Sets the attribute data-id of the .armor-container
-					$(activeSlot).attr('data-amulet', dataId);
+					jQuery(activeSlot).attr('data-amulet', dataId);
 					
 					// Sets the background image of the runeSlot to match the selected rune
-					$(amuletSlot).attr('style', "background-image: url("  + ml.obj.pluginUrl + "images/amulets/" + dataId  + ".png)");
+					jQuery(amuletSlot).attr('style', "background-image: url("  + ml.obj.pluginUrl + "images/amulets/" + dataId  + ".jpg)");
 				})
 				// Double click
 				.on('dblclick', function() {
-					var container = $('.selectionArea');
-					var dataActive = $(container).attr("data-active");
-					var activeSlot = $(".amulet[data-active=" + dataActive + "]");
-					var jewelSlot = $(activeSlot).find(".jewel-slot");
-					var dataId = $(this).attr("data-id");
+					var container = jQuery('.selectionArea');
+					var dataActive = jQuery(container).attr("data-active");
+//					var activeSlot = jQuery(".amulet[data-active=" + dataActive + "]");
+					var activeSlot = jQuery(".amulet");
+					var jewelSlot = jQuery(activeSlot).find(".jewel-slot");
+					var dataId = jQuery(this).attr("data-id");
 					
 					// Sets the attribute data-jewel of the .armor-container.
 					// data-amulet is already set from the click listener
-					$(activeSlot).attr('data-jewel', dataId);
+					jQuery(activeSlot).attr('data-jewel', dataId);
 					
 					// Sets the background image of the runeSlot to match the selected rune
-					$(jewelSlot).attr('style', "background-image: url("  + ml.obj.pluginUrl + "images/jewels/" + dataId  + ".jpg)");
+					jQuery(jewelSlot).attr('style', "background-image: url("  + ml.obj.pluginUrl + "images/jewels/" + dataId  + ".jpg)");
 				});
 			},
 			jewel: function() {
 				// Click events
-				$('.selectionAreaJewels img').on('click', function() {
-					var container = $('.selectionArea');
-					var dataActive = $(container).attr("data-active");
-					var activeSlot = $(".amulet[data-active=" + dataActive + "]");
-					var jewelSlot = $(activeSlot).find(".jewel-slot");
-					var dataId = $(this).attr("data-id");
+				jQuery('.selectionAreaJewels img').on('click', function() {
+					var container = jQuery('.selectionArea');
+					var dataActive = jQuery(container).attr("data-active");
+//					var activeSlot = jQuery(".amulet[data-active=" + dataActive + "]");
+					var activeSlot = jQuery(".amulet");
+					var jewelSlot = jQuery(activeSlot).find(".jewel-slot");
+					var dataId = jQuery(this).attr("data-id");
 					
 					// Sets the attribute data-id of the .armor-container
-					$(activeSlot).attr('data-jewel', dataId);
+					jQuery(activeSlot).attr('data-jewel', dataId);
 					
 					// Sets the background image of the runeSlot to match the selected rune
-					$(jewelSlot).attr('style', "background-image: url("  + ml.obj.pluginUrl + "images/jewels/" + dataId  + ".jpg)");
+					jQuery(jewelSlot).attr('style', "background-image: url("  + ml.obj.pluginUrl + "images/jewels/" + dataId  + ".jpg)");
 				})
 				// Double click
 				.on('dblclick', function() {
-					var container = $('.selectionArea');
-					var dataActive = $(container).attr("data-active");
-					var activeSlot = $(".amulet[data-active=" + dataActive + "]");
-					var amuletSlot = $(activeSlot).find(".amulet-slot");
-					var dataId = $(this).attr("data-id");
+					var container = jQuery('.selectionArea');
+					var dataActive = jQuery(container).attr("data-active");
+//					var activeSlot = jQuery(".amulet[data-active=" + dataActive + "]");
+					var activeSlot = jQuery(".amulet");
+					var amuletSlot = jQuery(activeSlot).find(".amulet-slot");
+					var dataId = jQuery(this).attr("data-id");
 					
 					// Sets the attribute data-amulet of the .armor-container.
 					// data-jewel is already set from the click listener
-					$(activeSlot).attr('data-amulet', dataId);
+					jQuery(activeSlot).attr('data-amulet', dataId);
 					
 					// Sets the background image of the runeSlot to match the selected rune
-					$(amuletSlot).attr('style', "background-image: url("  + ml.obj.pluginUrl + "images/amulets/" + dataId  + ".png)");
+					jQuery(amuletSlot).attr('style', "background-image: url("  + ml.obj.pluginUrl + "images/amulets/" + dataId  + ".jpg)");
 				});
 			}
 		}
@@ -501,21 +528,21 @@ var ml = {
 	ops: {
 		attributeProfession: function() {
 			// Changes .traits-profession into the according class name
-			$(".traits-profession").removeClass("traits-profession").addClass("traits-" + ml.general.uncapitalize(ml.obj.currentProfessionName));
+			jQuery(".traits-profession").removeClass("traits-profession").addClass("traits-" + ml.general.uncapitalize(ml.obj.currentProfessionName));
 		},
 		selectionArea: {
 			close: function() {
-				var container = $('.selectionArea');
+				var container = jQuery('.selectionArea');
 					
 				// Make the container hidden
-				$(container).removeClass("show").addClass("hide");
+				jQuery(container).removeClass("show").addClass("hide");
 				
 				// Sets data-active to the clicked armorSlot
-				$(container).attr('data-active', "");
+				jQuery(container).attr('data-active', "");
 			}
 		},
 		getRuneId: function(armor) {
-			return parseInt($('.' + armor + '-container').attr('data-rune'));
+			return parseInt(jQuery('.' + armor + '-container').attr('data-rune'));
 		},
 		searchRunes: function(id) {
 			for(var i = 0; i < runes.length; i++) {
@@ -523,10 +550,10 @@ var ml = {
 			}
 		},
 		getAmuletId: function() {
-			return parseInt($('.amulet-container').attr('data-amulet'));
+			return parseInt(jQuery('.amulet-container').attr('data-amulet'));
 		},
 		getJewelId: function() {
-			return parseInt($('.amulet-container').attr('data-jewel'));
+			return parseInt(jQuery('.amulet-container').attr('data-jewel'));
 		},
 		getWeapon: function(id) {
 			for(i in weapons) {
@@ -542,15 +569,19 @@ var ml = {
 			// If type is present, means that we want to
 			// clear that type of slot in the parent node
 			if(type && (type == "mainhand" || type == "offhand")) {
-				var parent = $(el).parent();
+				var parent = jQuery(el).parent();
 				
 				// The slot we actually wanna manipulate
-				slot = $(parent).find("[data-slot=" + type + "]");
+				slot = jQuery(parent).find("[data-slot=" + type + "]");
 			}
 			
 			// Clear data-weapon and the background image in .weapon-img
-			$(slot).removeAttr("data-weapon");
-			$(slot).find(".weapon-img").removeAttr("style");			
+			jQuery(slot).removeAttr("data-weapon");
+			jQuery(slot).find(".weapon-img").removeAttr("style");
+			
+			// Clear data-sigil and the background image in .sigil-img
+			jQuery(slot).removeAttr("data-sigil");
+			jQuery(slot).find(".sigil-slot").removeAttr("style");
 		},
 		traitPlus: function(i) {
 		    if (ml.vm.traitPoints() > 0)
@@ -980,7 +1011,7 @@ var ml = {
 	// Scrollbar
 	scroll: {
 		refresh: function() {
-			$('.selectionAreaContent').sbscroller('refresh');
+			jQuery('.selectionAreaContent').sbscroller('refresh');
 		}
 	}
 
