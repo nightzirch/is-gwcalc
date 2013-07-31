@@ -1602,6 +1602,12 @@
 
 
 
+.accordionHeader {
+	background: #000;
+	color: #fff;
+	cursor: pointer;
+}
+
 
 
 
