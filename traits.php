@@ -38,7 +38,7 @@
 							</div>
 
 							<div class="trait_major" rel="#traitPick" title="Pick a major trait" onClick="ml.ops.getTraits('adept','<?php echo $i ?>')">
-								<div class="trait_major_locked"></div>
+								<div id="major_adept" class="trait_major_locked"></div>
 								<span class="t10"></span>
 							</div>
 		 				</div>
@@ -53,7 +53,7 @@
 							</div>
 
 							<div class="trait_major" rel="#traitPick" title="Pick a major trait" onClick="ml.ops.getTraits('master','<?php echo $i ?>')">
-								<div class="trait_major_locked"></div>
+								<div id="major_master" class="trait_major_locked"></div>
 								<span class="t20"></span>
 							</div>
 		 				</div>
@@ -68,7 +68,7 @@
 							</div>
 
 							<div class="trait_major" rel="#traitPick" title="Pick a major trait" onClick="ml.ops.getTraits('grandmaster','<?php echo $i ?>')">
-								<div class="trait_major_locked"></div>
+								<div id="major_grandmaster" class="trait_major_locked"></div>
 								<span class="t30"></span>
 							</div>
 		 				</div>
@@ -78,6 +78,6 @@
 				<?php $i++;}	?>
 		 	</div>
 
-		 	<div id="traitPick" style="display:none" title="Chose a rune">
-		 		<span>test</span>
-		 	</div>
+		 	<div id="traitPick" style="display:none;"></div>
+
+		 	

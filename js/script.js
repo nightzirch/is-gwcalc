@@ -35,15 +35,39 @@ var ml = {
 			cursor: 'pointer',
 			activation: 'click',
 			leftOffset:5,
-			onShow: function() {
+			multiple:true,
+			onShow: function(ct) {
 				jQuery('.cluetip-inner').removeClass('ui-widget-content');
 				jQuery('#cluetip').removeClass('ui-widget ui-widget-content'); 
-				jQuery(document).one('mousedown',function() { 
-					jQuery(document).trigger('hideCluetip');
-				})
+				// jQuery(document).one('mousedown',function() { 
+				//  	jQuery(ct).hide();
+				// });
+
+				jQuery('.trait_tooltip').cluetip(
+				{
+					local:true,
+					showTitle: false,
+					dropShadows: false,
+					tracking: true,
+					leftOffset: 3,
+					multiple: true,
+					cluezIndex: 98,
+					onActivate: function() {
+						jQuery('.cluetip-inner').removeClass('ui-widget-content');
+						jQuery('#cluetip').removeClass('ui-widget ui-widget-content');
+						var data = jQuery(this).attr('data-id');
+						data = data.split(':');
+
+						var item = jQuery.grep(ml.obj[data[0]], function(e){ return e.id == parseInt(data[1]); });
+						jQuery('#tooltip .tooltip_title').html('<span class="'+data[0]+'_title">'+item[0].name+'</span>');
+						jQuery('#tooltip .tooltip_content').html(item[0].description);
+					}
+				});
+
 			}
 		});
 
+		//tooltip generator
 		jQuery('.tooltip').cluetip(
 		{
 			local:true,
@@ -51,6 +75,8 @@ var ml = {
 			dropShadows: false,
 			tracking: true,
 			leftOffset: 3,
+			multiple: true,
+			cluezIndex: 98,
 			onActivate: function() {
 				jQuery('.cluetip-inner').removeClass('ui-widget-content');
 				jQuery('#cluetip').removeClass('ui-widget ui-widget-content');
@@ -583,6 +609,14 @@ var ml = {
 			jQuery(slot).removeAttr("data-sigil");
 			jQuery(slot).find(".sigil-slot").removeAttr("style");
 		},
+
+		setMajorTrait: function(id, line,tier) {
+			var o = jQuery.grep(ml.obj.traits, function(e){ return e.id == parseInt(id); });
+			ml.vm.majorTraits[tier+line] = id;
+			jQuery('#traitLine-'+line+' #major_'+tier).html('<img class="tooltip" data-id="traits:'+id+'" rel="#tooltip" src="'+ml.obj.pluginUrl+'images/traits/major_'+o[0].num+'.png" />');
+			jQuery('.cluetip-default').hide();
+		},
+
 		traitPlus: function(i) {
 		    if (ml.vm.traitPoints() > 0)
 		    {        
@@ -757,7 +791,7 @@ var ml = {
 
 		    	if (((o.num <= tier) && (o.trait_line == i)) && (o.type == 'major'))
 		    	{
-		    		jQuery('#traitPick').append('<img style="padding:5px" title="'+o.name+'" src="'+ml.obj.pluginUrl+'images/traits/major_'+o.num+'.png" />')
+		    		jQuery('#traitPick').append('<img class="trait_tooltip" style="padding:5px" data-id="traits:'+o.id+'" rel="#tooltip" onClick="ml.ops.setMajorTrait(\''+o.id+'\',\''+i+'\',\''+o.tier+'\')" src="'+ml.obj.pluginUrl+'images/traits/major_'+o.num+'.png" />');
 		    	}
 		    }
 		    
@@ -783,6 +817,23 @@ var ml = {
 	MistLeagueViewModel: function() {
 		var self = this;
 
+		self.majorTraits = {
+			adept1: 0,
+			master1: 0,
+			grandmaster1: 0,
+			adept2: 0,
+			master3: 0,
+			grandmaster2: 0,
+			adept3: 0,
+			master3: 0,
+			grandmaster3: 0,
+			adept4: 0,
+			master4: 0,
+			grandmaster4: 0,
+			adept5: 0,
+			master5: 0,
+			grandmaster5: 0,
+		};
 
 		// Total trait points
 		self.traitPoints = ko.observable(70);

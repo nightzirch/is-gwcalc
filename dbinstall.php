@@ -396,7 +396,7 @@ function db_install_data() {
    array_push($array, array('name' => 'Siphoned Power', 'description' => 'Gain might when hit and under 25% health.', 'type' => 'minor', 'tier' => 'grandmaster', 'num' => '0', 'trait_line' => '1', 'cid' => '5' ));
 
    array_push($array, array('name' => 'Death\'s Embrace', 'description' => 'Deal 50% more damage while downed.', 'type' => 'major', 'tier' => 'adept', 'num' => '1', 'trait_line' => '1', 'cid' => '5' ));
-   array_push($array, array('name' => 'Spiteful Talisman', 'description' => 'Focus skills recharge 20% faster and have increased range.', 'type' => 'major', 'tier' => 'adept', 'num' => '2', 'trait_line' => '', 'cid' => '1' ));
+   array_push($array, array('name' => 'Spiteful Talisman', 'description' => 'Focus skills recharge 20% faster and have increased range.', 'type' => 'major', 'tier' => 'adept', 'num' => '2', 'trait_line' => '1', 'cid' => '1' ));
    array_push($array, array('name' => 'Spiteful Removal', 'description' => 'When you kill a foe you lose three conditions.', 'type' => 'major', 'tier' => 'adept', 'num' => '3', 'trait_line' => '1', 'cid' => '5' ));
    array_push($array, array('name' => 'Signet Mastery', 'description' => 'Signets recharge 20% faster. Activating a signet gives you three stacks of might for 10 seconds.', 'type' => 'major', 'tier' => 'adept', 'num' => '4', 'trait_line' => '1', 'cid' => '5' )); 
    array_push($array, array('name' => 'Spiteful Spirit', 'description' => 'Gain retaliation for 3 seconds when entering Death Shroud.', 'type' => 'major', 'tier' => 'adept', 'num' => '5', 'trait_line' => '1', 'cid' => '5' ));

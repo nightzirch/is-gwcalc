@@ -141,10 +141,6 @@ function display_func(){
 		<span class="tooltip" data-id="orbs:1" rel="#tooltip">orb tooltip  |  </span>
 		<span class="tooltip" data-id="trinkets:1" rel="#tooltip">trinket tooltip</span>
 	</div>
-	<div id="tooltip" style="display:none;">
-		<div class="tooltip_title" style="vertical-align:top;padding:5px 0 5px 0;"></div>
-		<div class="tooltip_content"></div>
-	</div>
 	<div id="professions">
 	<?php foreach ($classes as $c) { ?>
 	
@@ -213,7 +209,10 @@ function display_func(){
 	 	</div>
 	</div>
 	<?php }  ?>
-	<div id="tooltip" style="display:none;"></div>	
+	<div id="tooltip" style="display:none;">
+		<div class="tooltip_title" style="vertical-align:top;padding:5px 0 5px 0;"></div>
+		<div class="tooltip_content"></div>
+	</div>
 	</div>
 	 <?php
 	 /// HTML END ///////////////////////
