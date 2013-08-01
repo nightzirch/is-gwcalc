@@ -22,7 +22,7 @@
 		 $.extend( settings, $(this).data() );//include any previously stored options for this scroll pane
 		 if (!$(this).hasClass('scroll-pane')){//traps the case where refresh has been called on slider that has not been set up
 			  $(this).addClass('scroll-pane').data(options);//add a class and store the options as data against the element in case they are needed later
-			  $(this).contents().wrapAll('<div class="scroll-content"/>');
+			  $(this).contents().wrapAll('<div class="scroll-content" style="top: 0px"/>');
 		 }
 		 setSlider($(this));
 	  }  
@@ -34,7 +34,7 @@
 			$.extend( settings, options );
 		  }
 		  $(this).addClass('scroll-pane').data(options);//add a class and store the options as data against the element in case they are needed later
-		  $(this).contents().wrapAll('<div class="scroll-content"/>');
+		  $(this).contents().wrapAll('<div class="scroll-content" style="top: 0px"/>');
 		  setSlider($(this));
 	  }
 	  
