@@ -57,6 +57,7 @@
 			<div id="selectionAreaCombat">
 				<div class="accordionHeader selectionAreaWeaponsHeader">
 					<span class="accordionHeaderTitle">Weapons</span>
+					<span class="accordionHeaderArrow">&#x25BC;</span>
 				</div>
 				<div class="accordionContainer selectionAreaWeapons">
 					<?php foreach ($weapons as $w) { ?>
@@ -79,6 +80,7 @@
 				
 				<div class="accordionHeader selectionAreaAmuletsHeader">
 					<span class="accordionHeaderTitle">Amulets</span>
+					<span class="accordionHeaderArrow">&#x25BC;</span>
 				</div>
 				<div class="accordionContainer selectionAreaAmulets">
 					<?php foreach($trinkets as $t) { ?>
@@ -106,6 +108,7 @@
 				
 				<div class="accordionHeader selectionAreaJewelsHeader">
 					<span class="accordionHeaderTitle">Jewels</span>
+					<span class="accordionHeaderArrow">&#x25BC;</span>
 				</div>
 				<div class="accordionContainer selectionAreaJewels">
 					<?php foreach($orbs as $t) { ?>
@@ -136,6 +139,7 @@
 				
 				<div class="accordionHeader selectionAreaRunesHeader">
 					<span class="accordionHeaderTitle">Runes</span>
+					<span class="accordionHeaderArrow">&#x25BC;</span>
 				</div>
 				<div class="accordionContainer selectionAreaRunes">
 					<div>
@@ -167,6 +171,7 @@
 				
 				<div class="accordionHeader selectionAreaSigilsHeader">
 					<span class="accordionHeaderTitle">Sigils</span>
+					<span class="accordionHeaderArrow">&#x25BC;</span>
 				</div>
 				<div class="accordionContainer selectionAreaSigils">
 					<div>
