@@ -1062,7 +1062,31 @@ var ml = {
 	// Scrollbar
 	scroll: {
 		refresh: function() {
+			// Calls the refresh
 			jQuery('.selectionAreaContent').sbscroller('refresh');
+			
+			// Corrects the amount of images being applied
+			ml.scroll.correctImages();
+		},
+		correctImages: function() {
+			var scrollbars = [
+				$(".slider-wrap img.scrollbar-top"),
+				$(".slider-wrap img.scrollbar-bottom"),
+				$(".slider-wrap img.scrollbar-grip")
+			]
+			
+			for(i in scrollbars) {
+				if(scrollbars[i].length > 1) {
+					// More than one element!
+					for(var j = 0; j < scrollbars[i].length; j++) {
+						// Skip the first element
+						if(j > 0) {
+							// Removing element
+							$(scrollbars[i][j]).remove();
+						}
+					}
+				}
+			}
 		}
 	}
 
