@@ -6,3 +6,6 @@ This is a build calculator developed for Mist League, a fan page in the Guild Wa
 ## Authors
 Christian Grimsgaard  
 Ivica Sertić
+
+## List of stuff yet to come
+* Accordion "Hide/Show all" button
