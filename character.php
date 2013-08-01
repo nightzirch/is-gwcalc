@@ -55,11 +55,11 @@
 		
 		<div class="selectionAreaContent">
 			<div id="selectionAreaCombat">
-				<div class="accordionHeader selectionAreaWeaponsHeader">
+				<div class="accordionHeader selectionAreaWeaponsHeader collapsed">
 					<span class="accordionHeaderTitle">Weapons</span>
 					<span class="accordionHeaderArrow">&#x25BC;</span>
 				</div>
-				<div class="accordionContainer selectionAreaWeapons">
+				<div class="accordionContainer selectionAreaWeapons" style="display: none">
 					<?php foreach ($weapons as $w) { ?>
 						<span class="tooltip">
 							<img style="margin:5px;" title='<?php echo $w->name; ?>' src="<?php echo plugin_dir_url(__FILE__) ?>images/weapons/<?php echo $w->name; ?>.jpg" data-id='<?php echo $w->id; ?>' />
@@ -78,11 +78,11 @@
 					<?php }  ?>
 				</div>
 				
-				<div class="accordionHeader selectionAreaAmuletsHeader">
+				<div class="accordionHeader selectionAreaAmuletsHeader collapsed">
 					<span class="accordionHeaderTitle">Amulets</span>
 					<span class="accordionHeaderArrow">&#x25BC;</span>
 				</div>
-				<div class="accordionContainer selectionAreaAmulets">
+				<div class="accordionContainer selectionAreaAmulets" style="display: none">
 					<?php foreach($trinkets as $t) { ?>
 						<span class="tooltip">
 							<img style="margin:5px;" class="masterTooltip" data-id='<?php echo $t->id; ?>' src="<?php echo plugin_dir_url(__FILE__); ?>images/amulets/<?php echo $t->id?>.jpg" />
@@ -106,11 +106,11 @@
 					<?php } ?>
 				</div>
 				
-				<div class="accordionHeader selectionAreaJewelsHeader">
+				<div class="accordionHeader selectionAreaJewelsHeader collapsed">
 					<span class="accordionHeaderTitle">Jewels</span>
 					<span class="accordionHeaderArrow">&#x25BC;</span>
 				</div>
-				<div class="accordionContainer selectionAreaJewels">
+				<div class="accordionContainer selectionAreaJewels" style="display: none">
 					<?php foreach($orbs as $t) { ?>
 					<span class="tooltip" >
 						<img style="margin:5px;" data-id='<?php echo $t->id; ?>' src="<?php echo plugin_dir_url(__FILE__); ?>images/jewels/<?php echo $t->id?>.jpg" />
@@ -137,11 +137,11 @@
 				<?php } ?>
 				</div>
 				
-				<div class="accordionHeader selectionAreaRunesHeader">
+				<div class="accordionHeader selectionAreaRunesHeader collapsed">
 					<span class="accordionHeaderTitle">Runes</span>
 					<span class="accordionHeaderArrow">&#x25BC;</span>
 				</div>
-				<div class="accordionContainer selectionAreaRunes">
+				<div class="accordionContainer selectionAreaRunes" style="display: none">
 					<div>
 						<?php foreach ($runes as $s) { ?>
 							<span class="tooltip" >
@@ -169,11 +169,11 @@
 					</div>
 				</div>
 				
-				<div class="accordionHeader selectionAreaSigilsHeader">
+				<div class="accordionHeader selectionAreaSigilsHeader collapsed">
 					<span class="accordionHeaderTitle">Sigils</span>
 					<span class="accordionHeaderArrow">&#x25BC;</span>
 				</div>
-				<div class="accordionContainer selectionAreaSigils">
+				<div class="accordionContainer selectionAreaSigils" style="display: none">
 					<div>
 						<?php foreach ($sigils as $s) { ?>
 							<span class="tooltip" >
