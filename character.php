@@ -252,27 +252,27 @@
 		<ul class="skills_weapons">
 			<li class="skill slot-1">
 				<div class="skill_tooltip"></div>
-				<img class="skill_image" />
+				<div class="skill_image"></div>
 				<span class="skill_hotkey">1</span>
 			</li>
 			<li class="skill slot-2">
 				<div class="skill_tooltip"></div>
-				<img class="skill_image" />
+				<div class="skill_image"></div>
 				<span class="skill_hotkey">2</span>
 			</li>
 			<li class="skill slot-3">
 				<div class="skill_tooltip"></div>
-				<img class="skill_image" />
+				<div class="skill_image"></div>
 				<span class="skill_hotkey">3</span>
 			</li>
 			<li class="skill slot-4">
 				<div class="skill_tooltip"></div>
-				<img class="skill_image" />
+				<div class="skill_image"></div>
 				<span class="skill_hotkey">4</span>
 			</li>
 			<li class="skill slot-5">
 				<div class="skill_tooltip"></div>
-				<img class="skill_image" />
+				<div class="skill_image"></div>
 				<span class="skill_hotkey">5</span>
 			</li>
 		</ul>
@@ -290,7 +290,7 @@
 				<div class="skill_expand">
 					<span>&#x25B2</span>
 				</div>
-				<img class="skill_image" />
+				<div class="skill_image"></div>
 				<span class="skill_hotkey">6</span>
 			</li>
 		</ul>
@@ -301,7 +301,7 @@
 				<div class="skill_expand">
 					<span>&#x25B2</span>
 				</div>
-				<img class="skill_image" />
+				<div class="skill_image"></div>
 				<span class="skill_hotkey">7</span>
 			</li>
 			<li class="skill slot-8">
@@ -309,7 +309,7 @@
 				<div class="skill_expand">
 					<span>&#x25B2</span>
 				</div>
-				<img class="skill_image" />
+				<div class="skill_image"></div>
 				<span class="skill_hotkey">8</span>
 			</li>
 			<li class="skill slot-9">
@@ -317,7 +317,7 @@
 				<div class="skill_expand">
 					<span>&#x25B2</span>
 				</div>
-				<img class="skill_image" />
+				<div class="skill_image"></div>
 				<span class="skill_hotkey">9</span>
 			</li>
 		</ul>
@@ -328,7 +328,7 @@
 				<div class="skill_expand">
 					<span>&#x25B2</span>
 				</div>
-				<img class="skill_image" />
+				<div class="skill_image"></div>
 				<span class="skill_hotkey">0</span>
 			</li>
 		</ul>

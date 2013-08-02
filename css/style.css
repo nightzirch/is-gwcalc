@@ -1347,6 +1347,13 @@
 	height: 12px;
 }
 
+#skills .skillbar ul li.skill .skill_image {
+	width: 50px;
+	height: 50px;
+	background-position: -9px;
+	background-size: 68px;
+}
+
 #skills .skillbar ul li.skill .skill_hotkey {
 	color: #fff;
 	font-size: 10px;
@@ -1355,7 +1362,7 @@
 	height: 16px;
 	display: block;
 	text-align: center;
-	margin: 17px 0 0 17px;
+	margin: -10px 0 0 17px;
 	
 	/* Border radius */
 	-webkit-border-radius: 8px;

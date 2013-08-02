@@ -660,13 +660,8 @@ var ml = {
 			var y = 5;
 			
 			/*// If twohand
-			if(weapons.length == 1 && parseInt(weapons[0].twohand)) {
+			if(parseInt(weaponsArr[0].twohand)) {
 				
-			}
-			
-			// If two onehands
-			if(weapons.length == 2) {
-				i = 3;
 			}*/
 			
 			// If only onehand and it's in mainhand
@@ -675,11 +670,6 @@ var ml = {
 			if(weaponsArr[0] && (!parseInt(weaponsArr[0].twohand) && !weaponsArr[1])) {
 					y = 3;
 			}
-			
-			// No weapons slotted
-			/*else {
-				y = 0;
-			}*/
 			
 			// Clearing previous images
 			ml.ops.clearSkillSlots();
@@ -692,11 +682,9 @@ var ml = {
 				}
 				
 				// Finding out if we're working with mainhand or offhand
-				var weaponNumber = (i < 3) ? 0 : 1;
+				var weaponNumber = (i < 3 || (weaponsArr[0] && parseInt(weaponsArr[0].twohand))) ? 0 : 1;
 				
-				$(skillSlots[i]).find("img.skill_image").attr("src", ml.obj.pluginUrl + 'images/skills/' + profession + "/" + weaponsArr[weaponNumber].name + "/" + (i + 1) + ".png");
-				
-				
+				$(skillSlots[i]).find(".skill_image").attr("style", 'background-image: url(' + ml.obj.pluginUrl + 'images/skills/' + profession + "/" + weaponsArr[weaponNumber].name + "/" + (i + 1) + '.png)');
 				
 				if(!weaponsArr[0] && weaponsArr[1]) {
 					// If we're done
@@ -712,7 +700,7 @@ var ml = {
 		},
 		clearSkillSlots: function() {
 			var skillSlots = $("#skills .skills_weapons .skill");
-			$(skillSlots).find("img.skill_image").attr("src", ml.obj.pluginUrl + 'images/invisible.png');
+			$(skillSlots).find(".skill_image").removeAttr("style");
 		},
 		toggleAccordions: function(type) {
 			var selectionArea = $('.selectionArea');
