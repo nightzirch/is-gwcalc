@@ -628,45 +628,53 @@ var ml = {
 			jQuery('.cluetip-default').hide();
 		},
 		toggleAccordions: function(type) {
-			var accordionHeadersStr = ".accordionHeader";
-			var accordionHeaders = $(accordionHeadersStr);
-			var slotTypes = {
-				"armor": [$(".selectionAreaRunesHeader")],
-				"amulet": [$(".selectionAreaAmuletsHeader"), $(".selectionAreaJewelsHeader")],
-				"weapon": [$(".selectionAreaWeaponsHeader"), $(".selectionAreaSigilsHeader")]
-			}
+			var selectionArea = $('.selectionArea');
+			var activeType = $(selectionArea).attr('data-active-type');
 			
-			// Add .collapsed to all accordionHeaders
-			$(accordionHeaders).addClass("collapsed");
-			
-			for(var j = 0; j < slotTypes[type].length; j++) {
-				for(var i = 0; i < accordionHeaders.length; i++) {
-					// If the current header in the loop exists in slotTypes[type]
-					// and it is collapsed, we then want to open it up
-					//if(slotTypes[type][j][0] == accordionHeaders[i] && accordionHeaders[i].classList.contains("collapsed")) {
-					if(slotTypes[type][j][0] == accordionHeaders[i]) {
-						// Remove .collapsed from the current accordionHeader because we do not want to collapse this one
-						$(accordionHeaders[i]).removeClass("collapsed").addClass("not-collapsed");
-					}
-					
-					/*// If the current header in the loop does not exist in slotTypes[type]
-					// and it is not collapsed, we want to collapse it
-					else if(slotTypes[type][j][0] != accordionHeaders[i] && !accordionHeaders[i].classList.contains("collapsed")) {
-						$(accordionHeaders[i]).trigger("click");
-					}*/
+			// Checks if there's a change in the type clicked
+			// E.g. this will not fire if the activeSlot is .mainHand2
+			// and the clicked slot is .offhand1, since both are weapons
+			if(!activeType || activeType != type) {
+				// Set data-active-type to the current type
+				$(selectionArea).attr('data-active-type', type);
+				
+				var accordionHeadersStr = ".accordionHeader";
+				var accordionHeaders = $(accordionHeadersStr);
+				var slotTypes = {
+					"armor": [$(".selectionAreaRunesHeader")],
+					"amulet": [$(".selectionAreaAmuletsHeader"), $(".selectionAreaJewelsHeader")],
+					"weapon": [$(".selectionAreaWeaponsHeader"), $(".selectionAreaSigilsHeader")]
 				}
+				
+				// Add .collapsed to all accordionHeaders
+				$(accordionHeaders).addClass("collapsed");
+				
+				for(var j = 0; j < slotTypes[type].length; j++) {
+					for(var i = 0; i < accordionHeaders.length; i++) {
+						// If the current header in the loop exists in slotTypes[type]
+						// and it is collapsed, we then want to open it up
+						//if(slotTypes[type][j][0] == accordionHeaders[i] && accordionHeaders[i].classList.contains("collapsed")) {
+						if(slotTypes[type][j][0] == accordionHeaders[i]) {
+							// Remove .collapsed from the current accordionHeader because we do not want to collapse this one
+							$(accordionHeaders[i]).removeClass("collapsed").addClass("not-collapsed");
+						}
+					}
+				}
+				
+				$(accordionHeadersStr + ".collapsed").next().slideUp({
+					duration: 400,
+					easing: "swing",
+					queue: false
+				});
+				$(accordionHeadersStr + ".not-collapsed").removeClass("not-collapsed").next().slideDown({
+					duration: 400,
+					easing: "swing",
+					queue: false,
+					complete: function() {
+						ml.scroll.refresh();
+					}
+				});
 			}
-			
-			$(accordionHeadersStr + ".collapsed").next().slideUp({
-					duration: 400,
-					easing: "swing",
-					queue: false
-				});
-			$(accordionHeadersStr + ".not-collapsed").removeClass("not-collapsed").next().slideDown({
-					duration: 400,
-					easing: "swing",
-					queue: false
-				});
 		},
 
 		traitPlus: function(i) {
