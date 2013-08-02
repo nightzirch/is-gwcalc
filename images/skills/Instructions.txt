@@ -1,0 +1,84 @@
+# Instructions
+
+## What is this?
+This is the image folder for the skills in Guild Wars 2.
+
+
+## How is it structured?
+It will be structured like this: [profession]/[weapon]/[skillnumber].png
+Example: Necromancer/Dagger/1.png
+
+
+## Overall structure
+Elementalist
+-- Dagger
+-- Focus
+-- Scepter
+-- Staff
+-- Trident
+Engineer
+-- Harpoon_gun
+-- Pistol
+-- Rifle
+-- Shield
+Guardian
+-- Focus
+-- Greatsword
+-- Hammer
+-- Mace
+-- Scepter
+-- Shield
+-- Spear
+-- Staff
+-- Sword
+-- Trident
+-- Torch
+Mesmer
+-- Focus
+-- Greatsword
+-- Pistol
+-- Scepter
+-- Spear
+-- Staff
+-- Sword
+-- Torch
+-- Trident
+Necromancer
+-- Axe
+-- Dagger
+-- Focus
+-- Scepter
+-- Spear
+-- Staff
+-- Trident
+-- Warhorn
+Ranger
+-- Axe
+-- Dagger
+-- Greatsword
+-- Harpoon_gun
+-- Longbow
+-- Shortbow
+-- Spear
+-- Sword
+-- Torch
+-- Warhorn
+Thief
+-- Dagger
+-- Harpoon_gun
+-- Shortbow
+-- Spear
+-- Sword
+-- Pistol
+Warrior
+-- Axe
+-- Greatsword
+-- Hammer
+-- Harpoon_gun
+-- Longbow
+-- Mace
+-- Rifle
+-- Shield
+-- Spear
+-- Sword
+-- Warhorn

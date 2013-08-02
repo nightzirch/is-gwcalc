@@ -168,12 +168,12 @@ function display_func(){
 					<span class="color-fill"></span>
 					<span class="gradient-line gradient-left line-bottom"></span>
 				</li>
-				<li class="story">
+				<!--li class="story">
 					<span class="gradient-line gradient-left line-top"></span>
 					<a href="#story" class="story"></a>
 					<span class="color-fill"></span>
 					<span class="gradient-line gradient-left line-bottom"></span>
-				</li>
+				</li-->
 				<li class="social">
 					<span class="gradient-line gradient-left line-top"></span>
 					<a href="#social" class="social"></a>
@@ -193,9 +193,9 @@ function display_func(){
 					<?php include('traits.php') ?>
 				</div>
 				
-				<div id="story">
+				<!--div id="story">
 					<?php include('story.php') ?>
-				</div>
+				</div-->
 				
 				<div id="social">
 					<?php include('social.php') ?>

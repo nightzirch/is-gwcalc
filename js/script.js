@@ -376,7 +376,7 @@ var ml = {
 					if(weaponTwohand) {
 						// The weapon is a twohand
 						// Clear the offhand slot for weapon and sigil
-						ml.ops.clearSlot(activeSlot, "offhand");
+						ml.ops.clearWeaponSlot(activeSlot, "offhand");
 						
 						// Change some variables to fit this weaponType
 						var slotMainhand = jQuery(activeSlot).parent().find("[data-slot=mainhand]");
@@ -400,7 +400,7 @@ var ml = {
 						var slottedWeapon = ml.ops.getWeapon(jQuery(slotMainhand).attr("data-weapon"));
 						
 						if(slottedWeapon && parseInt(slottedWeapon.twohand)) {
-							ml.ops.clearSlot(slotMainhand);
+							ml.ops.clearWeaponSlot(slotMainhand);
 						}
 						
 						// Sets the attribute data-id of the .armor-container
@@ -413,6 +413,9 @@ var ml = {
 						// Weapons dont match
 						// Some sort of error
 					}
+					
+					// Set weapon skills
+					ml.ops.setSkills();
 				})
 				// Double click
 				// We want to add that weapon to both mainhand and offhand slots
@@ -440,6 +443,9 @@ var ml = {
 						// Sets the background image of the weaponSlot to match the selected weapon
 						jQuery(weaponSlots).attr('style', "background-image: url("  + ml.obj.pluginUrl + "images/weapons/" + title  + ".jpg)");
 					}
+					
+					// Set weapon skills
+					ml.ops.setSkills();
 				});
 			},
 			sigil: function() {
@@ -451,11 +457,16 @@ var ml = {
 					var sigilSlot = jQuery(activeSlot).find(".sigil-slot");
 					var dataId = jQuery(this).attr("data-id");
 					
-					// Sets the attribute data-id of the .armor-container
-					jQuery(activeSlot).attr('data-sigil', dataId);
+					// Checks to see if there is a weapon in the current slot.
+					// Only if it is, we will add the sigil
+					if($(activeSlot).attr("data-weapon")) {
 					
-					// Sets the background image of the runeSlot to match the selected rune
-					jQuery(sigilSlot).attr('style', "background-image: url("  + ml.obj.pluginUrl + "images/sigils/" + dataId  + ".jpg)");
+						// Sets the attribute data-id of the .armor-container
+						jQuery(activeSlot).attr('data-sigil', dataId);
+						
+						// Sets the background image of the runeSlot to match the selected rune
+						jQuery(sigilSlot).attr('style', "background-image: url("  + ml.obj.pluginUrl + "images/sigils/" + dataId  + ".jpg)");
+					}
 				});
 				/*// Double click
 				.on('dblclick', function() {
@@ -599,7 +610,7 @@ var ml = {
 				}
 			}
 		},
-		clearSlot: function(el, type) {
+		clearWeaponSlot: function(el, type) {
 			// The slot we wanna manipulate
 			var slot = el;
 			
@@ -620,12 +631,88 @@ var ml = {
 			jQuery(slot).removeAttr("data-sigil");
 			jQuery(slot).find(".sigil-slot").removeAttr("style");
 		},
-
-		setMajorTrait: function(id, line,tier) {
-			var o = jQuery.grep(ml.obj.traits, function(e){ return e.id == parseInt(id); });
-			ml.vm.majorTraits[tier+line] = id;
-			jQuery('#traitLine-'+line+' #major_'+tier).html('<img class="tooltip" data-id="traits:'+id+'" rel="#tooltip" src="'+ml.obj.pluginUrl+'images/traits/major_'+o[0].num+'.png" />');
-			jQuery('.cluetip-default').hide();
+		setSkills: function() {
+			var profession = currentProfession[0].name;
+			var skillSlots = $("#skills .skills_weapons .skill");
+			
+			// Finds the ID of the weapons in the first weapon set
+			var weaponsArrRaw = $('#weapons .weapon:first-child .weapon-container');
+			var weaponsArr = new Array();
+			
+			// Loops through the weaponsArr and gets the weapon objects and inserts them into a new array
+			for(var i  = 0; i < weaponsArrRaw.length; i++) {
+				var currentWeaponId = parseInt($(weaponsArrRaw[i]).attr("data-weapon"));
+				
+				if(isNaN(currentWeaponId)) {
+					// Adds null to the weaponsArr
+					weaponsArr.push(null);
+				}
+				else {
+					// Adds a weapon with this ID to the weaponsArr
+					weaponsArr.push(ml.ops.getWeapon(currentWeaponId));
+				}
+				
+				// Adds a weapon with this ID to the weaponsArr
+				// weaponsArr.push(ml.ops.getWeapon(currentWeaponId));
+			}
+			
+			// Creates the loop variable
+			var y = 5;
+			
+			/*// If twohand
+			if(weapons.length == 1 && parseInt(weapons[0].twohand)) {
+				
+			}
+			
+			// If two onehands
+			if(weapons.length == 2) {
+				i = 3;
+			}*/
+			
+			// If only onehand and it's in mainhand
+			// If there is no weapons in mainHand or mainHand is not a twohand
+			// and if there is no 
+			if(weaponsArr[0] && (!parseInt(weaponsArr[0].twohand) && !weaponsArr[1])) {
+					y = 3;
+			}
+			
+			// No weapons slotted
+			/*else {
+				y = 0;
+			}*/
+			
+			// Clearing previous images
+			ml.ops.clearSkillSlots();
+			
+			for(var i = 0; i < y; i++) {
+				// If only offhand
+				if(!weaponsArr[0] && weaponsArr[1]) {
+					// Pushes the loop so we add to the offhand skill slots
+					i += 3;
+				}
+				
+				// Finding out if we're working with mainhand or offhand
+				var weaponNumber = (i < 3) ? 0 : 1;
+				
+				$(skillSlots[i]).find("img.skill_image").attr("src", ml.obj.pluginUrl + 'images/skills/' + profession + "/" + weaponsArr[weaponNumber].name + "/" + (i + 1) + ".png");
+				
+				
+				
+				if(!weaponsArr[0] && weaponsArr[1]) {
+					// If we're done
+					if(i >= y - 1) {
+						break;
+					}
+					else {
+						// Sets the loop back in place
+						i -= 3;
+					}
+				}
+			}
+		},
+		clearSkillSlots: function() {
+			var skillSlots = $("#skills .skills_weapons .skill");
+			$(skillSlots).find("img.skill_image").attr("src", ml.obj.pluginUrl + 'images/invisible.png');
 		},
 		toggleAccordions: function(type) {
 			var selectionArea = $('.selectionArea');
@@ -675,6 +762,13 @@ var ml = {
 					}
 				});
 			}
+		},
+
+		setMajorTrait: function(id, line,tier) {
+			var o = jQuery.grep(ml.obj.traits, function(e){ return e.id == parseInt(id); });
+			ml.vm.majorTraits[tier+line] = id;
+			jQuery('#traitLine-'+line+' #major_'+tier).html('<img class="tooltip" data-id="traits:'+id+'" rel="#tooltip" src="'+ml.obj.pluginUrl+'images/traits/major_'+o[0].num+'.png" />');
+			jQuery('.cluetip-default').hide();
 		},
 
 		traitPlus: function(i) {
@@ -907,7 +1001,13 @@ var ml = {
 
 		//Trait line primary stats bonus
 		self.traitPower = ko.computed(function() {
-			return parseInt(self.traitLine1())*10;
+			var total = 0;
+			var traitLine = parseInt(self.traitLine1())*10;
+			var runes = 0;
+			
+			total = traitLine + runes;
+			
+			return total;
 		});
 
 		self.traitPrecision = ko.computed(function() {
